@@ -1,84 +1,70 @@
-// src/components/HeroSlider.jsx
-import { useState, useEffect } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-
+import { useState, useEffect } from "react";
+import heroImage from "/images/slider01.jpg";
+import heroVideo from "/images/drumming.mp4";
+import { Helmet } from 'react-helmet-async'
 const slides = [
-  {
-    image: '/images/slider01.jpg',
-    title: 'At St Paul Thomas Academy We Nurture And Hone Talents.',
-  },
-  {
-    image: '/images/students.jpg',
-    title: "Fully Resourced To Meet Your Child's Needs",
-  },
-  {
-    image: '/images/students1.jpg',
-    title: 'Vitae Abundantae | Life In Abundance',
-  },
+  { type: "image", src: heroImage, alt: "St Paul Thomas Academy Campus" },
+  { type: "video", src: heroVideo },
 ];
 
-
-
-export default function HeroSlider() {
+const Hero: React.FC = () => {
   const [current, setCurrent] = useState(0);
-  const length = slides.length;
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent(prev => (prev + 1) % length);
-    }, 8000);
-    return () => clearInterval(timer);
-  }, [length]);
-
-  const prevSlide = () =>
-    setCurrent(prev => (prev === 0 ? length - 1 : prev - 1));
-  const nextSlide = () =>
-    setCurrent(prev => (prev === length - 1 ? 0 : prev + 1));
-
-  return (
-    <div className="relative w-full h-[80vh] overflow-hidden">
-      {slides.map((slide, index) => (
+    const id = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 8000); // switch every 8 seconds
+    return () => clearInterval(id);
+  }, []);
+  
+    return (
+      <>
+       <Helmet>
+          <title>Home | Pioneer School</title>
+        </Helmet>
+    <section
+      id="home"
+      className="relative min-h-[100vh] flex items-center justify-center overflow-hidden"
+    >
+      {slides.map((slide, idx) => (
         <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
-          style={{
-            backgroundImage: `url(${slide.image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+          key={idx}
+          className={`
+            absolute inset-0 z-0 transition-opacity duration-1000
+            ${idx === current ? "opacity-100" : "opacity-0"}
+          `}
         >
-          <div className="absolute inset-0 bg-opacity-50 flex items-center justify-center">
-            <h2 className="text-4xl md:text-5xl text-white font-bold text-center px-4">
-              {slide.title}
-            </h2>
-          </div>
+          {slide.type === "image" ? (
+            <>
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-hero-gradient/80" />
+            </>
+          ) : (
+            <video
+              src={slide.src}
+              className="w-full h-full object-cover"
+              muted
+              autoPlay
+              loop
+              playsInline
+            />
+          )}
         </div>
       ))}
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#74d1f6] bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 z-20"
-      >
-        <ChevronLeftIcon className="h-6 w-6 text-gray-800" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#74d1f6] bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 z-20"
-      >
-        <ChevronRightIcon className="h-6 w-6 text-gray-800" />
-      </button>
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full ${
-              index === current ? 'bg-white' : 'bg-gray-300'
-            }`}
-          />
-        ))}
+
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <h3 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-white drop-shadow mb-8">
+          At St Paul Thomas Academy we are fully resourced with human capital to meet your child’s need
+        </h3>
+        {/* <Button>Learn More</Button> */}
       </div>
-    </div>
+    </section>
+    </>
   );
-}
+};
+
+export default Hero;
