@@ -1,87 +1,52 @@
 // src/pages/Seafarers.tsx
 
-import InfoCard from '../components/InfoCard';
-
-const courses = [
-  {
-    title: 'Maritime Economics',
-    description: 'Understanding marine resource management and the blue economy',
-    imageSrc: '/images/sea.jpg',
-  },
-  {
-    title: 'Nautical Science',
-    description: 'Navigation, seamanship, and the art of ship handling',
-    imageSrc: '/images/captain.jpg',
-  },
-];
+import { Helmet } from 'react-helmet-async';
 
 const Seafarers: React.FC = () => {
   return (
     <>
+    <Helmet>
+      <title>Seafares | St Paul Thomas Academy</title>
+    </Helmet>
       {/* Hero Section */}
       <section
         className="relative h-[60vh] bg-center bg-cover"
-        style={{ backgroundImage: "url('/images/ship.jpg')" }}
+        style={{ backgroundImage: "url('/images/sea.webp')",fontFamily: 'Times New Roman, serif'  }}
       >
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-[#74d1f6]/50" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Seafarers Pathway
-          </h1>
-          <p className="text-lg md:text-2xl text-white/90 max-w-2xl">
-            Dive into a dynamic maritime career with our specialized courses and hands-on training.
-          </p>
+          
         </div>
       </section>
 
       {/* Mission & Overview */}
-      <section className="bg-white py-16 px-4">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-3xl font-semibold text-[#093056] text-center">
-            Our Mission for Young Seafarers
-          </h2>
-          <p className="text-gray-700 leading-relaxed">
-          Immerse yourself in the wonders of our Marine program, meticulously crafted to ignite a deep-rooted passion for the vast expanse of the sea and all facets of maritime life, whether dealing with Big cargo ships or Small tugboats.
-
-Explore the intricate details of marine ecosystems and the fascinating world beneath the waves, where every journey is an adventure waiting to unfold. </p>
-          <p className="text-gray-700 leading-relaxed">
-          Explore the intricate details of marine ecosystems and the fascinating world beneath the waves, where every journey is an adventure waiting to unfold.</p>
-          <p className="text-gray-700 leading-relaxed">
+      <section className="bg-[#083056] text-white py-16 px-4">
+        <div className="max-w-4xl mx-auto space-y-8">   
+        <h1 className="relative z-10 text-2xl md:text-6xl font-bold text-white text-center">
+       Young Seafarers
+      </h1>      
+         <p className="text-gray-100 text-xl leading-relaxed">
           Through a comprehensive curriculum and immersive experiences, we aim to equip our students with the essential skills and knowledge needed to drive forward the innovative 'Blue Economy' maritime economic development initiatives that hold the key to a sustainable future.
+           <br />
            <br />
            With a commitment to serving the continent, we endeavor to foster a culture of continuous skills development, education, training, and cutting-edge research that not only supports but propels the growth of the blue economy to new heights </p>
         </div>
-      </section>
+     
+      {/* Calls to Action */}
+      <section className="flex flex-col mt-6 sm:flex-row gap-4 justify-center">
+    
+    <a
+ href="/talent"
+ rel="noopener"
+ className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+       >
+Talent
+    </a>
+    </section> 
+ 
 
-      {/* Courses Grid */}
-      <section className="bg-gray-50 py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center mb-8">
-          <h2 className="text-3xl font-semibold text-[#093056]">
-            Core Courses
-          </h2>
-          <p className="text-gray-600 mt-2">
-            Choose the course that sets your maritime career in motion.
-          </p>
-        </div>
-        <div className="max-w-7xl mx-auto grid gap-8 md:grid-cols-2">
-          {courses.map((c, idx) => (
-            <InfoCard key={idx} {...c} />
-          ))}
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="bg-[#0C356A] py-12 text-center px-4">
-        <h3 className="text-2xl md:text-3xl text-white font-semibold mb-4">
-          Ready to set sail?
-        </h3>
-        <a
-          href="https://enquireto.pioneergroupofschools.co.ke/SignIn?ReturnUrl=%2F"
-          className="inline-block bg-[#E4AF23] text-[#093056] font-bold py-3 px-8 rounded-lg hover:bg-yellow-500 transition"
-        >
-          Enquire Now
-        </a>
-      </section>
+      
+ </section>
 
     </>
   );

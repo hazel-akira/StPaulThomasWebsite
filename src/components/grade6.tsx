@@ -1,18 +1,18 @@
 // src/pages/JoinGrade4.tsx
 import { Helmet } from 'react-helmet-async';
-const JoinGrade4: React.FC = () => {
+const JoinGrade6: React.FC = () => {
   return (
 
     <> 
      <Helmet>
-    <title> Join Grade 4 | St Paul Thomas Academy </title>
+    <title> Join Grade 6 | St Paul Thomas Academy </title>
     </Helmet>
   <div className="min-h-screen flex flex-col bg-[#083056]">
     
     {/* Hero */}
     <section
       className="relative h-[60vh] bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/grade4.webp')" }}
+      style={{ backgroundImage: "url('/images/grade6.webp')" }}
     >
       <div className="absolute inset-0 bg-[#74d1f6]/20" />
       
@@ -24,7 +24,7 @@ const JoinGrade4: React.FC = () => {
       {/* Eligibility */}
       <section>
         <h2 className="text-3xl font-bold text-white mb-4">
-          Eligibility Requirements for Joining Grade 4
+          Eligibility Requirements for Joining Grade 6
         </h2>  
         <div className="mx-auto h-4 bg-white w-full"></div>    
       </section>
@@ -37,7 +37,7 @@ const JoinGrade4: React.FC = () => {
           The student requires to attain a minimum score of achieved expected expectation.
           </li>
           <li>
-          The student must provide an original CBC result certificate for Grade 3. (Please first supply us with the original; a copy of the original will be kept by the school) 
+          The student must provide an original CBC result certificate for Grade 3,4 and 5. (Please first supply us with the original; a copy of the original will be kept by the school) 
           </li>
           <li>
           The student must have a Nemis/Assessment Number or Foreign students must have a unique identification number from the ministry of education of the country of origin. 
@@ -122,14 +122,15 @@ const JoinGrade4: React.FC = () => {
  <section className="flex flex-col sm:flex-row gap-4 justify-center">
     
     <a
-      href="/grade5"
+      href="/adm"
       target="_blank"
       rel="noopener"
       className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
             >
-      Join grade 5
+    Admission Policy
     </a>
   </section>
+ 
 
     </main>
 
@@ -138,4 +139,4 @@ const JoinGrade4: React.FC = () => {
   </>
 );
 }
-export default JoinGrade4;
+export default JoinGrade6;

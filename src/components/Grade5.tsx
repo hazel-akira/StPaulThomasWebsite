@@ -1,97 +1,141 @@
-// src/pages/JoinGrade10.tsx
-const JoinGrade10: React.FC = () => (
-  <div className="min-h-screen flex flex-col bg-white">
- 
+// src/pages/JoinGrade4.tsx
+import { Helmet } from 'react-helmet-async';
+const JoinGrade5: React.FC = () => {
+  return (
 
+    <> 
+     <Helmet>
+    <title> Join Grade 5 | St Paul Thomas Academy </title>
+    </Helmet>
+  <div className="min-h-screen flex flex-col bg-[#083056]">
+    
     {/* Hero */}
     <section
       className="relative h-[60vh] bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/Modal.png')" }}
+      style={{ backgroundImage: "url('/images/grade5.webp')" }}
     >
-      <div className="absolute inset-0 bg-[#093056] opacity-50" />
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <h1 className="text-4xl md:text-6xl font-bold text-white">
-          Join Grade 10
-        </h1>
-      </div>
+      <div className="absolute inset-0 bg-[#74d1f6]/20" />
+      
     </section>
 
-    {/* Content */}
-    <main className="flex-grow max-w-4xl mx-auto px-4 py-12 space-y-12">
+    {/* Main Content */}
+    <main className="flex-grow max-w-4xl mx-auto px-4 py-12 space-y-12" style={{ fontFamily: 'Times New Roman, serif'  }}>
+   
       {/* Eligibility */}
       <section>
-        <h2 className="text-2xl font-semibold text-[#093056] mb-4">
-        ELIGIBILTY REQUIREMENTS FOR JOINING GRADE 10
-        </h2>
-        <ol className="list-decimal list-inside text-gray-700 space-y-2">
-          <li>
-            Minimum score of Achievement Level AL‑5 in the Kenya Junior Secondary
-            Education Assessment (KJSEA).
-          </li>
-          <li>
-            Original KJSEA report must be provided (we keep a copy).
-          </li>
-          <li>
-            NEMIS and Assessment Number (or foreign students’ Ministry of Education
-            ID). 
-          </li>
-          <li>
-            Pass a medical examination. 
-          </li>
-          <li>
-            Recent Grade 9 report form (original; we keep a copy). 
-          </li>
-          <li>
-            Leaving Certificate in English (original; we keep a copy).
-          </li>
-          <li>
-            Recommendation letter from previous school principal. 
-          </li>
-          <li>
-            Valid Birth Certificate (or passport for foreigners; originals and copies).
-          </li>
-        </ol>
+        <h2 className="text-3xl font-bold text-white mb-4">
+          Eligibility Requirements for Joining Grade 5
+        </h2>  
+        <div className="mx-auto h-4 bg-white w-full"></div>    
       </section>
 
-      {/* How to Apply */}
+      {/* CBC Changes */}
       <section>
-        <h2 className="text-2xl font-semibold text-[#093056] mb-4">
-          How to Apply
-        </h2>
-        <p className="text-gray-700 leading-relaxed">
-          Apply online, download and submit the form to our offices, or visit us in person - remember to select your intended pathway. 
-        </p>
-        <div className="mt-6 text-center">
-          <a
-            href="https://enquireto.pioneergroupofschools.co.ke"
-            className="inline-block bg-[#E4AF23] text-[#093056] font-bold py-3 px-8 rounded-lg hover:bg-yellow-500 transition"
-          >
-            Join to Register
-          </a>
-        </div>
-      </section>
-
-      {/* What Happens Next */}
-      <section>
-        <h2 className="text-2xl font-semibold text-[#093056] mb-4">
-          What Happens Next?
-        </h2>
-        <ol className="list-decimal list-inside text-gray-700 space-y-2">
-          <li>Review of application forms to ensure completeness. </li>
-          <li>Invite eligible applicants for tour and interview. </li>
-          <li>Select candidates for admission. </li>
-          <li>Issue offer letters to successful candidates. </li>
+        
+        <ul className="list-decimal list-inside space-y-2 text-xl  text-gray-100">
           <li>
-            Submit acceptance or rejection of offer; accepted candidates pay the
-            commitment fee. 
+          The student requires to attain a minimum score of achieved expected expectation.
           </li>
-          <li>Receive official admission letter upon completion.</li>
-        </ol>
+          <li>
+          The student must provide an original CBC result certificate for Grade 3 and 4. (Please first supply us with the original; a copy of the original will be kept by the school) 
+          </li>
+          <li>
+          The student must have a Nemis/Assessment Number or Foreign students must have a unique identification number from the ministry of education of the country of origin. 
+          </li>
+          <li>
+          The student must provide a completed medical test. 
+          </li>
+          <li>
+          The student must provide Certified copies of previous term or grade assessments, transfer forms and Clearance letter from previous school.
+          </li>
+          <li>
+          The student must provide a Leaving Certificate in English (The original will be kept by the school) to be submitted before the start of school. 
+          </li>
+
+          <li>
+          The student must provide a recommendation Letter from the previous school principal or any person of senior community authority.
+          </li>
+          <li>
+          The student must provide a valid Birth Certificate (Please first supply us with the original; a copy of the original will be kept by the school, OR For Foreigners, Valid passport (Please first supply us with the original; a copy of the original will be kept by the school). 
+
+          </li>
+        </ul>
       </section>
+      <div className="mx-auto h-4 bg-white w-full"></div>   
+      
+      
+ <section className='text-gray-100 leading-relaxed  mb-4'>
+  <h1 className='font-bold uppercase text-2xl'>
+    How To Apply</h1>
+
+  <p className='my-4  text-xl'>The student can apply to Join St Paul Thomas Academy by either applying online, download the application form and submit to our offices or visiting our offices and fill out the applications forms  </p>
+  <h1 className='font-bold uppercase text-2xl'>
+
+    {/* Calls to Action */}
+<section className="flex flex-col sm:flex-row gap-4 justify-center">
+    
+    <a
+      href="https://enquireto.pioneergroupofschools.co.ke"
+      target="_blank"
+      rel="noopener"
+      className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+            >
+      Join to Register
+    </a>
+  </section>
+  <div className="mx-auto h-4 my-4 bg-white w-full"></div>  
+  WHAT HAPPENS NEXT ?</h1>
+  <p className='my-4  text-xl'>The student can apply to Join St Paul Thomas Academy by either applying online, download the application form and submit to our offices or visiting our offices and fill out the applications forms  </p>
+  <ul className="list-decimal list-inside space-y-2 text-xl  text-gray-100">
+          <li className='font-bold'>
+          Review of Applications forms
+          </li>
+          <p>All application forms are reviewed to confirm if all information has been provided and if all supporting documents have been attached. </p>
+          <li className='font-bold'>
+          Invite eligible applicants for an interview.
+           </li><p>Applicants that meet the minimum eligibility criteria are invited to the school for school tour and interview </p>
+         
+          <li className='font-bold'>
+          Select candidates for admission.
+            </li><p>Once you have visited the school and passed the interview, you application is submitted for further review by admission department</p>
+        
+          <li className='font-bold'>
+          Offer Letter
+          </li>
+          <p>Once prospective candidates are reviewed, the admissions department will send OFFER LETTERS to prospective candidates and students</p>
+          <li className='font-bold'>
+          Acceptance letters.
+          </li>
+          <p>Once prospective candidates has received an OFFER LETTER, they are required to ACCEPT OR REJECT as prospective students.
+          <br />
+          If accepted, the candidate is required to pay a commitment fee in addition to ACCEPTING THE OFFER 
+          </p>
+          <li className='font-bold'>
+          Admission letter</li>
+          <p>Once prospective student Submits the ACCEPTANCE LETTERS and Commitment fee, the student is sent an ADMISSION LETTER </p>
+
+          
+        </ul>
+
+ </section>
+ {/* Calls to Action */}
+ <section className="flex flex-col sm:flex-row gap-4 justify-center">
+    
+    <a
+      href="/grade6"
+      target="_blank"
+      rel="noopener"
+      className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+            >
+      Join grade 6
+    </a>
+  </section>
+
     </main>
 
-   
+  
   </div>
-)
-
-export default JoinGrade10
+  </>
+);
+}
+export default JoinGrade5;

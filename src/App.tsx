@@ -15,17 +15,16 @@ import SchoolOfSTEM from './pages/SchoolOfStem'
 import SchoolOfSocialSciences from './pages/SchoolOfSocialSciences'
 import SchoolOfArtsAndSportsScience from './pages/SchoolOfArtsAndSportsScience'
 import Seafarers from './pages/Seafarers'
-import Aviator from './pages/Aviator'
-import StudentLife from './pages/StudentsLife'
+import Aviator from './pages/YoungAirCadet'
+import StudyLife from './pages/StudyLife'
 import BoardingLife from './pages/BoardingLife'
 import Farm2Fork from './pages/Farm2Fork'
 import NursingCare from './pages/NursingCare'
 import Chaplaincy from './pages/Chaplaincy'
 import JoinUs from './pages/JoinUs'
-import Grade9 from './components/grade4'
-import Grade10 from './components/Grade5'
 import Form3 from './components/Form3'
 import Grade4 from './components/grade4'
+import Grade5 from './components/Grade5'
 import Fees from './components/Fees'
 //import FeeInfo from './components/grade4Fees'
 import LocationPage from './components/LocationPage'
@@ -45,6 +44,16 @@ import Grade6Fees from './components/grade6fees'
 import TermsAndConditions from './pages/TermsAndConditions'
 import Sitemap from './components/Sitemap'
 import WhoWeAre from './pages/WhoWeAre'
+import JoinGrade6 from './components/grade6'
+import AdmissionsPolicy from './components/AdmissionPolicy'
+import YoungAirCadet from './pages/YoungAirCadet'
+import CodingLife from './pages/Coding'
+import Talent from './pages/Talent'
+import BandLife from './pages/Band'
+import ScoutsLife from './pages/Scouts'
+import ChessMasters from './pages/Chess'
+import SwimmersLife from './pages/Swimmers'
+import SkatingLife from './pages/Skating'
 
 export default function App() {
   return (
@@ -73,19 +82,29 @@ export default function App() {
         <Route path='seafarers' element={<Seafarers />} />
         <Route path='aviator' element={<Aviator />} />
 
-        {/* student/boarding life */}
-        <Route path='student-life' element={<StudentLife />} />
-        <Route path='boarding-life' element={<BoardingLife />} />
+        {/* study life */}
+        <Route path='studylife' element={<StudyLife />} />
+        <Route path='cadet' element={<YoungAirCadet />} />
         <Route path='farm-2-fork' element={<Farm2Fork />} />
         <Route path='nursing-care' element={<NursingCare />} />
         <Route path='chaplaincy' element={<Chaplaincy />} />
+        <Route path='coding' element={<CodingLife />} />
+
+          {/* talent */}
+          <Route path='talent' element={<Talent />} />
+          <Route path='band' element={<BandLife />} />
+          <Route path='scouts' element={<ScoutsLife />} />
+          <Route path='chess' element={<ChessMasters />} />
+          <Route path='swimmers' element={<SwimmersLife />} />
+          <Route path='skating' element={<SkatingLife />} />
 
         {/* join */}
         <Route path='join' element={<JoinUs />} />
-        <Route path='grade9' element={<Grade9 />} />
-        <Route path='grade10' element={<Grade10 />} />
+        <Route path='adm' element={<AdmissionsPolicy />} />
         <Route path='form3' element={<Form3 />} />
         <Route path='grade4' element={<Grade4 />} />
+        <Route path='grade5' element={<Grade5 />} />
+        <Route path='grade6' element={<JoinGrade6 />} />
 
         {/* utilities */}
         <Route path='fees' element={<Fees />} />

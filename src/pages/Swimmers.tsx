@@ -1,0 +1,44 @@
+// src/pages/SwimmersLife.tsx
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+
+const SwimmersLife: React.FC = () => {
+  return (
+    <>
+      <Helmet>
+        <title>Swimmers Life | St Paul Thomas Academy</title>
+      </Helmet>
+      <div className="min-h-screen bg-[#083056]">
+{/* Hero Section */}
+<section
+      className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/images/swimmers.webp')",fontFamily: 'Times New Roman, serif' }}
+    >
+      <div className="absolute inset-0 bg-[#74d1f6]/30" />
+    
+    </section>
+      <main className="container text-center mx-auto px-4  py-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          Swimmers Life
+        </h1>
+        <p className="text-lg text-gray-100">
+          As part of our commitment to holistic development, we offer swimming lessons that not only teach valuable life skills but also promote physical fitness, water safety, and confidence in the water.
+        </p>
+      </main>
+      {/* Calls to Action */}
+    <section className="flex flex-col mt-6 sm:flex-row gap-4 justify-center">
+      <a
+    href="/skating"
+    rel="noopener"
+    className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+       >
+   Skating Life
+    </a>
+    </section>
+
+      </div>
+    </>
+  );
+};
+
+export default SwimmersLife;

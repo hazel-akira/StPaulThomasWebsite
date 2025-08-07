@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
       { to: '/Safety', label: 'Safety and Security' },
     ],
     studyLife: [
-      { to: '/study', label: 'Study Life' },
+      { to: '/studylife', label: 'Study Life' },
       { to: '/tailor-made-leadership-pathways', label: 'Tailor Made Pathways' },
       { to: '/cadet', label: 'Young Air Cadet' },
       { to: '/coding', label: 'Coding Life' },
@@ -93,11 +93,11 @@ const Navbar: React.FC = () => {
     talent: [
       { to: '/talent', label: 'Talent' },
       { to: '/band', label: 'Band Life' },
-      { to: '/scouts', label: 'Scouts Life' },
       { to: '/chess', label: 'Chess Masters' },
+      { to: '/scouts', label: 'Scouts Life' },
+      { to: '/swimmers', label: 'Swimmers Life' },
       { to: '/skating', label: 'Skating Life' },
       { to: '/cycling', label: 'Cycling Life' },
-      { to: '/swimmers', label: 'Swimmers Life' },
       { to: '/basketLife', label: 'Basketball Life' },
       { to: '/football', label: 'Footballer Life' },
       { to: '/chef', label: 'Master Chef' },
@@ -111,11 +111,11 @@ const Navbar: React.FC = () => {
       { to: '/terms', label: 'Terms & Conditions' },
     ],
     howtojoinUs: [
-      { to: '/join', label: 'Join Us' },
+      { to: '/join', label: ' How to Join Us' },
       { to: '/grade4', label: 'Join Grade 4' },
       { to: '/grade5', label: 'Join Grade 5' },
       { to: '/grade6', label: 'Join grade6' },
-      { to: '/admpolicy', label: 'Admissions Policy' },
+      { to: '/adm', label: 'Admissions Policy' },
       { to: 'https://enquireto.pioneergroupofschools.co.ke/SignIn?ReturnUrl=%2F', label: 'Enquire' },
     ],
     getAccess: [
@@ -132,7 +132,7 @@ const Navbar: React.FC = () => {
     studyLife: 'Study Life',
     talent: 'Talent',
     fees: 'Our Friendly Fees',
-    howtojoinUs: 'Join Us',
+    howtojoinUs: 'How to Join Us',
     getAccess: 'Get Access',
     
   };

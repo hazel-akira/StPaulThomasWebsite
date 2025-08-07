@@ -8,7 +8,7 @@ export default function Layout() {
   return (
     <>
       <Helmet>
-        <title>Pioneer School</title>
+        <title>St Paul Thomas Academy</title>
       </Helmet>
       <Navbar />
       <main><Outlet/></main>

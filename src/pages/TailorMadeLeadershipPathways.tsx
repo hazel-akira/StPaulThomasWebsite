@@ -18,15 +18,22 @@ const cards = [
   {
     title: 'Physical Education',
     description: 'Learn from seasoned educators and industry leaders who champion your growth.',
-    imageSrc: '/images/athletics.jpg',
+    imageSrc: '/images/study2.webp',
     link: 'https://kicd.ac.ke/wp-content/uploads/2024/07/Physical-Education-Grade-10-June-2024.pdf',
   },
   {
     title: 'Community Service',
     description: 'Learn from seasoned educators and industry leaders who champion your growth.',
-    imageSrc: '/images/hands.jpg',
+    imageSrc: '/images/study1.webp',
     link: 'https://kicd.ac.ke/wp-content/uploads/2024/07/CSL-Grade-10-June-2024.pdf',
   },
+  {
+    title: 'Creative Arts',
+    description: 'Creative Arts.',
+    imageSrc: '/images/path3.webp',
+    link: 'https://kicd.ac.ke/wp-content/uploads/2024/07/CSL-Grade-10-June-2024.pdf',
+  },
+
 ];
 
 const TailorMadeLeadershipPathways: React.FC = () => (
@@ -34,34 +41,24 @@ const TailorMadeLeadershipPathways: React.FC = () => (
    
 
     {/* Hero Section */}
-    <section className="relative h-[60vh] bg-cover bg-center flex items-center justify-center "
-      style={{ backgroundImage: "url('/images/space.webp')" }}>
-      <div className="container mx-auto px-4 text-center">
-        <h1 className="text-5xl md:text-6xl text-[#df8811] font-bold mb-4">
-          Tailor Made Leadership Pathways
-        </h1>
-        <p className="text-3xl font-bold md:text-xl text-[#ffffff] brightness-100 max-w-3xl mx-auto leading-relaxed">
-          Senior School at Pioneer School provides learners aged 15 to 18+ years with a pre-university or pre-career experience. Choose your pathway based on interests and potential.
-        </p>
-      </div>
+    <section className="relative h-[80vh] bg-cover bg-center flex items-center justify-center "
+      style={{ backgroundImage: "url('/images/path1.webp')" ,fontFamily: 'Times New Roman, serif' }}>
+    
     </section>
 
     {/* Intro & Outcomes */}
-    <section className="py-16 bg-gradient-to-bl from-[#c6c7c95a] to-[#1981d665]">
+    <section className="py-16 bg-[#093056]">
       <div className="container mx-auto px-4 gap-12  md:grid-cols-2">
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#093056] mb-4">
-            Program Details
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            This program allows learners to choose from seven recommended learning areas, including compulsory subjects like English and Kiswahili, ensuring both specialization and a broad-based education. Effective from January 2026.
-          </p>
+        
+          <p className="text-gray-100  text-2xl leading-relaxed mb-6">
+          At St. Paul Thomas Academy, we value each student's uniqueness, passions, and aspirations. With a strong reputation for trustworthiness, integrity, and academic excellence, our Academy guides students towards responsible adulthood. Our curriculum balances rigorous academic standards with engaging teaching methods, promoting creativity and innovation. We offer a well-rounded education through a variety of academic, co-curricular, and extracurricular activities. Our dedicated educators uphold the highest standards both in and out of the classroom. </p>
         </div>
         <div>
-          <h3 className="text-xl md:text-2xl font-semibold text-[#093056] mb-4">
+          <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
             By the end of senior school, learners will be able to:
           </h3>
-          <ul className="list-disc list-inside text-gray-700 space-y-3 leading-snug">
+          <ul className="list-disc list-inside text-gray-100 space-y-3 leading-snug">
             <li>Communicate effectively using ICT across varied contexts.</li>
             <li>Apply mathematical, logical, and critical thinking skills.</li>
             <li>Use basic research and scientific skills to solve problems.</li>
@@ -78,14 +75,14 @@ const TailorMadeLeadershipPathways: React.FC = () => (
     </section>
 
     {/* Cards Grid */}
-    <section className="py-16 bg-[#e6e6e3]">
+    <section className="py-16 ">
       <div className="container mx-auto px-4 text-center mb-12">
         <h2 className="text-4xl py-2 md:text-4xl font-bold text-[#093056]">
         COMPULSORY SUBJECTS 
         <br />
-<hr className="pt-2 h-5 w-full text-[#df8811]"/> 
+        <div className="mx-auto h-4 bg-[#093056] w-full"></div>   
         </h2>
-        <p className='font-semibold text-[#093056] '>At Senior School, ALL students will be required to take the following subjects.</p> 
+        <p className='font-semibold text-[#093056] '>At our School, ALL students will be required to take the following subjects.</p> 
       </div>
       <div className="container mx-auto px-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {cards.map((c, i) => (
@@ -93,6 +90,18 @@ const TailorMadeLeadershipPathways: React.FC = () => (
         ))}
       </div>
     </section>
+    {/* Calls to Action */}
+ <section className="flex flex-col sm:flex-row gap-4 justify-center">
+    
+    <a
+      href="/cadet"
+      target="_blank"
+      rel="noopener"
+      className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+            >
+     Young Air Cadets
+    </a>
+  </section>
 
   
   </div>
