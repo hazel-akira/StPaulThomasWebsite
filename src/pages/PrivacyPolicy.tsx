@@ -77,12 +77,12 @@ const PrivacyPolicyPage: React.FC = () => {
           <>
             refers to Pioneer School, accessible from{' '}
             <a
-              href="https://pioneerschools.ac.ke/"
+              href="https://stpaulthomasacademy.co.ke//"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#df8811] hover:underline"
             >
-              https://pioneerschools.ac.ke/
+              https://stpaulthomasacademy.co.ke/
             </a>.
           </>
         ),
@@ -195,12 +195,11 @@ const PrivacyPolicyPage: React.FC = () => {
               If you have any questions about this Privacy Policy, you can
               contact us by email:{' '}
               <a
-                href="mailto:admissions@pioneerschools.ac.ke"
+                href="mailto:admissions@stpaulthomasacademy.ac.ke"
                 className="text-[#df8811] hover:underline"
               >
-                admissions@pioneerschools.ac.ke
+                admissions@stpaulthomasacademy.ac.ke
               </a>
-              .
             </p>
           </div>
         </section>
