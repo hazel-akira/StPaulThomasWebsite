@@ -10,13 +10,13 @@ const cards = [
   {
     title: 'English',
     description: 'Discover how we craft personalized leadership journeys that unlock each student’s potential.',
-    imageSrc: '/images/english.jpg',
+    imageSrc: '/images/path3.webp',
     link: 'https://kicd.ac.ke/wp-content/uploads/2024/07/English-Grade-10-June-2024.pdf',
   },
   {
     title: 'Kiswahili / Kenya Sign Language',
     description: 'Our milestones framework guides you through every stage of leadership development.',
-    imageSrc: '/images/swahili.jpg',
+    imageSrc: '/images/path1.webp',
     link: 'https://kicd.ac.ke/wp-content/uploads/2024/07/Kiswahili-Lugha-Gredi-10-June-2024.pdf',
   },
   {
