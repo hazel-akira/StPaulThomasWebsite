@@ -51,8 +51,8 @@ const dashboardsData: DashboardData[] = [
   },
 
   {
-    id: 'kcse-2023',
-    year: '2023',
+    id: 'kcpe-2019 to 2021',
+    year: '2019 - 2021',
     title: 'Kenya National Examination results 2019 to 2021',
     description: '',
     embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiZTYwYzQ1YTgtZmU4ZS00NzA1LWFiZWItZWY1ZDU3M2Q4ZjUxIiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&embedImagePlaceholder=true',
