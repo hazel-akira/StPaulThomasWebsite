@@ -6,17 +6,29 @@ const SkatingLife: React.FC = () => (
       <title> Skating Life | St Paul Thomas Academy</title>
     </Helmet>
 
+    <section className="py-12 h-[20vh]">
+        <div className="max-w-6xl mx-auto py-6 space-y-6 px-4 text-left">
+          <h1 className="text-4xl font-serif text-left text-white mb-4">
+         Skating Life
+          </h1>
+          <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
+        </div>
+      </section>
+
     {/* Hero Section */}
     <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/band.webp')",fontFamily: 'Times New Roman, serif' }}
+      style={{ backgroundImage: "url('/images/skate.webp')",fontFamily: 'Times New Roman, serif' }}
     >
-      <div className="absolute inset-0 bg-[#74d1f6]/30" />
-      <h1 className="relative z-10 text-4xl md:text-6xl font-bold text-white text-center">
-        Skating Life
-      </h1>
+      <div className="absolute inset-0 bg-[#74d1f6]/10" />
     </section>
-
+    <section
+      className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/images/skating1.JPG')",fontFamily: 'Times New Roman, serif' }}
+    >
+      <div className="absolute inset-0 bg-[#74d1f6]/10" />
+    
+    </section>
     
     {/* Calls to Action */}
     <section className="flex flex-col mt-6 sm:flex-row gap-4 justify-center">

@@ -1,8 +1,5 @@
 import React from 'react'
 import {
-  Phone,
-  Mail,
-  MapPin,
   Home,
   Users,
   GraduationCap,

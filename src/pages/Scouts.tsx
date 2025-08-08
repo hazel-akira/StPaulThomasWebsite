@@ -5,6 +5,15 @@ const ScoutsLife: React.FC = () => (
     <Helmet>
       <title>Scouts Life | St Paul Thomas Academy</title>
     </Helmet>
+    
+    <section className="py-12 h-[20vh]">
+        <div className="max-w-4xl mx-auto py-6 space-y-6 px-4 text-left">
+          <h1 className="text-4xl font-serif text-left text-white mb-4">
+          Scouts Life
+          </h1>
+          <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
+        </div>
+      </section>
 
     {/* Hero Section */}
     <section
@@ -12,13 +21,10 @@ const ScoutsLife: React.FC = () => (
       style={{ backgroundImage: "url('/images/scouts.jpg')",fontFamily: 'Times New Roman, serif' }}
     >
       <div className="absolute inset-0 bg-[#74d1f6]/30" />
-      <h1 className="relative z-10 text-4xl md:text-6xl font-bold text-white text-center">
-        Scouts Life
-      </h1>
     </section>
 
     {/* Main Content */}
-    <section className="container mx-auto  px-4 py-16 space-y-6 text-gray-100">
+    <section className="container max-w-4xl mx-auto  px-4 py-16 space-y-6 text-gray-100">
       <p className="text-2xl text-center">
         We have a vibrant Scout Team. Each term, Scouters can work towards a badge.
       </p>

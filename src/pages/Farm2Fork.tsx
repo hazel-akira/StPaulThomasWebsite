@@ -1,5 +1,5 @@
 // src/pages/Farm2Fork.tsx
-
+import { Helmet } from 'react-helmet-async';
 
 
 interface SectionCardProps {
@@ -73,8 +73,12 @@ const Farm2Fork: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f9fafb]">
-     
+    <>
+    <div className="min-h-screen flex flex-col bg-[#74d1f6]">
+    <Helmet>
+      <title>Farm 2 Fork | St Paul Thomas Academy</title>
+      
+    </Helmet>
 
       {/* Hero */}
       <section
@@ -104,9 +108,20 @@ const Farm2Fork: React.FC = () => {
         </div>
       </main>
 
-
+{/* Calls to Action */}
+<section className="flex flex-col mt-6 sm:flex-row gap-4 justify-center">
+    
+    <a
+    href="/homefromhome"
+    rel="noopener"
+    className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+       >
+home from home
+    </a>
+    </section> 
     
     </div>
+    </>
   );
 };
 

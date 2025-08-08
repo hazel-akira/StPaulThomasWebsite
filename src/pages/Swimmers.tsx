@@ -9,6 +9,15 @@ const SwimmersLife: React.FC = () => {
         <title>Swimmers Life | St Paul Thomas Academy</title>
       </Helmet>
       <div className="min-h-screen bg-[#083056]">
+
+      <section className="py-12 h-[20vh]">
+        <div className="max-w-4xl mx-auto py-6 space-y-6 px-4 text-left">
+          <h1 className="text-4xl font-serif text-left text-white mb-4">
+          Swimmers Life
+          </h1>
+          <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
+        </div>
+      </section>
 {/* Hero Section */}
 <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
@@ -17,10 +26,7 @@ const SwimmersLife: React.FC = () => {
       <div className="absolute inset-0 bg-[#74d1f6]/30" />
     
     </section>
-      <main className="container text-center mx-auto px-4  py-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-          Swimmers Life
-        </h1>
+      <main className="container max-w-4xl text-center mx-auto px-4  py-12">
         <p className="text-lg text-gray-100">
           As part of our commitment to holistic development, we offer swimming lessons that not only teach valuable life skills but also promote physical fitness, water safety, and confidence in the water.
         </p>

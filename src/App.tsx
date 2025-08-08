@@ -17,7 +17,7 @@ import SchoolOfArtsAndSportsScience from './pages/SchoolOfArtsAndSportsScience'
 import Seafarers from './pages/Seafarers'
 import Aviator from './pages/YoungAirCadet'
 import StudyLife from './pages/StudyLife'
-import BoardingLife from './pages/BoardingLife'
+//import BoardingLife from './pages/BoardingLife'
 import Farm2Fork from './pages/Farm2Fork'
 import NursingCare from './pages/NursingCare'
 import Chaplaincy from './pages/Chaplaincy'
@@ -54,6 +54,14 @@ import ScoutsLife from './pages/Scouts'
 import ChessMasters from './pages/Chess'
 import SwimmersLife from './pages/Swimmers'
 import SkatingLife from './pages/Skating'
+import Cycling from './pages/Cycling'
+import BasketballLife from './pages/Basketball'
+import FootballLife from './pages/Football'
+import Chef from './pages/Chef'
+import Golf from './pages/Golf'
+import HomeFromHome from './pages/HomeFromHome'
+import Discipline from './pages/Discipline'
+import SafetyAndSecurity from './pages/SafetyAndSecurity'
 
 export default function App() {
   return (
@@ -69,7 +77,7 @@ export default function App() {
         <Route path='/history' element={<History />} />
         <Route path='/leadership' element={<Leadership />} />
         <Route path='/leaders' element={<Leaders/>} />
-        <Route path='/nurture' element={<Nurture/>} />
+       
         <Route path='/nurturing' element={<Nurturing/>} />
         <Route path='/tailor-made-leadership-pathways' element={<TailorMadeLeadershipPathways />} />
 
@@ -81,6 +89,14 @@ export default function App() {
         {/* special programs */}
         <Route path='seafarers' element={<Seafarers />} />
         <Route path='aviator' element={<Aviator />} />
+
+       {/* Nurture */}
+        <Route path='/nurture' element={<Nurture/>} />
+        <Route path='homefromhome' element={<HomeFromHome />} />
+        <Route path='discipline' element={<Discipline />} />
+        <Route path='safety' element={<SafetyAndSecurity />} />
+
+
 
         {/* study life */}
         <Route path='studylife' element={<StudyLife />} />
@@ -97,6 +113,11 @@ export default function App() {
           <Route path='chess' element={<ChessMasters />} />
           <Route path='swimmers' element={<SwimmersLife />} />
           <Route path='skating' element={<SkatingLife />} />
+          <Route path='cycling' element={<Cycling />} />
+          <Route path='basket' element={<BasketballLife />} />
+          <Route path='football' element={<FootballLife />} />
+          <Route path='chef' element={<Chef />} />
+          <Route path='golf' element={<Golf />} />
 
         {/* join */}
         <Route path='join' element={<JoinUs />} />

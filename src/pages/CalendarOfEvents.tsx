@@ -16,11 +16,7 @@ interface TermData {
   };
 }
  
-interface ImportantDate {
-  event: string;
-  date: string;
-  time: string;
-}
+
  
 const CalendarOfEvents: React.FC = () => {
   const termsData: TermData[] = [

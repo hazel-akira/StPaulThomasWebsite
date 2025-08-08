@@ -1,6 +1,10 @@
 // src/pages/TailorMadeLeadershipPathways.tsx
-
+import { Helmet } from 'react-helmet-async';
 import InfoCard from '../components/InfoCard';
+
+<Helmet>
+      <title> PATHWAYS | St Paul Thomas Academy</title>
+    </Helmet>
 
 const cards = [
   {
@@ -13,7 +17,7 @@ const cards = [
     title: 'Kiswahili / Kenya Sign Language',
     description: 'Our milestones framework guides you through every stage of leadership development.',
     imageSrc: '/images/swahili.jpg',
-    link: 'https://kicd.ac.ke/wp-content/uploads/2024/07/Kiswahili-Lugha-Gredi-10-Juni-2024.pdf',
+    link: 'https://kicd.ac.ke/wp-content/uploads/2024/07/Kiswahili-Lugha-Gredi-10-June-2024.pdf',
   },
   {
     title: 'Physical Education',
@@ -37,8 +41,16 @@ const cards = [
 ];
 
 const TailorMadeLeadershipPathways: React.FC = () => (
-  <div className="min-h-screen flex flex-col bg-[#dde0e4]">
+  <div className="min-h-screen flex flex-col bg-[#093056]">
    
+   <section className="py-12 h-[20vh]">
+        <div className="max-w-6xl mx-auto py-6 space-y-6 px-4 text-left">
+          <h1 className="text-4xl font-serif text-left text-white mb-4">
+        Tailor Made Leadership Pathways
+          </h1>
+          <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
+        </div>
+      </section>
 
     {/* Hero Section */}
     <section className="relative h-[80vh] bg-cover bg-center flex items-center justify-center "
@@ -47,14 +59,12 @@ const TailorMadeLeadershipPathways: React.FC = () => (
     </section>
 
     {/* Intro & Outcomes */}
-    <section className="py-16 bg-[#093056]">
-      <div className="container mx-auto px-4 gap-12  md:grid-cols-2">
-        <div>
-        
+    <section className="py-16">
+      <div className="container max-w-4xl space-y-8 mx-auto px-4 gap-12  md:grid-cols-2">
           <p className="text-gray-100  text-2xl leading-relaxed mb-6">
           At St. Paul Thomas Academy, we value each student's uniqueness, passions, and aspirations. With a strong reputation for trustworthiness, integrity, and academic excellence, our Academy guides students towards responsible adulthood. Our curriculum balances rigorous academic standards with engaging teaching methods, promoting creativity and innovation. We offer a well-rounded education through a variety of academic, co-curricular, and extracurricular activities. Our dedicated educators uphold the highest standards both in and out of the classroom. </p>
         </div>
-        <div>
+        <div className="container max-w-4xl space-y-8 mx-auto px-4 gap-12  md:grid-cols-2"> 
           <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
             By the end of senior school, learners will be able to:
           </h3>
@@ -71,27 +81,28 @@ const TailorMadeLeadershipPathways: React.FC = () => (
             <li>Manage pertinent and contemporary issues responsibly.</li>
           </ul>
         </div>
-      </div>
+   
     </section>
 
     {/* Cards Grid */}
-    <section className="py-16 ">
+    <section className="py-16  ">
       <div className="container mx-auto px-4 text-center mb-12">
-        <h2 className="text-4xl py-2 md:text-4xl font-bold text-[#093056]">
+        <h2 className="text-4xl py-4 md:text-4xl font-bold text-white">
         COMPULSORY SUBJECTS 
         <br />
-        <div className="mx-auto h-4 bg-[#093056] w-full"></div>   
+        <div className="mx-auto py-2 mt-2 bg-white w-full"></div>   
         </h2>
-        <p className='font-semibold text-[#093056] '>At our School, ALL students will be required to take the following subjects.</p> 
+        <p className='font-semibold text-white '>At our School, ALL students will be required to take the following subjects.</p> 
       </div>
-      <div className="container mx-auto px-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="container mx-auto bg-[#093056] px-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {cards.map((c, i) => (
           <InfoCard key={i} {...c} />
         ))}
       </div>
     </section>
+
     {/* Calls to Action */}
- <section className="flex flex-col sm:flex-row gap-4 justify-center">
+ <section className="flex flex-col py-4 sm:flex-row gap-4 justify-center">
     
     <a
       href="/cadet"

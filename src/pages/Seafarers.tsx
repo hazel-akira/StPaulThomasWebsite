@@ -8,6 +8,18 @@ const Seafarers: React.FC = () => {
     <Helmet>
       <title>Seafares | St Paul Thomas Academy</title>
     </Helmet>
+    <div className="min-h-screen bg-[#083056]">
+      
+    <section className="py-12 h-[20vh]">
+        <div className="max-w-6xl mx-auto py-6 space-y-6 px-4 text-left">
+          <h1 className="text-4xl font-serif text-left text-white mb-4">
+          Young Seafarers
+          </h1>
+          <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
+        </div>
+      </section>
+
+      
       {/* Hero Section */}
       <section
         className="relative h-[60vh] bg-center bg-cover"
@@ -21,10 +33,7 @@ const Seafarers: React.FC = () => {
 
       {/* Mission & Overview */}
       <section className="bg-[#083056] text-white py-16 px-4">
-        <div className="max-w-4xl mx-auto space-y-8">   
-        <h1 className="relative z-10 text-2xl md:text-6xl font-bold text-white text-center">
-       Young Seafarers
-      </h1>      
+        <div className="max-w-4xl mx-auto space-y-8">         
          <p className="text-gray-100 text-xl leading-relaxed">
           Through a comprehensive curriculum and immersive experiences, we aim to equip our students with the essential skills and knowledge needed to drive forward the innovative 'Blue Economy' maritime economic development initiatives that hold the key to a sustainable future.
            <br />
@@ -47,7 +56,7 @@ Talent
 
       
  </section>
-
+</div>
     </>
   );
 };

@@ -1,5 +1,5 @@
 // src/pages/NursingCare.tsx
-
+import { Helmet } from 'react-helmet-async';
 
 import InfoCard from '../components/InfoCard';
 
@@ -12,12 +12,12 @@ const cards = [
   {
     title: 'Pediatrician Oversight',
     description: 'Our nurses are overseen by a full-time pediatrician who regularly visits the school.', 
-    imageSrc: '/images/doc.jpg',
+    imageSrc: '/images/doc.webp',
   },
   {
     title: 'Fully Stocked Medicine Cabinets',
     description: 'All relevant drugs are on-hand to treat our boarding students promptly.', 
-    imageSrc: '/images/med.jpg',
+    imageSrc: '/images/med.webp',
   },
   {
     title: 'Emergency Response Team',
@@ -26,14 +26,17 @@ const cards = [
   },
 ];
 
-const NursingCare: React.FC = () => (
+const NursingCare: React.FC = () => {
+  return (  <>  <Helmet>
+  <title> Nursing Care | St Paul Thomas Academy</title>
+</Helmet>
   <div className="min-h-screen flex flex-col bg-[#f9fafb]">
 
 
     {/* Hero */}
     <section
       className="relative h-[50vh] bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/nurse.jpg')" }}
+      style={{ backgroundImage: "url('/images/nurse.webp')" }}
     >
       <div className="absolute inset-0 bg-[#093056] opacity-60" />
       <div className="relative z-10 flex items-center justify-center h-full">
@@ -56,9 +59,22 @@ const NursingCare: React.FC = () => (
         ))}
       </div>
     </main>
-
+{/* Calls to Action */}
+<section className="flex flex-col mt-10 sm:flex-row gap-4 justify-center pb-16">
+        <a
+          href="/safety"
+          rel="noopener"
+          className="inline-block border border-[#bdd6f0] bg-[#e4af23] px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+        >
+      Safety And Security
+        </a>
+      
+      </section>
 
   </div>
+  </>
 );
+}
+
 
 export default NursingCare;

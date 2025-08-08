@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 // Slider data (images in public/images)
@@ -78,64 +78,10 @@ const HeroSlider = () => {
 };
 
 // Sample About section
-const AboutSection = () => (
-  <section id="about" className="py-16 bg-white">
-    <div className="max-w-6xl mx-auto px-4 text-center">
-      <h3 className="text-3xl font-bold text-primary-foreground mb-4">
-        About St Paul Thomas Academy
-      </h3>
-      <p className="text-gray-700">
-        St Paul Thomas Academy is committed to academic excellence and holistic development. Located in the heart of the community, we offer a nurturing environment where every child can thrive.
-      </p>
-    </div>
-  </section>
-);
 
 // Sample Values/Features section
-const ValuesSection = () => (
-  <section className="py-16 bg-gray-100">
-    <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <FeatureCard title="Academic Excellence">
-        Rigorous curriculum and experienced faculty ensure top performance.
-      </FeatureCard>
-      <FeatureCard title="Creative Arts">
-        Fully equipped art and music studios to foster creativity.
-      </FeatureCard>
-      <FeatureCard title="Sports & Life Skills">
-        Wide range of sports and extracurricular activities.
-      </FeatureCard>
-    </div>
-  </section>
-);
 
-const FeatureCard: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
-  <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
-    <h4 className="text-xl font-semibold mb-2 text-primary-foreground">{title}</h4>
-    <p className="text-gray-600">{children}</p>
-  </div>
-);
 
 // Simple Footer
-const Footer = () => (
-  <footer className="bg-[#093057] text-white py-8">
-    <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
-        <h5 className="font-bold mb-2">STPA</h5>
-        <p>© {new Date().getFullYear()} St Paul Thomas Academy</p>
-      </div>
-      <div>
-        <h5 className="font-bold mb-2">Contact</h5>
-        <p>123 Academy Rd, City</p>
-        <p>+254 700 000000</p>
-      </div>
-      <div>
-        <h5 className="font-bold mb-2">Quick Links</h5>
-        <ul className="space-y-1">
-          <li><a href="/admissions">Admissions</a></li>
-          <li><a href="/about">About Us</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-);
-export default header;
+
+export { header as default, HeroSlider };

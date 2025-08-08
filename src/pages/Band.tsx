@@ -1,10 +1,21 @@
 import { Helmet } from 'react-helmet-async';
 
 const BandLife: React.FC = () => (
-  <div className="min-h-screen bg-[#083056]">
-    <Helmet>
+  <>
+  
+  <Helmet>
       <title>Band Life | St Paul Thomas Academy</title>
     </Helmet>
+  <div className="min-h-screen bg-[#083056]">
+    
+  <section className="py-12 h-[20vh]">
+        <div className="max-w-4xl mx-auto py-6 space-y-6 px-4 text-left">
+          <h1 className="text-4xl font-serif text-left text-white mb-4">
+          Marching Band Life
+          </h1>
+          <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
+        </div>
+      </section>
 
     {/* Hero Section */}
     <section
@@ -12,29 +23,49 @@ const BandLife: React.FC = () => (
       style={{ backgroundImage: "url('/images/band.webp')",fontFamily: 'Times New Roman, serif' }}
     >
       <div className="absolute inset-0 bg-[#74d1f6]/30" />
-      <h1 className="relative z-10 text-4xl md:text-6xl font-bold text-white text-center">
-        Marching Band Life
-      </h1>
+   
     </section>
 
     {/* Main Content */}
-    <section className="container mx-auto px-4 py-16 space-y-6 text-gray-100" >
-      <p className="text-2xl">
+    <section className="container max-w-4xl mx-auto px-4 py-16 space-y-6 text-gray-100" >
+    <p className="text-gray-100 text-xl leading-relaxed">
         Our band is nationally renowned and we have led the national celebrations for years.
       </p>
     </section>
+    <section
+      className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/images/band2.webp')",fontFamily: 'Times New Roman, serif' }}
+    >
+      <div className="absolute inset-0 bg-[#74d1f6]/30" />
+   
+    </section>
+    {/* Main Content */}
+    <section className="container max-w-4xl mx-auto px-4 py-16 space-y-6 text-gray-100" >
+    <p className="text-gray-100 text-xl leading-relaxed">
+        Our band is nationally renowned and we have led the national celebrations for years.
+      </p>
+    </section>
+    <section
+      className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/images/band3.webp')",fontFamily: 'Times New Roman, serif' }}
+    >
+      <div className="absolute inset-0 bg-[#74d1f6]/30" />
+   
+    </section>
+ 
     {/* Calls to Action */}
     <section className="flex flex-col mt-6 sm:flex-row gap-4 justify-center">
     
     <a
-    href="/scouts"
+    href="/chess"
     rel="noopener"
     className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
        >
-     Scouts Life
+     Chess Masters
     </a>
     </section> 
   </div>
+  </>
 );
 
 export default BandLife;
