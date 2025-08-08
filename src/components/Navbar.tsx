@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
       { to: '/homefromhome', label: 'Home From Home' },
       { to: '/discipline', label: 'Discipline' },
       { to: '/chaplaincy', label: 'Chaplaincy' },
-      { to: '/Nursing ', label: 'Nursing Care' },
+      { to: '/nursing-care ', label: 'Nursing Care' },
       { to: '/Safety', label: 'Safety and Security' },
     ],
     studyLife: [

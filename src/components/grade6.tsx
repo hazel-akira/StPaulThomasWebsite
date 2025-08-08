@@ -123,7 +123,6 @@ const JoinGrade6: React.FC = () => {
     
     <a
       href="/adm"
-      target="_blank"
       rel="noopener"
       className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
             >

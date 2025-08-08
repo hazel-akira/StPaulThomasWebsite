@@ -35,7 +35,7 @@ const AdmissionsPolicy: React.FC = () => (
         </p>
         </div>
         <Link
-          to="/enquire"
+          to="https://enquireto.pioneergroupofschools.co.ke/SignIn?ReturnUrl=%2F"
           className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
             >
           Join to Register
@@ -56,20 +56,19 @@ const AdmissionsPolicy: React.FC = () => (
           </li>
         </ol>
       </main>
-
+</div>
       {/* Calls to Action */}
  <section className="flex flex-col sm:flex-row gap-4 justify-center">
     
     <a
       href="/location"
-      target="_blank"
       rel="noopener"
       className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
             >
      Our Location
     </a>
   </section>
-    </div>
+    
   </div>
 );
 
