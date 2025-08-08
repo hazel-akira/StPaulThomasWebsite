@@ -76,7 +76,7 @@ const Footer: React.FC = () => (
                   alt="Email"
                   className="w-8 h-8 text-[#df8811]" 
                   />
-                <span>admissions@pioneerschools.ac.ke</span>
+                <span>admissions@stpaulthomasacademy.ac.ke</span>
               </div>
 
             {/* Address */}

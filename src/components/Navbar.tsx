@@ -229,7 +229,7 @@ const Navbar: React.FC = () => {
           ))}
           {/* KCSE Past Performance */}
           <div className="flex items-center border-l border-white px-2 first:border-l-0">
-            <NavLink to="/results" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
+            <NavLink to="/perfomance" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
               KCPE Results
             </NavLink>
           </div>
@@ -276,7 +276,7 @@ const Navbar: React.FC = () => {
               </div>
             ))}
 
-            <NavLink to="/results" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
+            <NavLink to="/perfomance" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
               KCPE Results
             </NavLink>
             <NavLink to="/location" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>

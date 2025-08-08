@@ -14,29 +14,48 @@ interface DashboardData {
 
 const dashboardsData: DashboardData[] = [
   {
-    id: 'kcpe-202-1',
+    id: 'kpsea-202-1',
     year: '2023',
     title: 'Kenya Primary School Education Assessment(KPSEA) 2023',
-    description: 'Comprehensive analysis of KCSE 2024 performance across all subjects and counties',
-    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiNDMyMTgxNDktOGEzOS00MDRhLWE1YzktMTRiN2MxMjAwNWZmIiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9',
+    description: '',
+    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiOTg0OWYxZDAtMjYzNi00NWUyLTg2YjMtMmQzODZiZjhjY2I1IiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&amp;embedImagePlaceholder=true',
     aspectRatio: 'aspect-[16/10]',
     icon: <BarChart3 className="w-6 h-6" />
   },
   {
-    id: 'kcse-2024-2',
-    year: '2024',
-    title: 'KCSE Performance Trends 2024',
-    description: 'Detailed breakdown of grade distributions and performance metrics',
-    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiZGM3MDMwNGItNzFkYy00YjRmLTk2NTQtYzE0NDczNTlhN2FlIiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9',
+    id: 'kcpe-2023-2',
+    year: '2023',
+    title: 'ST PAUL THOMAS ACADEMY COMPARISON AGAINST NATIONAL KCPE 2023',
+    description: '',
+    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiYjZiZTkzNDQtN2I1OC00MzU4LTkxNzMtNzg4NDk1ZjMxOGNhIiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&amp;pageName=3a6be48f43c92a05c63e&amp;embedImagePlaceholder=true',
     aspectRatio: 'aspect-[16/10]',
     icon: <TrendingUp className="w-6 h-6" />
   },
   {
+    id: 'kcpe-2023',
+    year: '2023',
+    title: 'Kenya National Examination results 2023',
+    description: '',
+    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiZTdmYjY3MmItNWM5NS00OGU3LWIwMjktMTAwMWM1Mzg1MzI3IiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&embedImagePlaceholder=true',
+    aspectRatio: 'aspect-[16/9]',
+    icon: <Award className="w-6 h-6" />
+  },
+  {
+    id: 'kcpe-2022',
+    year: '2022',
+    title: 'Kenya National Examination results 2022',
+    description: '',
+    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiZDEzM2EwMmUtM2I0OS00NTMwLWEzYTMtOTM3ZGIwOTk1MGU1IiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&embedImagePlaceholder=true',
+    aspectRatio: 'aspect-[16/9]',
+    icon: <Award className="w-6 h-6" />
+  },
+
+  {
     id: 'kcse-2023',
     year: '2023',
-    title: 'KCSE Results Analysis 2023',
-    description: 'Historical performance data and comparative analysis for KCSE 2023',
-    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiMmU4ZDkyN2ItNmZhYi00NTcwLThhNzUtZjBlNTA5ZmY2ZmQyIiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9',
+    title: 'Kenya National Examination results 2019 to 2021',
+    description: '',
+    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiZTYwYzQ1YTgtZmU4ZS00NzA1LWFiZWItZWY1ZDU3M2Q4ZjUxIiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&embedImagePlaceholder=true',
     aspectRatio: 'aspect-[16/9]',
     icon: <Award className="w-6 h-6" />
   }
@@ -76,9 +95,7 @@ const DashboardCard: React.FC<{ dashboard: DashboardData }> = ({ dashboard }) =>
           </div>
           <ExternalLink className="w-5 h-5 text-[#df8811] group-hover:text-[#093057] transition-colors" />
         </div>
-        <p className="mt-3 text-[#df8811] text-sm leading-relaxed">
-          {dashboard.description}
-        </p>
+       
       </div>
 
       {/* Dashboard Embed */}
@@ -197,16 +214,16 @@ Well, they are not wrong, see our results over the past few years below
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             
               <Link
-          to="/perfomance"
+          to="/nurture"
           className="inline-block border mb-6 border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
             >
       Nurturing Students
         </Link>
         <Link
-          to="/perfomance"
+          to="/studylife"
           className="inline-block border ml-10 border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
             >
-      Student Life
+      Study Life
         </Link>
            
           </div>
