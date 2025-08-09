@@ -72,15 +72,11 @@ const WhoWeAre: React.FC = () => {
 <div className="relative z-10 flex justify-center  mt-8">
             <Link
               to="/History"
-              className="inline-block border mb-6 border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+              className="inline-block border mb-6  border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
             >
               OUR HISTORY
             </Link>
           </div>
-
-
-    
-     
      </section>
     </main>
     

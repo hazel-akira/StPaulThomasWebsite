@@ -4,6 +4,7 @@ import {
   ChevronDownIcon, 
   Bars3Icon, 
   XMarkIcon } from '@heroicons/react/24/outline';
+
 interface DropdownMenuProps {
   isOpen: boolean;
   onClose: () => void;
@@ -11,10 +12,10 @@ interface DropdownMenuProps {
   className?: string;
 }
 
-const closeTimeout = { current: undefined as number | undefined };
+const closeTimeout = { current: undefined as number  | undefined };
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
-   isOpen,
+  isOpen,
   children,
   className = '',
 }) => (
@@ -124,8 +125,8 @@ const Navbar: React.FC = () => {
       { to: '/StuAccess', label: 'Student Access' },
       { to: '/staffAccess', label: 'Staff Access' },
     ],
-    
   };
+
   const labelMap: Record<string, string> = {
     whoWeAre: 'Who We Are',
     nurture: 'Nurture',
@@ -134,8 +135,20 @@ const Navbar: React.FC = () => {
     fees: 'Our Friendly Fees',
     howtojoinUs: 'How to Join Us',
     getAccess: 'Get Access',
-    
   };
+
+  type MenuKey = keyof typeof dropdownItems;
+
+  const orderedKeys: MenuKey[] = [
+    'whoWeAre',     // 1st dropdown
+    'nurture',      // 2nd dropdown
+    'studyLife',
+    'talent',
+    'fees',
+    'howtojoinUs',
+    'getAccess'     // must be last
+  ];
+
   const renderDropdownLinks = (items: { to: string; label: string }[]) =>
     items.map(item =>
       item.to.startsWith('http') ? (
@@ -154,7 +167,7 @@ const Navbar: React.FC = () => {
           key={item.to}
           to={item.to}
           onClick={() => setTimeout(closeAll, 100)}
-          className="block px-4 py-2 text-black bg-[#e4af23] hover:bg-black hover:text-white transition-colors"
+          className="block px-4 py-2 text-black bg-[#74d1f6] hover:bg-black hover:text-white transition-colors"
         >
           {item.label}
         </NavLink>
@@ -162,15 +175,14 @@ const Navbar: React.FC = () => {
     );
 
   return (
-  
-      <header className="bg-[#74d1f6] text-white top-0 z-50 shadow-lg" 
+    <header className="bg-[#74d1f6] text-black top-0 z-50 shadow-lg" 
       style={{ fontFamily: 'Times New Roman, serif' }}>
       <div className="container mx-auto px-4 h-15 flex items-center justify-between">
-      <NavLink
+        <NavLink
           to="/"
-          className="text-2xl pr-4 text-white hover:text-[#E4AF23] lg:text-xl font-extrabold tracking-wide hover:opacity-90 transition-opacity"
+          className="text-2xl pr-4 text-black hover:text-[#E4AF23] lg:text-xl font-extrabold tracking-wide hover:opacity-90 transition-opacity"
         >
-       ST PAUL THOMAS ACADEMY
+          ST PAUL THOMAS ACADEMY
         </NavLink>  
         <button
           className="lg:hidden bg-[#e4af23] hover:bg-white p-2 rounded"
@@ -193,22 +205,14 @@ const Navbar: React.FC = () => {
             </NavLink>
           </div>
 
-          {/* Dynamic Dropdowns */}
-          {Object.entries(dropdownItems).map(([key, items]) => (
+          {/* 1st & 2nd dropdowns */}
+          {orderedKeys.slice(0, 2).map((key) => (
             <div
               key={key}
-              ref={el => {
-                dropdownRefs.current[key] = el;
-              }}
-              className="relative flex items-center border-l border-white px-2 first:border-l-0"
-              onMouseEnter={() => {
-                clearTimeout(closeTimeout.current)
-                setOpenDropdown(key)}}
-              onMouseLeave={() =>{ closeTimeout.current = window.setTimeout(() => {
-                setOpenDropdown(null)
-              }, 100)
-              }}
-              
+              ref={el => { dropdownRefs.current[key] = el }}
+              className="relative flex items-center border-l border-black px-2 first:border-l-0"
+              onMouseEnter={() => { clearTimeout(closeTimeout.current); setOpenDropdown(key) }}
+              onMouseLeave={() => { closeTimeout.current = window.setTimeout(() => setOpenDropdown(null), 100) }}
             >
               <button
                 onClick={() => toggleDropdown(key)}
@@ -216,72 +220,140 @@ const Navbar: React.FC = () => {
                 aria-expanded={openDropdown === key}
               >
                 {labelMap[key]}
-                <ChevronDownIcon
-                  className={`w-4 h-4 transition-transform ${
-                    openDropdown === key ? 'rotate-180' : 'rotate-0'
-                  }`}
-                />
+                <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
               </button>
               <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-56">
-                {renderDropdownLinks(items)}
+                {renderDropdownLinks(dropdownItems[key])}
               </DropdownMenu>
             </div>
           ))}
-          {/* KCSE Past Performance */}
-          <div className="flex items-center border-l border-white px-2 first:border-l-0">
+
+          {/* 3rd item: KCPE Results */}
+          <div className="flex items-center border-l border-black px-2 first:border-l-0">
             <NavLink to="/perfomance" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
               KCPE Results
             </NavLink>
           </div>
 
+          {/* Remaining dropdowns except Get Access (which goes last) */}
+          {orderedKeys.slice(2, -1).map((key) => (
+            <div
+              key={key}
+              ref={el => { dropdownRefs.current[key] = el }}
+              className="relative flex items-center border-l border-black px-2 first:border-l-0"
+              onMouseEnter={() => { clearTimeout(closeTimeout.current); setOpenDropdown(key) }}
+              onMouseLeave={() => { closeTimeout.current = window.setTimeout(() => setOpenDropdown(null), 100) }}
+            >
+              <button
+                onClick={() => toggleDropdown(key)}
+                className="flex items-center gap-1 hover:underline"
+                aria-expanded={openDropdown === key}
+              >
+                {labelMap[key]}
+                <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
+              </button>
+              <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-56">
+                {renderDropdownLinks(dropdownItems[key])}
+              </DropdownMenu>
+            </div>
+          ))}
+
           {/* Location */}
-          <div className="flex items-center border-l border-white px-2 first:border-l-0">
+          <div className="flex items-center border-l border-black px-2 first:border-l-0">
             <NavLink to="/location" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
               Location
             </NavLink>
           </div>
+
+          {/* FINAL item: Get Access */}
+          <div
+            key="getAccess"
+            ref={el => { dropdownRefs.current.getAccess = el }}
+            className="relative flex items-center border-l border-black px-2 first:border-l-0"
+            onMouseEnter={() => { clearTimeout(closeTimeout.current); setOpenDropdown('getAccess') }}
+            onMouseLeave={() => { closeTimeout.current = window.setTimeout(() => setOpenDropdown(null), 100) }}
+          >
+            <button
+              onClick={() => toggleDropdown('getAccess')}
+              className="flex items-center gap-1 hover:underline"
+              aria-expanded={openDropdown === 'getAccess'}
+            >
+              {labelMap.getAccess}
+              <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === 'getAccess' ? 'rotate-180' : 'rotate-0'}`} />
+            </button>
+            <DropdownMenu isOpen={openDropdown === 'getAccess'} onClose={closeAll} className="w-56">
+              {renderDropdownLinks(dropdownItems.getAccess)}
+            </DropdownMenu>
+          </div>
         </nav>
       </div>
 
-        {/* Mobile Nav */}
+      {/* Mobile Nav */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#74d1f6] text-white p-6 space-y-4" style={{ fontFamily: 'Times New Roman, serif' }}>
-          <nav className="space-y-3">
+        <div className="lg:hidden bg-[#74d1f6] text-black p-6 space-y-4" style={{ fontFamily: 'Times New Roman, serif' }}>
+          <nav className="space-y-3 ">
             <NavLink to="/" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
-              Home
+              HOME
             </NavLink>
 
-            {Object.entries(dropdownItems).map(([key, items]) => (
-            
-            <div
-                     key={key}
-                     ref={el => { dropdownRefs.current[key] = el }}
-                    className="relative"
-                  >
+            {/* 1st & 2nd dropdowns */}
+            {orderedKeys.slice(0, 2).map((key) => (
+              <div key={key} ref={el => { dropdownRefs.current[key] = el }} className="relative">
                 <button
                   onClick={() => toggleDropdown(key)}
                   className="w-full flex justify-between items-center font-semibold hover:text-accent"
                   aria-expanded={openDropdown === key}
                 >
                   {labelMap[key]}
-                  <ChevronDownIcon
-                    className={`w-4 h-4 transition-transform ${
-                      openDropdown === key ? 'rotate-180' : 'rotate-0'
-                    }`}
-                  />
+                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
                 </button>
                 <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="pl-4">
-                  {renderDropdownLinks(items)}
+                  {renderDropdownLinks(dropdownItems[key])}
                 </DropdownMenu>
               </div>
             ))}
 
+            {/* 3rd item: KCPE Results */}
             <NavLink to="/perfomance" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
               KCPE Results
             </NavLink>
+
+            {/* Remaining dropdowns except Get Access */}
+            {orderedKeys.slice(2, -1).map((key) => (
+              <div key={key} ref={el => { dropdownRefs.current[key] = el }} className="relative">
+                <button
+                  onClick={() => toggleDropdown(key)}
+                  className="w-full flex justify-between items-center font-semibold hover:text-accent"
+                  aria-expanded={openDropdown === key}
+                >
+                  {labelMap[key]}
+                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
+                </button>
+                <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="pl-4">
+                  {renderDropdownLinks(dropdownItems[key])}
+                </DropdownMenu>
+              </div>
+            ))}
+
+            {/* Location */}
             <NavLink to="/location" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
               Location
             </NavLink>
+
+            {/* FINAL item: Get Access */}
+            <div key="getAccess" ref={el => { dropdownRefs.current.getAccess = el }} className="relative">
+              <button
+                onClick={() => toggleDropdown('getAccess')}
+                className="w-full flex justify-between items-center font-semibold hover:text-accent"
+                aria-expanded={openDropdown === 'getAccess'}
+              >
+                {labelMap.getAccess}
+                <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === 'getAccess' ? 'rotate-180' : 'rotate-0'}`} />
+              </button>
+              <DropdownMenu isOpen={openDropdown === 'getAccess'} onClose={closeAll} className="pl-4">
+                {renderDropdownLinks(dropdownItems.getAccess)}
+              </DropdownMenu>
+            </div>
           </nav>
         </div>
       )}

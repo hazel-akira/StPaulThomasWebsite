@@ -60,38 +60,41 @@ const Footer: React.FC = () => (
             </h3>
             <div className="space-y-2 text-base">
              {/* Phone */}
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 hover:text-white">
                 <img
                  src="/images/CELPHONE.webp"
                  alt="Phone"
-                 className="w-8 h-8 text-[#df8811]" 
+                 className="w-8 h-8 " 
                  />
-                <span>020 5038097</span>
+                <a href="tel:+254205038065"><span>020 5038097</span></a>
               </div>
 
              {/* Email */}
-               <div className="flex items-center space-x-2">
+               <div className="flex items-center space-x-2 hover:text-white">
+                
                 <img
                   src="/images/EMAIL.png"
                   alt="Email"
-                  className="w-8 h-8 text-[#df8811]" 
+                  className="w-8 h-8 " 
                   />
-                <span>admissions@stpaulthomasacademy.ac.ke</span>
+                  <a href="mailto:admissions@pioneerschools.ac.ke"> <span>admissions@stpaulthomasacademy.ac.ke</span></a>
               </div>
 
             {/* Address */}
-              <div className="flex items-start space-x-2">
+              <div className="flex items-start space-x-2 hover:text-white ">
                 <img
                   src="/images/LOCATION.png"
                   alt="Location"
-                  className="w-8 h-8 mt-1 text-[#df8811]" 
+                  className="w-8 h-8 mt-1  " 
                   />
               <div>
-                 <p>P.O. BOX 625-10205 MARAGUA</p>
+              <a href="https://maps.app.goo.gl/7aG9yDX9xza5KU2W8">
+                <p>P.O. BOX 625-10205 MARAGUA</p>
                  <p>
                     Along Kenol-Sagana Road, Samar Location, Ichagaki Ward,
                     Maragua, Murang'a County
                 </p>
+                </a>
       </div>
     </div>
   </div>

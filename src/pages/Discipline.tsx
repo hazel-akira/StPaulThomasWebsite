@@ -156,15 +156,15 @@ const Discipline: React.FC = () => (
         <a
           href="/chaplaincy"
           rel="noopener"
-          className="inline-block border border-[#bdd6f0] bg-[#e4af23] px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
-        >
+          className="inline-block border mb-6  border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+            >
           Chaplaincy
         </a>
         <a
           href="/nurture"
           rel="noopener"
-          className="inline-block border border-white/40 bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-white/10 transition-colors rounded"
-        >
+          className="inline-block border mb-6  border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+         >
           Explore Nurture
         </a>
       </section>

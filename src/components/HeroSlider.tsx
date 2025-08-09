@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
     return (
       <>
        <Helmet>
-          <title>Home | Pioneer School</title>
+          <title>Home | St Paul Thomas Academy</title>
         </Helmet>
     <section
       id="home"

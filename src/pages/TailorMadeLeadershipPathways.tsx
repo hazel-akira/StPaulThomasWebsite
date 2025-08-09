@@ -61,14 +61,14 @@ const TailorMadeLeadershipPathways: React.FC = () => (
     {/* Intro & Outcomes */}
     <section className="py-16">
       <div className="container max-w-4xl space-y-8 mx-auto px-4 gap-12  md:grid-cols-2">
-          <p className="text-gray-100  text-2xl leading-relaxed mb-6">
+          <p className="text-gray-100  text-xl leading-relaxed mb-6">
           At St. Paul Thomas Academy, we value each student's uniqueness, passions, and aspirations. With a strong reputation for trustworthiness, integrity, and academic excellence, our Academy guides students towards responsible adulthood. Our curriculum balances rigorous academic standards with engaging teaching methods, promoting creativity and innovation. We offer a well-rounded education through a variety of academic, co-curricular, and extracurricular activities. Our dedicated educators uphold the highest standards both in and out of the classroom. </p>
         </div>
-        <div className="container max-w-4xl space-y-8 mx-auto px-4 gap-12  md:grid-cols-2"> 
-          <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
+        <div className="container max-w-4xl text-xl md:text-xl space-y-8 mx-auto px-4 gap-12  md:grid-cols-2"> 
+          <h3 className=" font-semibold  text-white mb-4">
             By the end of senior school, learners will be able to:
           </h3>
-          <ul className="list-disc list-inside text-gray-100 space-y-3 leading-snug">
+          <ul className="list-disc list-inside  text-gray-100 space-y-3 leading-snug">
             <li>Communicate effectively using ICT across varied contexts.</li>
             <li>Apply mathematical, logical, and critical thinking skills.</li>
             <li>Use basic research and scientific skills to solve problems.</li>
@@ -107,7 +107,7 @@ const TailorMadeLeadershipPathways: React.FC = () => (
     <a
       href="/cadet"
       rel="noopener"
-      className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+      className="inline-block border mb-6  border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
             >
      Young Air Cadets
     </a>

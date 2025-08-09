@@ -36,8 +36,8 @@ const SwimmersLife: React.FC = () => {
       <a
     href="/skating"
     rel="noopener"
-    className="inline-block border mb-6 border-[#bdd6f0] bg-[#e4af23]  px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
-       >
+    className="inline-block border mb-6  border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+            >
    Skating Life
     </a>
     </section>

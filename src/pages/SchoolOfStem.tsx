@@ -114,7 +114,7 @@ const SchoolOfSTEM: React.FC = () => {
 
      {/* Tracks */}
 <main className="flex-grow py-16 px-2">
-  <div className="max-w-7xl mx-auto flex flex-wrap -mx-2">
+  <div className="max-w-7xl mx-auto flex flex-wrap ">
     {tracks.map(track => (
       <div
         key={track.id}
