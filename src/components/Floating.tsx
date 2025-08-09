@@ -22,7 +22,7 @@ export const Floating: React.FC = () => (
         "
         title="Enroll Today"
       >
-        Enroll
+        Enroll Today
       </a>
     </div>
 
