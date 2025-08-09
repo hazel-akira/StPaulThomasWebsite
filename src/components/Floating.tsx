@@ -13,7 +13,7 @@ export const Floating: React.FC = () => (
         rel="noopener noreferrer"
         className="
           w-16 h-16
-          bg-[#74d1f6] text-white
+          bg-[#74d1f6] text-black
           hover:bg-[#bfd5ee] hover:text-gray-900
           shadow-lg rounded-full
           flex items-center justify-center
@@ -39,7 +39,7 @@ export const Floating: React.FC = () => (
       "
       aria-label="Scroll to top"
     >
-      <ArrowUp className="text-white" size={20} />
+      <ArrowUp className="text-black" size={20} />
     </button>
   </>
 )
