@@ -39,14 +39,14 @@ const Hero: React.FC = () => {
               <img
                 src={slide.src}
                 alt={slide.alt}
-                className="w-full h-full object-cover"
+                className="w-screen h-full object-cover object-[50%_15%] "
               />
               <div className="absolute inset-0 bg-hero-gradient/80" />
             </>
           ) : (
             <video
               src={slide.src}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-[50%_20%]"
               muted
               autoPlay
               loop
