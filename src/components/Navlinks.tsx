@@ -1,356 +1,367 @@
-import { useEffect, useState, useRef } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { useNavigate } from "react-router-dom";
- 
-const navItems = [
-  { label: "Home", path: "/", hasDropdown: false },
-  {
-    label: "Inspire",
-    path: "/inspire",
-    hasDropdown: true,
-    options: [
-      { label: "Inspired History", path: "/inspire/history" },
-      { label: "Inspired Leadership", path: "/inspire/leadership" },
-    ]
-  },
-  { label: "Be Inspired", path: "/be-inspired", hasDropdown: false },
-  {
-    label: "Pathways",
-    path: "/pathways",
-    hasDropdown: true,
-    options: [
-      { label: "School of Science Technology Engineering & Mathematics", path: "/stem" },
-      { label: "School of Social Sciences", path: "/social-sciences" },
-      { label: "School of Arts & Sport Science", path: "/arts-sports" },
-      { label: "Aviation Program", path: "/aviation" },
-      { label: "Marine program", path: "/marine" },
-      { label: "AI Program", path: "/AI" },
-    ]
-  },
-  {
-    label: "Student Life",
-    path: "/student-life",
-    hasDropdown: true,
-    options: [
-      { label: "Soccer", path: "/student-life/soccer" },
-      { label: "Swimming", path: "/student-life/swimming" },
-      { label: "BasketBall", path: "/student-life/basketball" },
-      { label: "Golf", path: "/student-life/golf" },
-    ]
-  },
-  {
-    label: "Boarding Life",
-    path: "/boarding-life",
-    hasDropdown: true,
-    options: [
-      { label: "Dorm Life", path: "/boarding-life/dorm-life" },
-      { label: "Dance Life", path: "/boarding-life/dance-life" },
-      { label: "Nursing Care", path: "/boarding-life/nursing-care" },
-      { label: "Chaplaincy", path: "/boarding-life/chaplaincy" },
-    ]
-  },
-  {
-    label: "Join Us",
-    path: "/join-us",
-    hasDropdown: true,
-    options: [
-      { label: "Join Grade 9", path: "/join-us/grade-9" },
-      { label: "Join Grade 10", path: "/join-us/grade-10" },
-      { label: "Join Form 2", path: "/join-us/form-2" },
-      { label: "Join Form 3", path: "/join-us/form-3" },
-      { label: "Join Form 4", path: "/join-us/form-4" },
-      { label: "Enquire", path: "https://enquireto.pioneergroupofschools.co.ke/SignIn?ReturnUrl=%2F", external: true },
-    ]
-  },
-  {
-    label: "Fees",
-    path: "/fees",
-    hasDropdown: true,
-    options: [
-      { label: "Grade 9", path: "/fees/grade-9" },
-      { label: "Grade 10", path: "/fees/grade-10" },
-      { label: "Form 2", path: "/fees/form-2" },
-      { label: "Form 3", path: "/fees/form-3" },
-      { label: "Form 4", path: "/fees/form-4" },
-      { label: "Terms & Conditions", path: "/fees/terms-conditions" },
-    ]
-  },
-  { label: "Our Location", path: "/our-location", hasDropdown: false },
-  {
-    label: "Get Access",
-    path: "/get-access",
-    hasDropdown: true,
-    options: [
-      { label: "Calendar of Events", path: "/calendar" },
-      { label: "Student Access", path: "/student-access" },
-      { label: "Staff Access", path: "/staff-access" },
-    ]
-  },
-];
- 
-export default function Navbar() {
-  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
-  const [isDropdownClicked, setIsDropdownClicked] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeMobileDropdown, setActiveMobileDropdown] = useState<number | null>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
- 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setActiveDropdown(null);
-        setIsDropdownClicked(false);
-      }
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
-        const target = event.target as HTMLElement;
-        if (!target.closest('.mobile-menu-button')) {
-          setMobileMenuOpen(false);
-          setActiveMobileDropdown(null);
-        }
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
- 
-  const handleNavigation = (path: string) => {
-    navigate(path);
-  };
- 
-  const handleDropdownToggle = (e: React.MouseEvent, index: number) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setActiveDropdown(activeDropdown === index ? null : index);
-    setIsDropdownClicked(true);
-  };
- 
-  const handleMouseEnter = (index: number) => {
-    if (!isDropdownClicked) {
-      setActiveDropdown(index);
-    }
-  };
- 
-  const handleMouseLeave = () => {
-    if (!isDropdownClicked) {
-      setActiveDropdown(null);
-    }
-  };
- 
-  const handleDropdownItemClick = () => {
-    setActiveDropdown(null);
-    setIsDropdownClicked(false);
-  };
- 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-    setActiveMobileDropdown(null);
-  };
- 
-  const handleMobileDropdownToggle = (index: number) => {
-    setActiveMobileDropdown(activeMobileDropdown === index ? null : index);
-  };
- 
-  const handleMobileItemClick = () => {
-    setMobileMenuOpen(false);
-    setActiveMobileDropdown(null);
-  };
- 
-  const NavLink = ({ to, children, className, onClick }: { to: string; children: React.ReactNode; className?: string; onClick?: () => void }) => (
-    <a
-      href={to}
-      className={className}
-      onClick={(e) => {
-        e.preventDefault();
-        handleNavigation(to);
-        onClick?.();
-      }}
-    >
-      {children}
-    </a>
-  );
- 
-  return (
-    <nav className="bg-[#bfd5ee] text-gray-800 shadow-lg relative">
-      <div className="w-full px-6 flex items-center justify-between h-full relative py-4">
-        {/* Logo */}
-        <div
-          className="font-bold text-base text-gray-900 flex items-center cursor-pointer z-20"  
-          onClick={() => handleNavigation('/')}
-        >
-          <div className="h-10 w-10 flex items-center justify-center text-white font-bold text-sm">
-            <img src="/pgslogo.webp"/>
-          </div>
-          <span className="ml-2">Pioneer Girls School</span>
-        </div>
- 
-        {/* Mobile Menu Button */}
-        <button
-          className="xl:hidden mobile-menu-button z-20 p-2 rounded-md hover:bg-[#cfa53aff] transition-colors duration-200"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
- 
-        {/* Desktop Nav */}
-        <div className="hidden xl:flex items-center h-full" ref={dropdownRef}>
-          {navItems.map((item, index) => (
-            <div
-              key={index}
-              className={`relative group h-6 flex items-center ${index < navItems.length - 1 ? 'border-r border-gray-400' : ''}`}
-              onMouseEnter={() => item.hasDropdown && handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {item.hasDropdown ? (
-                <div
-                  className="flex items-center px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full transition-colors duration-200"
-                  onClick={(e) => handleDropdownToggle(e, index)}
-                >
-                  <NavLink to={item.path} className="text-md font-bold whitespace-nowrap">
-                    {item.label}
-                  </NavLink>
-                  <ChevronDown
-                    size={14}
-                    className={`ml-1 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180' : ''}`}
-                  />
-                </div>
-              ) : (
-                <NavLink
-                  to={item.path}
-                  className="px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full flex items-center transition-colors duration-200"
-                >
-                  <span className="text-md font-bold whitespace-nowrap">{item.label}</span>
-                </NavLink>
-              )}
-              {item.hasDropdown && activeDropdown === index && (
-                <div className="absolute top-full left-0 mt-8 bg-[#bfd5ee] shadow-lg rounded-md border border-gray-200 z-50 min-w-max">
-                  <div className="p-2">
-                    {item.options?.map((option, idx) =>
-                      option.external ? (
-                        <a
-                          key={idx}
-                          href={option.path}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
-                          onClick={handleDropdownItemClick}
-                        >
-                          {option.label}
-                        </a>
-                      ) : (
-                        <NavLink
-                          key={idx}
-                          to={option.path}
-                          className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
-                          onClick={handleDropdownItemClick}
-                        >
-                          {option.label}
-                        </NavLink>
-                      )
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
- 
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div className="xl:hidden fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setMobileMenuOpen(false)} />
-      )}
- 
-      {/* Mobile Menu */}
-      <div
-        ref={mobileMenuRef}
-        className={`xl:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-[#bfd5ee] shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className="flex flex-col h-full">
-          {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-300">
-            <span className="font-bold text-lg text-gray-900">Menu</span>
-            <button
-              onClick={toggleMobileMenu}
-              className="p-2 rounded-md hover:bg-[#cfa53aff] transition-colors duration-200"
-              aria-label="Close mobile menu"
-            >
-              <X size={20} />
-            </button>
-          </div>
- 
-          {/* Mobile Menu Items */}
-          <div className="flex-1 overflow-y-auto py-4">
-            {navItems.map((item, index) => (
-              <div key={index} className="border-b border-gray-200 last:border-b-0">
-                {item.hasDropdown ? (
-                  <div>
-                    <button
-                      className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-[#cfa53aff] transition-colors duration-200"
-                      onClick={() => handleMobileDropdownToggle(index)}
-                    >
-                      <span className="font-medium text-gray-900">{item.label}</span>
-                      <ChevronDown
-                        size={16}
-                        className={`transition-transform duration-200 ${
-                          activeMobileDropdown === index ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </button>
-                    {activeMobileDropdown === index && (
-                      <div className="bg-gray-50 border-t border-gray-200">
-                        {item.options?.map((option, idx) =>
-                          option.external ? (
-                            <a
-                              key={idx}
-                              href={option.path}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="block px-8 py-3 text-sm text-gray-600 hover:bg-[#cfa53aff] transition-colors duration-200"
-                              onClick={handleMobileItemClick}
-                            >
-                              {option.label}
-                            </a>
-                          ) : (
-                            <NavLink
-                              key={idx}
-                              to={option.path}
-                              className="block px-8 py-3 text-sm text-gray-600 hover:bg-[#cfa53aff] transition-colors duration-200"
-                              onClick={handleMobileItemClick}
-                            >
-                              {option.label}
-                            </NavLink>
-                          )
-                        )}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <NavLink
-                    to={item.path}
-                    className="block px-6 py-4 font-medium text-gray-900 hover:bg-[#cfa53aff] transition-colors duration-200"
-                    onClick={handleMobileItemClick}
-                  >
-                    {item.label}
-                  </NavLink>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
+import React, { useState, useRef, useEffect, type ReactNode } from 'react';
+import { NavLink } from 'react-router-dom';
+import { ChevronDownIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+
+interface DropdownMenuProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: ReactNode;
+  className?: string;
 }
 
-	
-		
-		
+const closeTimeout = { current: undefined as number | undefined };
 
+const DropdownMenu: React.FC<DropdownMenuProps> = ({
+  isOpen,
+  children,
+  className = '',
+}) => (
+  <div
+    className={`
+      /* Mobile + Desktop: overlay popover under the trigger */
+      absolute inset-x-0 top-full mt-2
+      lg:left-0 lg:right-auto
+      z-50 rounded-lg shadow-lg transform origin-top
+      transition-all duration-200
+      ${isOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'}
+
+      /* Scroll within the panel if long */
+      max-h-[60vh] overflow-y-auto overscroll-contain
+
+      /* Background so items are readable */
+      bg-[#74d1f6]
+
+      ${className}
+    `}
+  >
+    {children}
+  </div>
+);
+
+const Navbar: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (
+        openDropdown &&
+        dropdownRefs.current[openDropdown] &&
+        !dropdownRefs.current[openDropdown]!.contains(e.target as Node)
+      ) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [openDropdown]);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setIsMobileMenuOpen(false);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  const toggleDropdown = (key: string) =>
+    setOpenDropdown(openDropdown === key ? null : key);
+
+  const closeAll = () => {
+    setOpenDropdown(null);
+    setIsMobileMenuOpen(false);
+  };
+
+  const dropdownItems = {
+    whoWeAre: [
+      { to: '/who', label: 'Who We Are' },
+      { to: '/History', label: 'Our History' },
+      { to: '/leadership', label: 'Our Talent Management Team' },
+      { to: '/nurturing', label: 'Our Nurturing Management Team' },
+    ],
+    nurture: [
+      { to: '/nurture', label: 'Nurture' },
+      { to: '/farm-2-fork', label: 'Farm-2-Fork' },
+      { to: '/homefromhome', label: 'Home From Home' },
+      { to: '/discipline', label: 'Discipline' },
+      { to: '/chaplaincy', label: 'Chaplaincy' },
+      { to: '/nursing-care', label: 'Nursing Care' }, // fixed trailing space
+      { to: '/Safety', label: 'Safety and Security' },
+    ],
+    studyLife: [
+      { to: '/studylife', label: 'Study Life' },
+      { to: '/tailor-made-leadership-pathways', label: 'Tailor Made Pathways' },
+      { to: '/cadet', label: 'Young Air Cadet' },
+      { to: '/coding', label: 'Coding Life' },
+      { to: '/seafarers', label: 'Young Seafarers' },
+    ],
+    talent: [
+      { to: '/talent', label: 'Talent' },
+      { to: '/band', label: 'Band Life' },
+      { to: '/chess', label: 'Chess Masters' },
+      { to: '/scouts', label: 'Scouts Life' },
+      { to: '/swimmers', label: 'Swimmers Life' },
+      { to: '/skating', label: 'Skating Life' },
+      { to: '/cycling', label: 'Cycling Life' },
+      { to: '/basket', label: 'Basketball Life' },
+      { to: '/football', label: 'Footballer Life' },
+      { to: '/chef', label: 'Master Chef' },
+      { to: '/golf', label: 'Junior Golfer' },
+    ],
+    fees: [
+      { to: '/fees', label: 'Our Friendly Fees' },
+      { to: '/grade4fee', label: 'Grade 4 Fees' },
+      { to: '/grade5fee', label: 'Grade 5 Fees' },
+      { to: '/grade6fee', label: 'Grade 6 Fees' },
+      { to: '/terms', label: 'Terms & Conditions' },
+    ],
+    howtojoinUs: [
+      { to: '/join', label: ' How to Join Us' },
+      { to: '/grade4', label: 'Join Grade 4' },
+      { to: '/grade5', label: 'Join Grade 5' },
+      { to: '/grade6', label: 'Join grade6' },
+      { to: '/adm', label: 'Admissions Policy' },
+      { to: 'https://enquireto.pioneergroupofschools.co.ke/SignIn?ReturnUrl=%2F', label: 'Enquire' },
+    ],
+    getAccess: [
+      { to: '/access', label: 'Get Access' },
+      { to: '/events', label: 'Calendar of Events' },
+      { to: '/StuAccess', label: 'Student Access' },
+      { to: '/staffAccess', label: 'Staff Access' },
+    ],
+  };
+
+  const labelMap: Record<string, string> = {
+    whoWeAre: 'Who We Are',
+    nurture: 'Nurture',
+    studyLife: 'Study Life',
+    talent: 'Talent',
+    fees: 'Our Friendly Fees',
+    howtojoinUs: 'How to Join Us',
+    getAccess: 'Get Access',
+  };
+
+  type MenuKey = keyof typeof dropdownItems;
+
+  const orderedKeys: MenuKey[] = [
+    'whoWeAre',
+    'nurture',
+    'studyLife',
+    'talent',
+    'fees',
+    'howtojoinUs',
+    'getAccess'
+  ];
+
+  const renderDropdownLinks = (items: { to: string; label: string }[]) =>
+    items.map(item =>
+      item.to.startsWith('http') ? (
+        <a
+          key={item.to}
+          href={item.to}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setTimeout(closeAll, 100)}
+          className="block px-4 py-2 text-black hover:bg-black hover:text-white transition-colors"
+        >
+          {item.label}
+        </a>
+      ) : (
+        <NavLink
+          key={item.to}
+          to={item.to}
+          onClick={() => setTimeout(closeAll, 100)}
+          className="block px-4 py-2 text-black hover:bg-black hover:text-white transition-colors"
+        >
+          {item.label}
+        </NavLink>
+      )
+    );
+
+  return (
+    <header className="bg-[#74d1f6] text-black top-0 z-50 font-sans shadow-lg">
+      <div className="container mx-auto px-4 h-15 flex items-center justify-between">
+        <NavLink
+          to="/"
+          className="text-2xl pr-4 text-black lg:text-xl font-extrabold tracking-wide hover:opacity-90 transition-opacity"
+        >
+          ST PAUL THOMAS ACADEMY
+        </NavLink>
+
+        <button
+          className="lg:hidden bg-[#e4af23] hover:bg-white p-2 rounded"
+          onClick={() => setIsMobileMenuOpen(o => !o)}
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+        >
+          {isMobileMenuOpen ? (
+            <XMarkIcon className="h-6 w-6 text-[#083056]" />
+          ) : (
+            <Bars3Icon className="h-6 w-6 text-[#083056]" />
+          )}
+        </button>
+
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center text-sm font-bold whitespace-nowrap">
+          <div className="flex items-center border-l border-white px-2 first:border-l-0">
+            <NavLink to="/" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
+              Home
+            </NavLink>
+          </div>
+
+          {orderedKeys.slice(0, 2).map((key) => (
+            <div
+              key={key}
+              ref={el => { dropdownRefs.current[key] = el }}
+              className="relative flex items-center border-l border-black px-2 first:border-l-0"
+              onMouseEnter={() => { clearTimeout(closeTimeout.current); setOpenDropdown(key) }}
+              onMouseLeave={() => { closeTimeout.current = window.setTimeout(() => setOpenDropdown(null), 100) }}
+            >
+              <button
+                onClick={() => toggleDropdown(key)}
+                className="flex items-center gap-1 hover:underline"
+                aria-expanded={openDropdown === key}
+              >
+                {labelMap[key]}
+                <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
+              </button>
+              <div className="relative"> {/* anchor for absolute menu */}
+                <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="lg:w-56" >
+                  {renderDropdownLinks(dropdownItems[key])}
+                </DropdownMenu>
+              </div>
+            </div>
+          ))}
+
+          <div className="flex items-center border-l border-black px-2 first:border-l-0">
+            <NavLink to="/perfomance" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
+              KCPE Results
+            </NavLink>
+          </div>
+
+          {orderedKeys.slice(2, -1).map((key) => (
+            <div
+              key={key}
+              ref={el => { dropdownRefs.current[key] = el }}
+              className="relative flex items-center border-l border-black px-2 first:border-l-0"
+              onMouseEnter={() => { clearTimeout(closeTimeout.current); setOpenDropdown(key) }}
+              onMouseLeave={() => { closeTimeout.current = window.setTimeout(() => setOpenDropdown(null), 100) }}
+            >
+              <button
+                onClick={() => toggleDropdown(key)}
+                className="flex items-center gap-1 hover:underline"
+                aria-expanded={openDropdown === key}
+              >
+                {labelMap[key]}
+                <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
+              </button>
+              <div className="relative">
+                <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="lg:w-56">
+                  {renderDropdownLinks(dropdownItems[key])}
+                </DropdownMenu>
+              </div>
+            </div>
+          ))}
+
+          <div className="flex items-center border-l border-black px-2 first:border-l-0">
+            <NavLink to="/location" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
+              Location
+            </NavLink>
+          </div>
+
+          <div
+            key="getAccess"
+            ref={el => { dropdownRefs.current.getAccess = el }}
+            className="relative flex items-center border-l border-black px-2 first:border-l-0"
+            onMouseEnter={() => { clearTimeout(closeTimeout.current); setOpenDropdown('getAccess') }}
+            onMouseLeave={() => { closeTimeout.current = window.setTimeout(() => setOpenDropdown(null), 100) }}
+          >
+            <button
+              onClick={() => toggleDropdown('getAccess')}
+              className="flex items-center gap-1 hover:underline"
+              aria-expanded={openDropdown === 'getAccess'}
+            >
+              {labelMap.getAccess}
+              <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === 'getAccess' ? 'rotate-180' : 'rotate-0'}`} />
+            </button>
+            <div className="relative">
+              <DropdownMenu isOpen={openDropdown === 'getAccess'} onClose={closeAll} className="lg:w-56">
+                {renderDropdownLinks(dropdownItems.getAccess)}
+              </DropdownMenu>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      {/* Mobile Nav */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-[#74d1f6] text-black p-6 space-y-4" style={{ fontFamily: 'Times New Roman, serif' }}>
+          <nav className="space-y-3">
+            <NavLink to="/" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
+              HOME
+            </NavLink>
+
+            {orderedKeys.slice(0, 2).map((key) => (
+              <div key={key} ref={el => { dropdownRefs.current[key] = el }} className="relative">
+                <button
+                  onClick={() => toggleDropdown(key)}
+                  className="w-full flex justify-between items-center font-semibold"
+                  aria-expanded={openDropdown === key}
+                >
+                  {labelMap[key]}
+                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
+                </button>
+                {/* absolute overlay so it doesn't push content */}
+                <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-full">
+                  {renderDropdownLinks(dropdownItems[key])}
+                </DropdownMenu>
+              </div>
+            ))}
+
+            <NavLink to="/perfomance" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
+              KCPE Results
+            </NavLink>
+
+            {orderedKeys.slice(2, -1).map((key) => (
+              <div key={key} ref={el => { dropdownRefs.current[key] = el }} className="relative">
+                <button
+                  onClick={() => toggleDropdown(key)}
+                  className="w-full flex justify-between items-center font-semibold"
+                  aria-expanded={openDropdown === key}
+                >
+                  {labelMap[key]}
+                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
+                </button>
+                <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-full">
+                  {renderDropdownLinks(dropdownItems[key])}
+                </DropdownMenu>
+              </div>
+            ))}
+
+            <NavLink to="/location" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
+              Location
+            </NavLink>
+
+            <div key="getAccess" ref={el => { dropdownRefs.current.getAccess = el }} className="relative">
+              <button
+                onClick={() => toggleDropdown('getAccess')}
+                className="w-full flex justify-between items-center font-semibold"
+                aria-expanded={openDropdown === 'getAccess'}
+              >
+                {labelMap.getAccess}
+                <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === 'getAccess' ? 'rotate-180' : 'rotate-0'}`} />
+              </button>
+              <DropdownMenu isOpen={openDropdown === 'getAccess'} onClose={closeAll} className="w-full">
+                {renderDropdownLinks(dropdownItems.getAccess)}
+              </DropdownMenu>
+            </div>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Navbar;
  
