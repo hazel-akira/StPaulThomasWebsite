@@ -10,8 +10,8 @@ const WhoWeAre: React.FC = () => {
   </Helmet>
       
   <main
-        className="min-h-screen bg-black text-[#e4af23]"
-        style={{ fontFamily: 'Times New Roman, serif' }}
+        className="min-h-screen font-sans bg-black text-[#e4af23]"
+       
       >
          {/* Section 1:  */}
          <section
@@ -20,7 +20,7 @@ const WhoWeAre: React.FC = () => {
         >
            {/* Overlay: only affects the image */}
            <div className="absolute inset-0 bg-black/50" />      
-           <div className="relative z-10 max-w-2xl mx-auto py-12 px-4 space-y-6 text-2xl">           
+           <div className="relative z-10 max-w-2xl mx-auto font-sans py-12 px-4 space-y-6 text-2xl">           
             Maragua has long been associated with the sisal production, a major revenue earner for the Republic of Kenya since the 1910's Sisal was introduced to East Africa by Dr R Hindorf from bulbils brought in from Florida, USA. <p>
               <br />
               Soon afterwards in 1903 the Kenya Department of Agriculture obtained sisal plants from Tanganika (Now Republic of Tanzania) </p>
