@@ -22,8 +22,12 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   <div
     className={`absolute left-0 top-full mt-1 rounded-lg shadow-lg z-50
          transition-all duration-200 overflow-hidden
-         ${isOpen ? 'opacity-100 max-h-96 pointer-events-auto' : 'opacity-0 max-h-0 pointer-events-none'}
-         ${className}
+         ${isOpen
+          ? 'opacity-100 max-h-[70vh] lg:max-h-96 overflow-y-auto pointer-events-auto'
+          : 'opacity-0 max-h-0 pointer-events-none'
+        }
+         ${className} relative lg:absolute lg:left-0 lg:top-full lg:mt-1
+     
        `}
      >
     {children}
