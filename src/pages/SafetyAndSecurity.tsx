@@ -77,7 +77,7 @@ const features: Feature[] = [
 
 const SafetyAndSecurity: React.FC = () => (
   <>
-    <div className="min-h-screen bg-[#083056]">
+    <div className="min-h-screen font-sans bg-[#083056]">
       <Helmet>
         <title>Safety & Security | St Paul Thomas Academy</title>
         <meta
@@ -87,9 +87,9 @@ const SafetyAndSecurity: React.FC = () => (
       </Helmet>
 
       {/* Page Title */}
-      <section className="py-12 h-[20vh]">
+      <section className="py-12 h-[20vh] font-sans">
         <div className="max-w-4xl mx-auto py-6 space-y-6 px-4 text-left">
-          <h1 className="text-4xl font-serif text-left text-white mb-4">Safety & Security</h1>
+          <h1 className="text-4xl font-sans text-left text-white mb-4">Safety & Security</h1>
           <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
         </div>
       </section>
@@ -104,7 +104,7 @@ const SafetyAndSecurity: React.FC = () => (
 
       {/* Intro Copy */}
       <div className="container max-w-4xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <main className="lg:col-span-3 text-2xl space-y-6 text-gray-100">
+        <main className="lg:col-span-3 font-sans text-2xl space-y-6 text-gray-100">
           <p>
             Student safety is our highest priority. We combine strong procedures with caring relationships so
             learners can focus on growth. From secure access and trained staff to emergency drills and digital
@@ -115,7 +115,7 @@ const SafetyAndSecurity: React.FC = () => (
             Together we build a culture where every learner feels protected, respected, and ready to thrive.
           </p>
         </main>
-        <aside className="lg:col-span-1 text-white/90">
+        <aside className="lg:col-span-1 font-sans text-white/90">
           <div className="rounded-2xl border border-white/20 bg-white/5 p-5 backdrop-blur-sm">
             <h2 className="text-xl font-semibold text-white mb-3">Quick Guidelines</h2>
             <ul className="space-y-2 text-base">
@@ -130,7 +130,7 @@ const SafetyAndSecurity: React.FC = () => (
       </div>
 
       {/* Safety Pillars Grid */}
-      <section className="container max-w-6xl mx-auto px-4 pb-8">
+      <section className="container font-sans max-w-6xl mx-auto px-4 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {features.map(({ title, text, emoji, badgeClass }) => (
             <article
@@ -155,7 +155,7 @@ const SafetyAndSecurity: React.FC = () => (
       </section>
 
       {/* Calls to Action */}
-      <section className="flex flex-col mt-10 sm:flex-row gap-4 justify-center pb-16">
+      <section className="flex flex-col mt-10 sm:flex-row font-sans gap-4 justify-center pb-16">
         <a
           href="/studylife"
           rel="noopener"

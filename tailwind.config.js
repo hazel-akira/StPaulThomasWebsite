@@ -16,8 +16,8 @@ module.exports = {
         dark: "#1a202c"
       },
       fontFamily: {
-        lobster: ["Lobster", "cursive"],
-      }
+        sans: ["Poppins"],
+      },
     }
   },
   plugins: [],

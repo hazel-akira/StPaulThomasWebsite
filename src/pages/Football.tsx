@@ -3,13 +3,13 @@ import { Helmet } from 'react-helmet-async';
 
 const  FootballLife: React.FC = () => (
 <>
-  <div className="min-h-screen bg-[#083056]">
+  <div className="min-h-screen font-sans bg-[#083056]">
     <Helmet>
       <title> Football Life | St Paul Thomas Academy</title>
     </Helmet>
 <section className="py-12 h-[20vh]">
         <div className="max-w-4xl mx-auto py-6 space-y-6 px-4 text-left">
-          <h1 className="text-4xl font-serif text-left text-white mb-4">
+          <h1 className="text-4xl font-sans text-left text-white mb-4">
           Football Life
           </h1>
           <div className="mx-auto  mb-6 h-4 bg-white w-full"></div>
@@ -18,13 +18,13 @@ const  FootballLife: React.FC = () => (
     {/* Hero Section */}
     <section
       className="relative h-[70vh] bg-cover bg-center flex items-center "
-      style={{ backgroundImage: "url('/images/football.webp')",fontFamily: 'Times New Roman, serif' }}>
+      style={{ backgroundImage: "url('/images/football.webp')"}}>
       <div className="absolute inset-0 bg-black/40" />
     </section>
  
     <div className="container max-w-4xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-4 gap-8">
       {/* Description */}
-      <main className="lg:col-span-3 text-2xl space-y-6 text-gray-100">
+      <main className="lg:col-span-3 text-2xl font-sans space-y-6 text-gray-100">
         <p>
         At St. Thomas, we recognize the unique challenges and opportunities that come with pursuing a career in football, and we are committed to supporting our student-athletes as they navigate the highs and lows of the beautiful game. <br /> 
        <br />

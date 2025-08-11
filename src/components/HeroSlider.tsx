@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
         </Helmet>
     <section
       id="home"
-      className="relative min-h-[100vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100vh] font-sans flex items-center justify-center overflow-hidden"
     >
       {slides.map((slide, idx) => (
         <div
@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
       ))}
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h3 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-white drop-shadow mb-8">
+        <h3 className="text-3xl md:text-5xl lg:text-6xl  text-white drop-shadow mb-8">
           At St Paul Thomas Academy we are fully resourced with human capital to meet your child’s need
         </h3>
         {/* <Button>Learn More</Button> */}

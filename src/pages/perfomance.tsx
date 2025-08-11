@@ -153,7 +153,7 @@ export default function BeInspired() {
       <Helmet>
         <title>KCPE Results | St Paul Thomas Academy</title>
       </Helmet>
-      <div className="min-h-screen bg-gradient-to-br from-slate-200 via-blue-50 to-indigo-50">
+      <div className="min-h-screen font-sans bg-gradient-to-br from-slate-200 via-blue-50 to-indigo-50">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-[#13365e] via-blue-900 to-[#093057]">
           <div className="absolute inset-0 bg-black/20"></div>
@@ -167,7 +167,7 @@ export default function BeInspired() {
                 KCPE Results
                 <span className="bg-gradient-to-r from-yellow-400 to-[#df8811] bg-clip-text text-transparent"> Analytics</span>
               </h1>
-              <p className="text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed ">
+              <p className="text-xl text-gray-100 max-w-3xl font-sans mx-auto leading-relaxed ">
                 
               "Parents often choose academies over public schools for various reasons, with academic performance being a significant factor".
 <br />

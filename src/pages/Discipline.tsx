@@ -85,7 +85,7 @@ const Discipline: React.FC = () => (
       {/* Page Title */}
       <section className="py-12 h-[20vh]">
         <div className="max-w-4xl mx-auto py-6 space-y-6 px-4 text-left">
-          <h1 className="text-4xl font-serif text-left text-white mb-4">Discipline</h1>
+          <h1 className="text-4xl font-sans text-left text-white mb-4">Discipline</h1>
           <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
         </div>
       </section>
@@ -93,14 +93,14 @@ const Discipline: React.FC = () => (
       {/* Hero Section */}
       <section
         className="relative h-[60vh] bg-cover bg-center flex items-center"
-        style={{ backgroundImage: "url('/images/discipline.webp')", fontFamily: 'Times New Roman, serif' }}
+        style={{ backgroundImage: "url('/images/discipline.webp')"}}
       >
         <div className="absolute inset-0 bg-black/20" />
       </section>
 
       {/* Intro Copy */}
       <div className="container max-w-4xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <main className="lg:col-span-3 text-2xl space-y-6 text-gray-100">
+        <main className="lg:col-span-3 font-sans text-2xl space-y-6 text-gray-100">
           <p>
           At St. Paul Thomas Academy, we prioritize discipline as a fundamental aspect of our holistic education.
            Our scouts program plays a crucial role in nurturing this essential trait within our students. 
@@ -113,7 +113,7 @@ const Discipline: React.FC = () => (
           </p>
         </main>
         <aside className="lg:col-span-1 text-white/90">
-          <div className="rounded-2xl border border-white/20 bg-white/5 p-5 backdrop-blur-sm">
+          <div className="rounded-2xl font-sans border border-white/20 bg-white/5 p-5 backdrop-blur-sm">
             <h2 className="text-xl font-semibold text-white mb-3">Quick Guidelines</h2>
             <ul className="space-y-2 text-base">
               <li>• Be punctual and prepared for learning.</li>
@@ -127,7 +127,7 @@ const Discipline: React.FC = () => (
       </div>
 
       {/* Pillars Grid */}
-      <section className="container max-w-6xl mx-auto px-4 pb-8">
+      <section className="container font-sans max-w-6xl mx-auto px-4 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {features.map(({ title, text, emoji, badgeClass }) => (
             <article
@@ -152,7 +152,7 @@ const Discipline: React.FC = () => (
       </section>
 
       {/* Calls to Action */}
-      <section className="flex flex-col mt-10 sm:flex-row gap-4 justify-center pb-16">
+      <section className="flex flex-col font-sans mt-10 sm:flex-row gap-4 justify-center pb-16">
         <a
           href="/chaplaincy"
           rel="noopener"

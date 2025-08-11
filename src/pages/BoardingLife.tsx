@@ -6,7 +6,7 @@
 import InfoCard from '../components/InfoCard';
 
 const BoardingLife: React.FC = () => (
-  <div className="min-h-screen flex flex-col bg-[#f9fafb]">
+  <div className="min-h-screen flex flex-col font-sans bg-[#f9fafb]">
     
 
     {/* Hero */}

@@ -6,10 +6,10 @@ const Talent: React.FC = () => (
       <title>Talents | St Paul Thomas Academy</title>
     </Helmet>
 
-  <div className="min-h-screen bg-[#083056]">
+  <div className="min-h-screen font-sans bg-[#083056]">
   <section className="py-12 h-[20vh]">
         <div className="max-w-4xl mx-auto py-6 space-y-6 px-4 text-left">
-          <h1 className="text-4xl font-serif text-left text-white mb-4">
+          <h1 className="text-4xl font-sans text-left text-white mb-4">
           Talents @ St Paul Thomas Academy
           </h1>
           <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
@@ -20,7 +20,7 @@ const Talent: React.FC = () => (
     {/* Hero Section */}
     <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/talent.webp')" ,fontFamily: 'Times New Roman, serif' }}
+      style={{ backgroundImage: "url('/images/talent.webp')" }}
     >
       <div className="absolute inset-0 bg-[#74d1f6]/30" />
       <div className="relative z-10 text-center flex flex-col items-center space-y-6">
@@ -31,7 +31,7 @@ const Talent: React.FC = () => (
 
 
     {/* Main Content */}
-    <section className="container max-w-4xl mx-auto l px-4 py-16 space-y-8 text-gray-100">
+    <section className="container max-w-4xl mx-auto l px-4 font-sans py-16 space-y-8 text-gray-100">
     <p className="text-gray-100 text-xl leading-relaxed">
       The process of honing talent begins with recognition - an acknowledgment of the innate gifts and passions that each individual possesses. Through observation, assessment, and open dialogue, we work closely with students to identify their strengths, interests, and areas for growth, laying the groundwork for a personalized journey of talent development. 
 </p>
@@ -43,7 +43,7 @@ const Talent: React.FC = () => (
     </section>
 
     {/* Calls to Action */}
-    <section className="flex flex-col mt-6 sm:flex-row gap-4 justify-center">
+    <section className="flex flex-col mt-6 font-sans sm:flex-row gap-4 justify-center">
     <a
     href="/band"
     rel="noopener"

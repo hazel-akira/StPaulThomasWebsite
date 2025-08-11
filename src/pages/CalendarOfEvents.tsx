@@ -66,7 +66,7 @@ const CalendarOfEvents: React.FC = () => {
     <>  <Helmet>
     <title> Calendar Of Events | Pioneer School</title>
   </Helmet>
-    <div className="bg-slate-200 min-h-screen">
+    <div className="bg-slate-200 font-sans min-h-screen">
       <div className="container mx-auto p-4 md:p-6">
         {/* Header */}
         <div className="text-center mb-12">

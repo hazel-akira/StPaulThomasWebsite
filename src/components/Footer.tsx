@@ -18,7 +18,7 @@ import {
 import { NavLink } from 'react-router-dom'
 
 const Footer: React.FC = () => (
-  <footer className="bg-[#e4af23] text-[#083056] font-serif shadow-lg px-10">
+  <footer className="bg-[#e4af23] text-[#083056] font-sans shadow-lg px-10">
     <div className="max-w-9xl mx-auto py-6">
       {/* Top Separator */}
       <div className="w-full border-t-2 border-white mt-0.5 mb-0.5 text-left" />
@@ -37,7 +37,7 @@ const Footer: React.FC = () => (
               { to: '/who', icon: <Users size={14} />, label: 'Who We Are' },
               { to: '/perfomance', icon: <GraduationCap size={14} />, label: 'KCPE Results' },
               { to: '/nurture', icon: <UserCheck size={14} />, label: 'Nurture' },
-              { to: '/study', icon: <BookOpen size={14} />, label: 'Study Life' },
+              { to: '/studylife', icon: <BookOpen size={14} />, label: 'Study Life' },
               { to: '/talent', icon: <Building2 size={14} />, label: 'Talent' },
               { to: '/fees', icon: <DollarSign size={14} />, label: 'Our Friendly Fees' },
               { to: '/join', icon: <UserPlus size={14} />, label: ' How To Join Us' },
@@ -78,13 +78,13 @@ const Footer: React.FC = () => (
             {/* Address */}
               <div className="flex items-start space-x-2 "> <MapPin size={24} />
                 <a href="https://maps.app.goo.gl/oUQbvDr7T3PNzCSC7 " className=' hover:text-white'>
-               <p> P.O. BOX 625-10205 MARAGUA</p>
+               <p> P.O. BOX 555-10205 MARAGUA</p>
               <p>
-                    Along Kenol-Sagana Road, Samar Location, Ichagaki Ward,
-                    Maragua, Murang'a County
+                    Along Kenol-Murang'a Road,
+                    Samar Location, Ichagaki,
+                    Murang'a County
                 </p>
-                </a>
-    
+                </a>    
     </div>
   </div>
 </div>

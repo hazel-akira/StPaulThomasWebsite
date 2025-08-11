@@ -9,7 +9,7 @@ const Cycling: React.FC = () => (
     </Helmet>
 <section className="py-12 h-[20vh]">
         <div className="max-w-4xl mx-auto py-6 space-y-6 px-4 text-left">
-          <h1 className="text-4xl font-serif text-left text-white mb-4">
+          <h1 className="text-4xl font-sans text-left text-white mb-4">
           Cycling
           </h1>
           <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
@@ -18,7 +18,7 @@ const Cycling: React.FC = () => (
     {/* Hero Section */}
     <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/CYCLE.webp')",fontFamily: 'Times New Roman, serif' }}>
+      style={{ backgroundImage: "url('/images/CYCLE.webp')"}}>
       <div className="absolute inset-0 bg-black/40" />
     </section>
  

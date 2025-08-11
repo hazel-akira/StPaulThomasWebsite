@@ -7,13 +7,13 @@ import Home from './pages/Home'
 //import Transform from './pages/Transform'
 import History from './components/History'
 import Leadership from './pages/Leadership'
-import Leaders from './pages/Leaders'
+
 import Nurture from './pages/Nurture'
 import Nurturing from './pages/nurturing'
 import TailorMadeLeadershipPathways from './pages/TailorMadeLeadershipPathways'
-import SchoolOfSTEM from './pages/SchoolOfStem'
-import SchoolOfSocialSciences from './pages/SchoolOfSocialSciences'
-import SchoolOfArtsAndSportsScience from './pages/SchoolOfArtsAndSportsScience'
+//import SchoolOfSTEM from './pages/SchoolOfStem'
+//import SchoolOfSocialSciences from './pages/SchoolOfSocialSciences'
+//import SchoolOfArtsAndSportsScience from './pages/SchoolOfArtsAndSportsScience'
 import Seafarers from './pages/Seafarers'
 import Aviator from './pages/YoungAirCadet'
 import StudyLife from './pages/StudyLife'
@@ -76,16 +76,16 @@ export default function App() {
         <Route path='/who' element={<WhoWeAre />} />
         <Route path='/history' element={<History />} />
         <Route path='/leadership' element={<Leadership />} />
-        <Route path='/leaders' element={<Leaders/>} />
+  
        
         <Route path='/nurturing' element={<Nurturing/>} />
         <Route path='/tailor-made-leadership-pathways' element={<TailorMadeLeadershipPathways />} />
 
-        {/* schools */}
+        {/* schools 
         <Route path='school-of-science-technology-engineering-and-mathematics' element={<SchoolOfSTEM />} />
         <Route path='school-of-social-sciences' element={<SchoolOfSocialSciences />} />
         <Route path='school-of-arts-and-sports-science' element={<SchoolOfArtsAndSportsScience />} />
-
+*/}
         {/* special programs */}
         <Route path='seafarers' element={<Seafarers />} />
         <Route path='aviator' element={<Aviator />} />

@@ -10,7 +10,7 @@ const TermsAndConditions: React.FC = () => {
       </Helmet>
       <div
         className="bg-[#083056]/20 min-h-screen text-[#083056] py-16 px-4"
-        style={{ fontFamily: 'Times New Roman, serif' }}
+        
       >
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Page title */}

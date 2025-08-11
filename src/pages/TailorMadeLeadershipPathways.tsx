@@ -41,11 +41,11 @@ const cards = [
 ];
 
 const TailorMadeLeadershipPathways: React.FC = () => (
-  <div className="min-h-screen flex flex-col bg-[#093056]">
+  <div className="min-h-screen font-sans flex flex-col bg-[#093056]">
    
    <section className="py-12 h-[20vh]">
         <div className="max-w-6xl mx-auto py-6 space-y-6 px-4 text-left">
-          <h1 className="text-4xl font-serif text-left text-white mb-4">
+          <h1 className="text-4xl font-sans text-left text-white mb-4">
         Tailor Made Leadership Pathways
           </h1>
           <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
@@ -54,14 +54,14 @@ const TailorMadeLeadershipPathways: React.FC = () => (
 
     {/* Hero Section */}
     <section className="relative h-[80vh] bg-cover bg-center flex items-center justify-center "
-      style={{ backgroundImage: "url('/images/path1.webp')" ,fontFamily: 'Times New Roman, serif' }}>
+      style={{ backgroundImage: "url('/images/path1.webp')"}}>
     
     </section>
 
     {/* Intro & Outcomes */}
-    <section className="py-16">
+    <section className="py-16 font-sans">
       <div className="container max-w-4xl space-y-8 mx-auto px-4 gap-12  md:grid-cols-2">
-          <p className="text-gray-100  text-xl leading-relaxed mb-6">
+          <p className="text-gray-100   text-xl leading-relaxed mb-6">
           At St. Paul Thomas Academy, we value each student's uniqueness, passions, and aspirations. With a strong reputation for trustworthiness, integrity, and academic excellence, our Academy guides students towards responsible adulthood. Our curriculum balances rigorous academic standards with engaging teaching methods, promoting creativity and innovation. We offer a well-rounded education through a variety of academic, co-curricular, and extracurricular activities. Our dedicated educators uphold the highest standards both in and out of the classroom. </p>
         </div>
         <div className="container max-w-4xl text-xl md:text-xl space-y-8 mx-auto px-4 gap-12  md:grid-cols-2"> 
@@ -85,7 +85,7 @@ const TailorMadeLeadershipPathways: React.FC = () => (
     </section>
 
     {/* Cards Grid */}
-    <section className="py-16  ">
+    <section className="py-16 font-sans  ">
       <div className="container mx-auto px-4 text-center mb-12">
         <h2 className="text-4xl py-4 md:text-4xl font-bold text-white">
         COMPULSORY SUBJECTS 

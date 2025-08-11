@@ -13,7 +13,7 @@ const features: Feature[] = [
   {
     title: 'Holistic Development',
     text:
-      'We focus on nurturing the whole child—academically, emotionally, socially, and physically—ensuring comprehensive growth and well-being.',
+      'We focus on nurturing the whole child - academically, emotionally, socially, and physically - ensuring comprehensive growth and well-being.',
     emoji: '🧩',
     badgeClass: 'from-blue-500 via-sky-400 to-cyan-400',
   },
@@ -62,14 +62,14 @@ const features: Feature[] = [
   {
     title: 'Partnership with Parents',
     text:
-      'Active collaboration with parents ensures consistent support and clear communication around each learner’s journey.',
+      'We actively involve parents in their childrens education, fostering collaboration and communication to provide the best support for each student.',
     emoji: '🏠',
     badgeClass: 'from-orange-400 via-amber-400 to-yellow-400',
   },
   {
     title: 'Lifelong Impact',
     text:
-      'Graduates leave St. Paul Thomas with values, habits, and mindsets to make a lasting difference in the world.',
+      'Our nurturing environment ensures that students leave St. Thomas with the skills, values, and mindset needed to make a positive difference in the world.',
     emoji: '♾️',
     badgeClass: 'from-fuchsia-500 via-purple-500 to-indigo-500',
   },
@@ -77,7 +77,7 @@ const features: Feature[] = [
 
 const Nurture: React.FC = () => (
   <>
-  <div className="min-h-screen bg-[#062747] ">
+  <div className="min-h-screen font-sans bg-[#062747] ">
     <Helmet>
       <title>Nurture | St Paul Thomas Academy</title>
       <meta
@@ -89,23 +89,24 @@ const Nurture: React.FC = () => (
     {/* Hero */}
     <section className="relative overflow-hidden bg-[#062747]">
       <div className="container mx-auto px-4 md:px-8 py-16 text-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
-          Nurturing Environment at St. Paul Thomas Academy
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-sans font-semibold tracking-tight text-white">
+          Nurturing @  St. Paul Thomas Academy
         </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-white/80">
-          We grow minds and character - connecting excellent teaching with strong wellbeing and life‑ready skills.
-        </p>
+       
       </div>
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_60%)]" />
     </section>
     <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/nurture1.webp')",fontFamily: 'Times New Roman, serif' }}>
+      style={{ backgroundImage: "url('/images/nurture1.webp')"}}>
       <div className="absolute inset-0 bg-black/40" />
     </section>
 
     {/* Features Grid with colorful icons */}
-    <main className="container mx-auto py-12 px-4  md:px-8">
+    <main className="container mx-auto  py-12 px-4  md:px-8">
+    <h1 className="text-2xl sm:text-3xl  md:text-4xl mb-6 font-sans text-center font-semibold tracking-tight text-white">
+    Nurturing Environment at St. Paul Thomas Academy
+        </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {features.map(({ title, text, emoji, badgeClass }) => (
           <article

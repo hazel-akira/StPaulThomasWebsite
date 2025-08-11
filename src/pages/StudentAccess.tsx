@@ -42,7 +42,7 @@ const StudentAccess: React.FC = () => (
   <div className="flex flex-col min-h-screen bg-[#083056]">
     {/* Hero */}
     <section
-      className="relative h-[60vh] md:h-80 flex flex-col items-center justify-center text-white bg-cover bg-center"
+      className="relative h-[60vh]  flex flex-col items-center justify-center text-white bg-cover bg-center"
       style={{ backgroundImage: "url('/images/studentAccess.webp')" }}
     >
       {/* dark overlay */}

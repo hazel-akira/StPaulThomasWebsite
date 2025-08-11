@@ -7,11 +7,11 @@ const CodingLife: React.FC = () => (
       <title>Coding Life | St Paul Thomas Academy</title>
     </Helmet>
 
-  <div className="min-h-screen bg-[#083056] text-white" style={{ fontFamily: 'Times New Roman, serif'  }}>
+  <div className="min-h-screen bg-[#083056] text-white">
   
   <section className="py-12 h-[20vh]">
         <div className="max-w-6xl mx-auto py-6 space-y-6 px-4 text-left">
-          <h1 className="text-4xl font-serif text-left text-white mb-4">
+          <h1 className="text-4xl font-sans text-left text-white mb-4">
           Coders Life
           </h1>
           <div className="mx-auto mb-6 h-4 bg-white w-full"></div>

@@ -6,11 +6,11 @@ const BandLife: React.FC = () => (
   <Helmet>
       <title>Band Life | St Paul Thomas Academy</title>
     </Helmet>
-  <div className="min-h-screen bg-[#083056]">
+  <div className="min-h-screen font-sans bg-[#083056] ">
     
   <section className="py-12 h-[20vh]">
         <div className="max-w-4xl mx-auto py-6 space-y-6 px-4 text-left">
-          <h1 className="text-4xl font-serif text-left text-white mb-4">
+          <h1 className="text-4xl font-sans text-left text-white mb-4">
           Marching Band Life
           </h1>
           <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
@@ -20,7 +20,7 @@ const BandLife: React.FC = () => (
     {/* Hero Section */}
     <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/band.webp')",fontFamily: 'Times New Roman, serif' }}
+      style={{ backgroundImage: "url('/images/band.webp')"}}
     >
       <div className="absolute inset-0 bg-[#74d1f6]/30" />
    
@@ -34,7 +34,7 @@ const BandLife: React.FC = () => (
     </section>
     <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/band2.webp')",fontFamily: 'Times New Roman, serif' }}
+      style={{ backgroundImage: "url('/images/band2.webp')" }}
     >
       <div className="absolute inset-0 bg-[#74d1f6]/30" />
    
@@ -47,14 +47,14 @@ const BandLife: React.FC = () => (
     </section>
     <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/band3.webp')",fontFamily: 'Times New Roman, serif' }}
+      style={{ backgroundImage: "url('/images/band3.webp')" }}
     >
       <div className="absolute inset-0 bg-[#74d1f6]/30" />
    
     </section>
  
     {/* Calls to Action */}
-    <section className="flex flex-col mt-6 sm:flex-row gap-4 justify-center">
+    <section className="flex flex-col font-sans mt-6 sm:flex-row gap-4 justify-center">
     
     <a
     href="/chess"

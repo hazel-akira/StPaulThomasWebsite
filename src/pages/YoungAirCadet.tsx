@@ -8,11 +8,10 @@ const YoungAirCadet: React.FC = () => (
       <title>Young Air Cadet | St Paul Thomas Academy</title>
     </Helmet>
 
-  <div className="min-h-screen bg-[#083056]" 
-  style={{ fontFamily: 'Times New Roman, serif'  }}>
+  <div className="min-h-screen bg-[#083056]" >
   <section className="py-12 h-[20vh]">
         <div className="max-w-6xl mx-auto py-6 space-y-6 px-4 text-left">
-          <h1 className="text-4xl font-serif text-left text-white mb-4">
+          <h1 className="text-4xl font-sans text-left text-white mb-4">
          Young Air Cadet
           </h1>
           <div className="mx-auto mb-6 h-4 bg-white w-full"></div>
@@ -30,7 +29,7 @@ const YoungAirCadet: React.FC = () => (
     {/* Main Content */}
     <div className="bg-[#083056] text-white py-16 px-4">
       {/* Description */}
-      <main className="max-w-4xl mx-auto space-y-8">
+      <main className="max-w-4xl font-sans mx-auto space-y-8">
         <p className="text-gray-100 text-xl leading-relaxed">
           Young Air Cadets, with their eyes fixed on the boundless sky and hearts filled with dreams of flight, epitomize the spirit of adventure, discipline, and service. At St. Thomas, we are honored to support these aspiring aviators as they embark on a journey that will not only shape their futures but also instill in them values that will guide them throughout their lives.
         </p>
@@ -44,7 +43,7 @@ const YoungAirCadet: React.FC = () => (
     <a
       href="/coding"
       rel="noopener"
-      className="inline-block border mb-6  border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+      className="inline-block border mb-6 font-sans  border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
     >
       Coding Life
     </a>

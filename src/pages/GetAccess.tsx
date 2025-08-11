@@ -39,9 +39,9 @@ const portals = [
 const GetAccess: React.FC = () => {
   return(
     <>  <Helmet>
-    <title> Get Access | Pioneer School</title>
+    <title> Get Access | St Paul Thomas Academy</title>
   </Helmet>
-  <div className="flex flex-col min-h-screen  bg-cover bg-center"
+  <div className="flex flex-col min-h-screen font-sans bg-cover bg-center"
   style={{ backgroundImage: `url(${getAccessBg})` }}>
   
     {/* Hero / Intro */}

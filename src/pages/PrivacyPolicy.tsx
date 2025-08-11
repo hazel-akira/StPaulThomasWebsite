@@ -8,7 +8,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
   return (
     <main className="bg-white py-16 px-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl font-sans mx-auto">
         {/* Title Card */} 
         <section className="space-y-8 shadow-lg p-8 w-full bg-white rounded-2xl mb-12">
           <div className=" shadow-lg p-8 bg-white rounded-2xl mb-12">
@@ -23,7 +23,7 @@ const PrivacyPolicyPage: React.FC = () => {
           {/* Sections */}
           {/* Intro */}
           <div className="p-6">
-            <h2 className="text-2xl font-semibold text-[#093057] mb-4 border-l-4 border-[#df8811] pl-4">
+            <h2 className="text-2xl font-semibold font-sans text-[#093057] mb-4 border-l-4 border-[#df8811] pl-4">
               Introduction
             </h2>
             <p className="text-gray-700 leading-relaxed">

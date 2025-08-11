@@ -77,7 +77,7 @@ const features: Feature[] = [
 
 const HomeFromHome: React.FC = () => (
   <>
-  <div className="min-h-screen flex flex-col bg-[#062747]">
+  <div className="min-h-screen flex font-sans flex-col bg-[#062747]">
     <Helmet>
       <title>Home From Home | St Paul Thomas Academy</title>
       <meta
@@ -93,7 +93,7 @@ const HomeFromHome: React.FC = () => (
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
           Home‑from‑Home
         </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-white/80">
+        <p className="mt-4 max-w-2xl font-sans mx-auto text-white/80">
           A caring, structured boarding experience that feels like family and supports every learner’s growth.
         </p>
       </div>
@@ -101,12 +101,12 @@ const HomeFromHome: React.FC = () => (
     </section>
     <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/home.webp')",fontFamily: 'Times New Roman, serif' }}>
+      style={{ backgroundImage: "url('/images/home.webp')"}}>
       <div className="absolute inset-0 bg-black/40" />
     </section>
 
     {/* Features Grid with colorful emoji badges */}
-    <main className="container mx-auto py-12 px-4 md:px-8">
+    <main className="container font-sans mx-auto py-12 px-4 md:px-8">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {features.map(({ title, text, emoji, badgeClass }) => (
           <article

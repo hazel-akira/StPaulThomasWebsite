@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 
 const StudyLife: React.FC = () => (
-  <div className="min-h-screen bg-[#083056]"style={{ fontFamily: 'Times New Roman, serif'  }}>
+  <div className="min-h-screen font-sans bg-[#083056]">
     <Helmet>
       <title>Study Life | St Paul Thomas Academy</title>
     </Helmet>
@@ -25,20 +25,14 @@ const StudyLife: React.FC = () => (
       <p className="text-xl">
         However, we do not ignore the basic human skills.
       </p>
+      <section
+      className="relative h-[70vh] bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/images/study2.webp')" }}
+    >
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+     
+    </section>
 
-      {/* Illustrative Images */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <img
-          src="/images/study1.webp"
-          alt="Students engaged in STEM activities"
-          className="w-full rounded-lg shadow"
-        />
-        <img
-          src="/images/study2.webp"
-          alt="Students practicing human skills"
-          className="w-full rounded-lg shadow"
-        />
-      </div>
     </section>
     {/* Calls to Action */}
  <section className="flex flex-col sm:flex-row gap-4 justify-center">
