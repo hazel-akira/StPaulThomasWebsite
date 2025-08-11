@@ -77,7 +77,7 @@ const features: Feature[] = [
 
 const Nurture: React.FC = () => (
   <>
-  <div className="min-h-screen bg-[#74d1f6]">
+  <div className="min-h-screen bg-[#062747] ">
     <Helmet>
       <title>Nurture | St Paul Thomas Academy</title>
       <meta

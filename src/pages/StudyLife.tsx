@@ -8,7 +8,7 @@ const StudyLife: React.FC = () => (
 
     {/* Hero Section */}
     <section
-      className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
+      className="relative h-[70vh] bg-cover bg-center flex items-center justify-center"
       style={{ backgroundImage: "url('/images/study1.webp')" }}
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>

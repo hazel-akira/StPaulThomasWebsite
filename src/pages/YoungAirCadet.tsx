@@ -3,12 +3,13 @@ import { Helmet } from 'react-helmet-async';
 
 const YoungAirCadet: React.FC = () => (
   <>
+  
   <Helmet>
       <title>Young Air Cadet | St Paul Thomas Academy</title>
     </Helmet>
+
   <div className="min-h-screen bg-[#083056]" 
   style={{ fontFamily: 'Times New Roman, serif'  }}>
-
   <section className="py-12 h-[20vh]">
         <div className="max-w-6xl mx-auto py-6 space-y-6 px-4 text-left">
           <h1 className="text-4xl font-serif text-left text-white mb-4">
@@ -37,9 +38,9 @@ const YoungAirCadet: React.FC = () => (
           Our program for young Air Cadets is designed to provide a comprehensive and enriching experience that combines theoretical knowledge with practical training, all under the guidance of experienced aviation professionals and mentors. From the moment they enroll in our program, students are immersed in a dynamic learning environment that fosters curiosity, teamwork, and a passion for aviation.
         </p>
       </main></div>
+
       {/* Calls to Action */}
- <section className="flex flex-col sm:flex-row gap-4 justify-center">
-    
+ <section className="flex flex-col sm:flex-row gap-4 justify-center">  
     <a
       href="/coding"
       rel="noopener"

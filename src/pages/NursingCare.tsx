@@ -21,7 +21,7 @@ const cards = [
   },
   {
     title: 'Emergency Response Team',
-    description: 'Our on-campus Fire & St John’s Ambulance team—working with local police and fire stations - ensures a safe environment.', 
+    description: 'Our on-campus Fire & St John’s Ambulance team - working with local police and fire stations - ensures a safe environment.', 
     imageSrc: '/images/Fire-engine.jpg',
   },
 ];
@@ -30,12 +30,12 @@ const NursingCare: React.FC = () => {
   return (  <>  <Helmet>
   <title> Nursing Care | St Paul Thomas Academy</title>
 </Helmet>
-  <div className="min-h-screen flex flex-col bg-[#f9fafb]">
+  <div className="min-h-screen flex flex-col bg-[#062747]">
 
 
     {/* Hero */}
     <section
-      className="relative h-[50vh] bg-cover bg-center"
+      className="relative h-[70vh] bg-cover bg-center"
       style={{ backgroundImage: "url('/images/nurse.webp')" }}
     >
       <div className="absolute inset-0 bg-[#093056] opacity-60" />

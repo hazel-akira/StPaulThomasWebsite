@@ -74,7 +74,7 @@ const Farm2Fork: React.FC = () => {
 
   return (
     <>
-    <div className="min-h-screen flex flex-col bg-[#74d1f6]">
+    <div className="min-h-screen flex flex-col bg-[#093056]">
     <Helmet>
       <title>Farm 2 Fork | St Paul Thomas Academy</title>
       
@@ -82,7 +82,7 @@ const Farm2Fork: React.FC = () => {
 
       {/* Hero */}
       <section
-        className="relative h-[50vh] bg-cover bg-center"
+        className="relative h-[70vh] bg-cover bg-center"
         style={{ backgroundImage: "url('/images/Gardening.webp')" }}
       >
         <div className="absolute inset-0 bg-[#093056] opacity-60" />

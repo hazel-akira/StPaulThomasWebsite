@@ -3,7 +3,7 @@
 
 
 const Chaplaincy: React.FC = () => (
-  <div className="min-h-screen flex  flex-col bg-[#74d1f6]">
+  <div className="min-h-screen flex  flex-col bg-[#062747]">
 
 
     {/* Hero */}

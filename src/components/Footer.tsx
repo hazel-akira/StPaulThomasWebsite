@@ -10,6 +10,10 @@ import {
   DollarSign,
   Navigation,
   Key,
+  Phone,
+  Mail,
+  MapPin
+
 } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 
@@ -31,7 +35,7 @@ const Footer: React.FC = () => (
             {[
               { to: '/', icon: <Home size={14} />, label: 'Home' },
               { to: '/who', icon: <Users size={14} />, label: 'Who We Are' },
-              { to: '/results', icon: <GraduationCap size={14} />, label: 'KCPE Results' },
+              { to: '/perfomance', icon: <GraduationCap size={14} />, label: 'KCPE Results' },
               { to: '/nurture', icon: <UserCheck size={14} />, label: 'Nurture' },
               { to: '/study', icon: <BookOpen size={14} />, label: 'Study Life' },
               { to: '/talent', icon: <Building2 size={14} />, label: 'Talent' },
@@ -56,39 +60,31 @@ const Footer: React.FC = () => (
         {/* Contact Us */}
         <div>
           <h3 className=" text-[#083056] text-xl font-bold uppercase tracking-wide mb-2">
-            Contact Us
+            Contact Us 
             </h3>
             <div className="space-y-2 text-base">
              {/* Phone */}
               <div className="flex items-center space-x-2 ">
-                Telephone : 
-                <a href="tel:+254205038065" className='font-bold hover:text-white'><span> 020 5038097</span></a>
+               <Phone size={14} />
+                <a href="tel:+254205038065" className=' hover:text-white'><span> 020 5038097</span></a>
               </div>
 
              {/* Email */}
                <div className="flex items-center space-x-2  ">
-                Email :
-                
-                  <a href="mailto:admissions@stpaulthomasacademy.ac.ke" className='hover:text-white font-bold'> <span> admissions@stpaulthomasacademy.ac.ke</span></a>
+             <Mail size={16} />               
+                  <a href="mailto:admissions@stpaulthomasacademy.ac.ke" className='hover:text-white '>  <span> admissions@stpaulthomasacademy.ac.ke</span></a>
               </div>
 
             {/* Address */}
-              <div className="flex items-start space-x-2 ">
-
-                Location:
-
-              <div> 
-
-              <a href="https://maps.app.goo.gl/oUQbvDr7T3PNzCSC7 " className='font-bold hover:text-white'>
-
-                <p> P.O. BOX 625-10205 MARAGUA</p>
-
-                 <p>
+              <div className="flex items-start space-x-2 "> <MapPin size={24} />
+                <a href="https://maps.app.goo.gl/oUQbvDr7T3PNzCSC7 " className=' hover:text-white'>
+               <p> P.O. BOX 625-10205 MARAGUA</p>
+              <p>
                     Along Kenol-Sagana Road, Samar Location, Ichagaki Ward,
                     Maragua, Murang'a County
                 </p>
                 </a>
-      </div>
+    
     </div>
   </div>
 </div>
