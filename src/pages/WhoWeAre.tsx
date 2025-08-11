@@ -47,7 +47,7 @@ const WhoWeAre: React.FC = () => {
         >
           <div className="absolute inset-0 bg-black/50" />
 
-          <div className="relative z-10 max-w-2xl mx-auto py-12 px-4 space-y-6 text-2xl">
+          <div className="relative z-10 max-w-2xl font-sans mx-auto py-12 px-4 space-y-6 text-2xl">
          
             St Paul Thomas Academy is a Private Upper Primary Boys Boarding located in Samar Location, Ichagaki Ward, Maragua constituency, Murang'a County.
             <br />
