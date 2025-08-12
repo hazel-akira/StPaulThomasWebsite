@@ -160,7 +160,7 @@ const Footer: React.FC = () => (
     <div className=" mt-6 pt-2">
       {/* Center just the text background */}
       <div className="flex justify-center">
-        <h2 className="px-4 py-2 bg-[#b7ccbc] fo rounded-full font-bold text-black text-2xl font-serif">
+        <h2 className="px-4 py-2 bg-[#b7ccbc] fo rounded-full font-bold text-black text-2xl ">
           Vitae Abudantae | Life In Abundance
         </h2>
       </div>

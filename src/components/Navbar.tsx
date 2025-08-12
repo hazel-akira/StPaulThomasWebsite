@@ -24,7 +24,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     className={`absolute left-0 top-full mt-1 rounded-lg shadow-lg z-50
          transition-all duration-200 overflow-hidden
          ${isOpen
-          ? 'opacity-100 max-h-[70vh] lg:max-h-96 overflow-y-auto pointer-events-auto'
+          ? 'opacity-100 max-h-[80vh] lg:max-h-96 overflow-y-auto pointer-events-auto'
           : 'opacity-0 max-h-0 pointer-events-none'
         }
          ${className} relative lg:absolute lg:left-0 lg:top-full lg:mt-1
@@ -237,7 +237,7 @@ const Navbar: React.FC = () => {
                 {labelMap[key]}
                 <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
               </button>
-              <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-56">
+              <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-70">
                 {renderDropdownLinks(dropdownItems[key])}
               </DropdownMenu>
             </div>
@@ -267,7 +267,7 @@ const Navbar: React.FC = () => {
                 {labelMap[key]}
                 <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
               </button>
-              <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-56">
+              <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-56 h-auto">
                 {renderDropdownLinks(dropdownItems[key])}
               </DropdownMenu>
             </div>
