@@ -66,7 +66,7 @@ const Footer: React.FC = () => (
              {/* Phone */}
               <div className="flex items-center space-x-2 ">
                <Phone size={14} />
-                <a href="tel:+254205038065" className=' hover:text-white'><span> 020 5038097</span></a>
+                <a href="tel:+254205038097" className=' hover:text-white'><span> 020 5038097</span></a>
               </div>
 
              {/* Email */}
