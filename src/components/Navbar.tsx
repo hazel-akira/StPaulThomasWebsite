@@ -305,7 +305,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Nav */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#74d1f6] text-black p-6 space-y-4" style={{ fontFamily: 'Times New Roman, serif' }}>
+        <div className="lg:hidden bg-[#74d1f6] text-black p-6 space-y-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
           <nav className="space-y-3 ">
             <NavLink to="/" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
               HOME

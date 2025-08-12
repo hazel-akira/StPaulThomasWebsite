@@ -5,6 +5,11 @@ const BandLife: React.FC = () => (
   
   <Helmet>
       <title>Band Life | St Paul Thomas Academy</title>
+      <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+
     </Helmet>
   <div className="min-h-screen font-sans bg-[#083056] ">
     
@@ -20,7 +25,7 @@ const BandLife: React.FC = () => (
     {/* Hero Section */}
     <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/band.webp')"}}
+      style={{ backgroundImage: "url('/images/band.webp')" ,fontFamily: 'Poppins, sans-serif'}}
     >
       <div className="absolute inset-0 bg-[#74d1f6]/30" />
    

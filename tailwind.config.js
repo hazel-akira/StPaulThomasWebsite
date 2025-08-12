@@ -15,9 +15,11 @@ module.exports = {
         light: "#f5f7fa",
         dark: "#1a202c"
       },
-      fontFamily: {
-        sans: ["Poppins"],
-      },
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Poppins', 'ui-sans-serif', 'system-ui'] }
+        }
+      }
     }
   },
   plugins: [],
