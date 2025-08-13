@@ -67,14 +67,14 @@ const LeaderRowCard: React.FC<{ data: Leader; badge?: string }> = ({ data, badge
     {/* Right: Content */}
     <div className="p-3 md:p-3">
       {badge && (
-        <span className="inline-block mb-2 text-xs font-semibold tracking-widest text-[#df8811] uppercase">
+        <span className="inline-block mb-2 font-bold text-xl p-3 tracking-widest bg-gray-900 rounded-full text-[#df8811] uppercase">
           {badge}
         </span>
       )}
-      <h3 className="text-2xl md:text-3xl font-bold text-[#083056]">{data.name}</h3>
+      <h3 className="text-2xl md:text-3xl mt-6 font-bold text-[#083056]">{data.name}</h3>
       <p className="text-[#df8811] font-semibold mt-1">{data.role}</p>
 
-      {data.bio && <p className="mt-4 text-gray-700 leading-relaxed">{data.bio}</p>}
+      {data.bio && <p className="mt-6 text-gray-900 text-2xl font-sans  leading-relaxed">{data.bio}</p>}
 
       {/* Tiny stat line (optional) */}
       {data.stats && (
