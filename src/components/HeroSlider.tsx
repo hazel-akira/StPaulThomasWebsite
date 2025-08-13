@@ -57,8 +57,8 @@ const Hero: React.FC = () => {
       ))}
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h3 className="text-3xl md:text-5xl lg:text-6xl  text-white drop-shadow mb-8">
-          At St Paul Thomas Academy we are fully resourced with human capital to meet your child’s need
+        <h3 className="text-3xl md:text-5xl lg:text-6xl font-sans text-white drop-shadow mb-8">
+          At St Paul Thomas Academy we are fully resourced with human capital to meet your child’s needs
         </h3>
         {/* <Button>Learn More</Button> */}
       </div>

@@ -26,7 +26,7 @@ const portals = [
     url: 'https://education.go.ke/',
   },
   {
-    name: 'NEMIS Poratal',
+    name: 'NEMIS Portal',
     url: 'https://nemis.education.go.ke/',
   },
   {

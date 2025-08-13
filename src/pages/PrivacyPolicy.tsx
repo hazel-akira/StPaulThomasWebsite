@@ -1,4 +1,7 @@
 // src/pages/PrivacyPolicy.tsx
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+
 const PrivacyPolicyPage: React.FC = () => {
   const lastUpdated = new Date().toLocaleDateString('en-GB', {
     year: 'numeric',
@@ -7,74 +10,101 @@ const PrivacyPolicyPage: React.FC = () => {
   });
 
   return (
-    <main className="bg-white py-16 px-4">
+    <main className="bg-[#f7f7f7] py-16 px-4">
+      <Helmet>
+        <title>Privacy Policy | St Paul Thomas Academy</title>
+      </Helmet>
+
       <div className="max-w-4xl font-sans mx-auto">
-        {/* Title Card */} 
-        <section className="space-y-8 shadow-lg p-8 w-full bg-white rounded-2xl mb-12">
-          <div className=" shadow-lg p-8 bg-white rounded-2xl mb-12">
-            <h1 className="text-4xl font-bold font-poppins text-center text-[#093057] mb-2">
+        {/* Title Card */}
+        <section className="space-y-8 shadow-lg p-8 w-full bg-[#f7f7f7] rounded-2xl mb-12">
+          <div className="shadow-lg p-8 bg-[#f7f7f7ae] rounded-2xl mb-12 text-center">
+            <h1 className="text-4xl font-bold font-poppins text-[#74d1f6] mb-2">
               Privacy Policy
             </h1>
             <p className="text-sm text-gray-500">
-              Last updated: <time dateTime={new Date().toISOString()}>{lastUpdated}</time>
+              Last updated:{' '}
+              <time dateTime={new Date().toISOString()}>{lastUpdated}</time>
             </p>
           </div>
 
-          {/* Sections */}
-          {/* Intro */}
-          <div className="p-6">
-            <h2 className="text-2xl font-semibold font-sans text-[#093057] mb-4 border-l-4 border-[#df8811] pl-4">
+          {/* Introduction */}
+          <section className="p-6">
+            <h2 className="text-2xl font-semibold text-[#74d1f6] mb-4 border-l-4 border-[#df8811] pl-4">
               Introduction
             </h2>
             <p className="text-gray-700 leading-relaxed">
               This Privacy Policy describes our policies and procedures on the
-              collection, use and disclosure of your information when you use
-              the Service and tells you about your privacy rights and how the
-              law protects you. We use your personal data to provide and
-              improve the Service. By using the Service, you agree to the
-              collection and use of information in accordance with this
-              Privacy Policy.
+              collection, use, and disclosure of your information when you use
+              the Service. It also explains your privacy rights and how the law
+              protects you. We use your personal data to provide and improve the
+              Service. By using the Service, you agree to the collection and use
+              of information in accordance with this Privacy Policy.
             </p>
-          </div>
+          </section>
 
           {/* Interpretation & Definitions */}
-          <div className="p-6">
-            <h2 className="text-2xl font-semibold text-[#093057] mb-6 border-l-4 border-[#df8811] pl-4">
+          <section className="p-6">
+            <h2 className="text-2xl font-semibold text-[#74d1f6] mb-6 border-l-4 border-[#df8811] pl-4">
               Interpretation &amp; Definitions
             </h2>
 
             <div className="mb-6">
-              <h3 className="text-xl font-medium text-[#093057] mb-2">
+              <h3 className="text-xl font-medium text-[#74d1f6] mb-2">
                 Interpretation
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                The words of which the initial letter is capitalized have meanings
-                defined under the following conditions. The following definitions
-                shall have the same meaning regardless of whether they appear in
-                singular or plural.
+                Words with the initial letter capitalized have meanings defined
+                under the following conditions and shall have the same meaning
+                whether in singular or plural.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-medium text-[#093057] mb-2">
+              <h3 className="text-xl font-medium text-[#74d1f6] mb-2">
                 Definitions
               </h3>
               <ul className="space-y-3 text-gray-700">
                 {[
-                  { term: "Account", def: "means a unique account created for you to access our Service or parts of our Service." },
-                  { term: "Affiliate", def: "means an entity that controls, is controlled by or is under common control with a party." },
-                  { term: "Company", def: '("the Company", "We", "Us" or "Our") refers to St Paul Thomas Academy, 625-10205 MARAGUA.' },
-                  { term: "Cookies", def: "are small files placed on your device by a website, containing your browsing history details." },
-                  { term: "Device", def: "means any device that can access the Service such as a computer, cellphone, or tablet." },
-                  { term: "Personal Data", def: "is any information that relates to an identified or identifiable individual." },
-                  { term: "Service", def: "refers to the Website." },
-                  { term: "Service Provider", def: "means any natural or legal person who processes the data on behalf of the Company." },
-                  { term: "Usage Data", def: "refers to data collected automatically from the Service or its infrastructure." },
                   {
-                    term: "Website",
+                    term: 'Account',
+                    def: 'means a unique account created for You to access our Service or parts of our Service.',
+                  },
+                  {
+                    term: 'Affiliate',
+                    def: "means an entity that controls, is controlled by or is under common control with a party, where 'control' means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.",
+                  },
+                  {
+                    term: 'Company',
+                    def: '("the Company", "We", "Us" or "Our") refers to ST PAUL THOMAS ACADEMY, 555-10205 Maragua.',
+                  },
+                  { term: 'Country', def: 'refers to: Kenya.' },
+                  {
+                    term: 'Cookies',
+                    def: 'are small files placed on your device by a website, containing details of your browsing history among other uses.',
+                  },
+                  {
+                    term: 'Device',
+                    def: 'means any device that can access the Service such as a computer, cellphone, or tablet.',
+                  },
+                  {
+                    term: 'Personal Data',
+                    def: 'is any information that relates to an identified or identifiable individual.',
+                  },
+                  { term: 'Service', def: 'refers to the Website.' },
+                  {
+                    term: 'Service Provider',
+                    def: 'means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.',
+                  },
+                  {
+                    term: 'Usage Data',
+                    def: 'refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).',
+                  },
+                  {
+                    term: 'Website',
                     def: (
                       <>
-                        refers to St Paul Thomas Academy, accessible from{" "}
+                        refers to ST PAUL THOMAS ACADEMY, accessible from{' '}
                         <a
                           href="https://stpaulthomasacademy.co.ke/"
                           target="_blank"
@@ -82,42 +112,107 @@ const PrivacyPolicyPage: React.FC = () => {
                           className="text-[#df8811] hover:underline"
                         >
                           https://stpaulthomasacademy.co.ke/
-                        </a>.
+                        </a>
+                        .
                       </>
                     ),
                   },
-                  { term: "You", def: "means the individual accessing or using the Service, or the company or legal entity represented." },
+                  {
+                    term: 'You',
+                    def: 'means the individual accessing or using the Service, or the company or other legal entity on whose behalf such individual is accessing or using the Service, as applicable.',
+                  },
                 ].map((item, index) => (
                   <li key={index} className="flex gap-2 items-start">
                     <span className="text-[#df8811] text-lg mt-1">🔸</span>
                     <span>
-                      <strong className="text-[#df8811]">{item.term}</strong>{" "}
+                      <strong className="text-[#df8811]">{item.term}</strong>{' '}
                       {item.def}
                     </span>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
+          </section>
 
-          {/* Use of Your Data */}
-          <div className="p-6">
-            <h2 className="text-2xl font-semibold text-[#093057] mb-4 border-l-4 border-[#df8811] pl-4">
-              Use of Your Personal Data
+          {/* Collecting & Using Your Personal Data */}
+          <section className="p-6">
+            <h2 className="text-2xl font-semibold text-[#74d1f6] mb-4 border-l-4 border-[#df8811] pl-4">
+              Collecting &amp; Using Your Personal Data
+            </h2>
+
+            <h3 className="text-xl font-medium text-[#74d1f6] mb-2">
+              Types of Data Collected
+            </h3>
+            <h4 className="text-lg font-medium text-[#74d1f6] mb-2">
+              Personal Data
+            </h4>
+            <p className="text-gray-700 mb-4">
+              While using our Service, we may ask you to provide certain
+              personally identifiable information that can be used to contact or
+              identify you (e.g., email address) as well as Usage Data.
+            </p>
+
+            <h4 className="text-lg font-medium text-[#74d1f6] mb-2">
+              Usage Data
+            </h4>
+            <p className="text-gray-700 mb-4">
+              Usage Data is collected automatically and may include your IP
+              address, browser type, browser version, pages visited, time and
+              date of visit, time spent on pages, unique device identifiers, and
+              other diagnostic data. When accessing via a mobile device, we may
+              collect device type, unique ID, mobile IP address, OS, and mobile
+              browser type.
+            </p>
+          </section>
+
+          {/* Tracking Technologies & Cookies */}
+          <section className="p-6" id="cookies">
+            <h2 className="text-2xl font-semibold text-[#74d1f6] mb-4 border-l-4 border-[#df8811] pl-4">
+              Tracking Technologies &amp; Cookies
             </h2>
             <p className="text-gray-700 mb-4">
-              The Company may use Personal Data for the following purposes:
+              We use Cookies and similar tracking technologies (beacons, tags,
+              and scripts) to track activity on our Service and store certain
+              information. Cookies may be “Persistent” or “Session” cookies. You
+              can instruct your browser to refuse Cookies; however, some parts
+              of the Service may not function properly without them.
             </p>
+
+            <ul className="space-y-3 text-gray-700">
+              <li>
+                <strong className="text-[#74d1f6]">Necessary / Essential Cookies</strong>{' '}
+                – Session cookies used to provide core services, authenticate
+                users, and prevent fraud.
+              </li>
+              <li>
+                <strong className="text-[#74d1f6]">
+                  Cookies Policy / Notice Acceptance Cookies
+                </strong>{' '}
+                – Persistent cookies used to record cookie consent.
+              </li>
+              <li>
+                <strong className="text-[#74d1f6]">Functionality Cookies</strong>{' '}
+                – Persistent cookies used to remember choices (e.g., login,
+                language) and provide a more personal experience.
+              </li>
+            </ul>
+          </section>
+
+          {/* Use of Your Personal Data */}
+          <section className="p-6">
+            <h2 className="text-2xl font-semibold text-[#74d1f6] mb-4 border-l-4 border-[#df8811] pl-4">
+              Use of Your Personal Data
+            </h2>
             <ul className="space-y-3 text-gray-700">
               {[
-                "To provide and maintain our Service.",
-                "To manage your Account and registration.",
-                "For the performance of a contract for products, items or services you have purchased.",
-                "To contact you by email, telephone calls, SMS, or push notifications.",
-                "To provide you with news, special offers and general information about similar goods or services.",
-                "To manage your requests and customer support.",
-                "For business transfers such as mergers or asset sales.",
-                "For other purposes like data analysis, identifying usage trends and improving our Service.",
+                'To provide and maintain our Service, including monitoring usage.',
+                'To manage your Account and registration.',
+                'For the performance of a contract for products, items, or services.',
+                'To contact you by email, calls, SMS, or push notifications.',
+                'To provide you with news, special offers, and general information about similar goods, services, and events (unless you opt out).',
+                'To manage your requests and customer support.',
+                'For business transfers (e.g., mergers or sales of assets).',
+                'For other purposes such as data analysis, usage trends, marketing effectiveness, and service improvement.',
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
                   <span className="text-[#df8811] text-lg mt-1">🔹</span>
@@ -125,81 +220,144 @@ const PrivacyPolicyPage: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </section>
 
-          {/* Retention & Security */}
-          <div className="p-6">
-            <h2 className="text-2xl font-semibold text-[#093057] mb-4 border-l-4 border-[#df8811] pl-4">
-              Retention, Transfer &amp; Deletion
+          {/* Retention, Transfer & Deletion */}
+          <section className="p-6">
+            <h2 className="text-2xl font-semibold text-[#74d1f6] mb-4 border-l-4 border-[#df8811] pl-4">
+              Retention, Transfer &amp; Deletion of Your Personal Data
             </h2>
             <p className="text-gray-700 mb-4">
-              We retain your Personal Data only as long as necessary and in
-              compliance with legal obligations. Your information may be
-              processed at our operating offices or other locations where the
-              parties involved are located.
+              We retain Personal Data only as long as necessary for the purposes
+              set out in this Privacy Policy and to comply with legal
+              obligations, resolve disputes, and enforce agreements. Usage Data
+              may be retained for a shorter period unless needed to enhance
+              security or functionality or where legally required.
             </p>
-            <h3 className="text-xl font-medium text-[#093057] mb-2">
+            <p className="text-gray-700 mb-4">
+              Your information may be processed and stored in locations outside
+              your jurisdiction. By submitting information, you consent to such
+              transfer, subject to reasonable safeguards.
+            </p>
+            <h3 className="text-xl font-medium text-[#74d1f6] mb-2">
               Delete Your Personal Data
             </h3>
             <p className="text-gray-700">
-              You have the right to delete or request deletion of Personal Data
-              we have collected about you. You may update, amend, or delete
-              your information by signing in to your Account or contacting us
-              directly.
+              You may delete or request deletion of your Personal Data. If you
+              have an account, you can manage your information via account
+              settings or contact us directly. We may retain certain information
+              where we have a legal obligation or lawful basis.
             </p>
-          </div>
+          </section>
 
-          {/* Disclosure & Children */}
-          <div className="p-6">
-            <h2 className="text-2xl font-semibold text-[#093057] mb-4 border-l-4 border-[#df8811] pl-4">
+          {/* Disclosure & Security */}
+          <section className="p-6">
+            <h2 className="text-2xl font-semibold text-[#74d1f6] mb-4 border-l-4 border-[#df8811] pl-4">
               Disclosure &amp; Security
             </h2>
-            <p className="text-gray-700 mb-4">
-              We may disclose your information in good faith belief that such
-              action is necessary to comply with legal obligations, protect our
-              rights, prevent wrongdoing, or protect Users.
-            </p>
-            <h3 className="text-xl font-medium text-[#093057] mb-2">
-              Security
+
+            <h3 className="text-xl font-medium text-[#74d1f6] mb-2">
+              Disclosure of Your Personal Data
             </h3>
-            <p className="text-gray-700 mb-4">
-              While we strive to use commercially acceptable means to protect
-              your Personal Data, no method of transmission or electronic storage
-              is 100% secure.
-            </p>
-            <h3 className="text-xl font-medium text-[#093057] mb-2">
-              Children’s Privacy
-            </h3>
+            <ul className="space-y-3 text-gray-700 mb-4">
+              <li>
+                <strong>Business Transactions:</strong> If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.
+              </li>
+              <li>
+                <strong>Law Enforcement:</strong> Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).
+              </li>
+              <li>
+                <strong>Other Legal Requirements:</strong> The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:
+
+<li>-Comply with a legal obligation</li>
+<li>-Protect and defend the rights or property of the Company</li>
+<li>-Prevent or investigate possible wrongdoing in connection with the Service</li>
+<li>-Protect the personal safety of Users of the Service or the public</li>
+<li>-Protect against legal liability</li>
+              </li>
+            </ul>
+
+            <h3 className="text-xl font-medium text-[#74d1f6] mb-2 border-l-4 border-[#df8811] pl-4">Security of Your Personal Data</h3>
             <p className="text-gray-700">
-              Our Service does not address anyone under the age of 13. We do not
-              knowingly collect personal information from children under 13.
+            The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.
             </p>
-          </div>
+          </section>
+
+          {/* Children's Privacy */}
+          <section className="p-6">
+            <h2 className="text-2xl font-semibold text-[#74d1f6] mb-4 border-l-4 border-[#df8811] pl-4">
+              Children’s Privacy
+            </h2>
+            <p className="text-gray-700">
+            Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.
+<br />
+<br />
+If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parent's consent before We collect and use that information.
+            </p>
+          </section>
+
+          {/* Links to Other Websites */}
+          <section className="p-6">
+            <h2 className="text-2xl font-semibold text-[#74d1f6] mb-4 border-l-4 border-[#df8811] pl-4">
+              Links to Other Websites
+            </h2>
+            <p className="text-gray-700">
+            Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party's site. We strongly advise You to review the Privacy Policy of every site You visit.
+
+We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.
+            </p>
+          </section>
 
           {/* Changes & Contact */}
-          <div className="p-6">
-            <h2 className="text-2xl font-semibold text-[#093057] mb-4 border-l-4 border-[#df8811] pl-4">
-              Changes &amp; Contact
+          <section className="p-6">
+            <h2 className="text-2xl font-semibold text-[#74d1f6] mb-4 border-l-4 border-[#df8811] pl-4">
+              Changes to this Privacy Policy
             </h2>
-            <p className="text-gray-700 mb-4">
-              We may update this policy from time to time. We will notify you of
-              any changes by posting the new Privacy Policy on this page and
-              updating the “Last updated” date.
+            <p className="text-gray-700 mb-6">
+            We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.
+<br />
+<br />
+We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the 'Last updated' date at the top of this Privacy Policy.
+<br />
+<br />
+
+You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
             </p>
-            <h3 className="text-xl font-medium text-[#093057] mb-2">
+
+            <h3 className="text-xl font-medium text-[#74d1f6] mb-2">
               Contact Us
             </h3>
-            <p className="text-gray-700">
-              If you have any questions about this Privacy Policy, you can
-              contact us by email:{" "}
-              <a
-                href="mailto:admissions@stpaulthomasacademy.ac.ke"
-                className="text-[#df8811] hover:underline"
-              >
-                admissions@stpaulthomasacademy.ac.ke
-              </a>
-            </p>
-          </div>
+            <div className="text-gray-700 space-y-1">
+              <p>
+              If you have any questions about this Privacy Policy, You can contact us:
+              <br />
+              <br />
+              
+                Email (IT):{' '}
+                <a
+                  href="mailto:groupit@pioneergroupofschools.co.ke"
+                  className="text-[#df8811] hover:underline"
+                >
+                  groupit@pioneergroupofschools.co.ke
+                </a>
+              </p>
+              <p>
+                Email (Admissions):{' '}
+                <a
+                  href="mailto:admissions@stpaulthomasacademy.co.ke"
+                  className="text-[#df8811] hover:underline"
+                >
+                  admissions@stpaulthomasacademy.co.ke
+                </a>
+              </p>
+              <p>Telephone: +254 20 5038097</p>
+              <p>P.O. BOX 555-10205, Maragua</p>
+              <p>
+                Physical Address: Off Kenol - Murang’a Road, Samar Location,
+                Ichagaki, Murang’a County
+              </p>
+            </div>
+          </section>
         </section>
       </div>
     </main>

@@ -4,7 +4,7 @@ import {
   ChevronDownIcon, 
   Bars3Icon, 
   XMarkIcon } from '@heroicons/react/24/outline';
-  import { Helmet } from 'react-helmet-async';
+ 
 
 interface DropdownMenuProps {
   isOpen: boolean;
@@ -104,7 +104,7 @@ const Navbar: React.FC = () => {
       { to: '/swimmers', label: 'Swimmers Life' },
       { to: '/skating', label: 'Skating Life' },
       { to: '/cycling', label: 'Cycling Life' },
-      { to: '/basketLife', label: 'Basketball Life' },
+      { to: '/basket', label: 'Basketball Life' },
       { to: '/football', label: 'Footballer Life' },
       { to: '/chef', label: 'Master Chef' },
       { to: '/golf', label: 'Junior Golfer' },
@@ -184,13 +184,7 @@ const Navbar: React.FC = () => {
       className="bg-[#74d1f6] text-black sticky top-0 z-50 font-sans shadow-lg"
       style={{ fontFamily: 'Poppins, sans-serif' }} 
     >
-      {/* Load Poppins in <head> */}
-      <Helmet>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </Helmet>
+    
 
       <div className="container mx-auto px-4 h-15 flex items-center justify-between">
         <NavLink

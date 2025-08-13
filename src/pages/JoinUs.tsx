@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const JoinUs: React.FC = () => {
   return (
+    
     <div className="min-h-screen font-sans bg-[#f9fafb]">
       {/* Hero */}
+      <Helmet>
+    <title> Join Us | St Paul Thomas Academy</title>
+  </Helmet>
       <section className="relative h-[100vh] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/images/join.webp')" }}>
         <div className="absolute inset-0 bg-black opacity-50" />
         <div className="relative z-10 container mx-auto px-4 text-center">

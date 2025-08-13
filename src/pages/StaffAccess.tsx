@@ -1,8 +1,7 @@
 // src/pages/StaffAccess.tsx
-
+import { Helmet } from 'react-helmet-async'
 import {
   EnvelopeIcon,
-  ComputerDesktopIcon,
   BookOpenIcon,
   VideoCameraIcon,
   Cog8ToothIcon,
@@ -16,11 +15,7 @@ const accessItems = [
     url: 'https://login.microsoftonline.com',
     Icon: EnvelopeIcon,
   },
-  {
-    title: 'Staff Moodle Access',
-    url: 'https://elearning.pioneerschools.ac.ke',
-    Icon: ComputerDesktopIcon,
-  },
+ 
   {
     title: 'Staff Online Library',
     url: 'https://library.pioneerschools.ac.ke',
@@ -44,14 +39,18 @@ const accessItems = [
 ]
 
 const StaffAccess: React.FC = () => (
+
   <div className="flex flex-col min-h-screen bg-[#083056]">
     {/* Hero */}
+    <Helmet>
+      <title>Staff Access | St Paul Thomas Academy</title>
+    </Helmet>
     <section
       className="relative  h-[60vh] flex flex-col items-center justify-center text-white bg-cover bg-center"
       style={{ backgroundImage: "url('/images/staff.webp')" }}
     >
       {/* dark overlay */}
-      <div className="absolute inset-0 h-[100vh] bg-[#093056]/30" />
+      <div className="absolute inset-0 h-[60vh] bg-[#093056]/30" />
       <div className="relative z-10 text-center px-4">
        {/* <h1 className="text-3xl md:text-5xl font-bold">Staff Access</h1>
         <p className="mt-2 text-lg max-w-xl">

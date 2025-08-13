@@ -1,5 +1,5 @@
 // src/pages/StudentAccess.tsx
-
+import { Helmet } from 'react-helmet-async'
 
 import {
   EnvelopeIcon,
@@ -41,18 +41,16 @@ const accessItems = [
 const StudentAccess: React.FC = () => (
   <div className="flex flex-col min-h-screen bg-[#083056]">
     {/* Hero */}
+    <Helmet>
+      <title>Student Access | St Paul Thomas Academy</title>
+    </Helmet>
     <section
       className="relative h-[60vh]  flex flex-col items-center justify-center text-white bg-cover bg-center"
       style={{ backgroundImage: "url('/images/studentAccess.webp')" }}
     >
       {/* dark overlay */}
       <div className="absolute inset-0 bg-[#093056]/30" />
-      <div className="relative z-10 text-center px-4">
-        <h1 className="text-3xl md:text-5xl font-bold">Student Access</h1>
-        <p className="mt-2 text-lg max-w-xl">
-          Quick links to all the platforms our students need to stay connected.
-        </p>
-      </div>
+      
     </section>
 
     {/* Access Cards */}
