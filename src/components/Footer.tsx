@@ -72,7 +72,7 @@ const Footer: React.FC = () => (
              {/* Email */}
                <div className="flex items-center space-x-2  ">
              <Mail size={16} />               
-                  <a href="mailto:admissions@stpaulthomasacademy.ac.ke" className='hover:text-white '>  <span> admissions@stpaulthomasacademy.ac.ke</span></a>
+                  <a href="mailto:admissions@stpaulthomasacademy.co.ke" className='hover:text-white '>  <span> admissions@stpaulthomasacademy.co.ke</span></a>
               </div>
 
             {/* Address */}
