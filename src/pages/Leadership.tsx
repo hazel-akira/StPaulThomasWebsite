@@ -93,13 +93,13 @@ const Leadership: React.FC = () => {
       
       
       {/* Hero / Header */}
-      <header className="bg-[#062747] mb-3 text-white">
+      <header className="bg-[#062747] mb-2 text-white">
         <div className="mx-auto max-w-6xl px-4 py-14 text-center md:py-16">
-          <h1 className="text-3xl font-semibold md:text-5xl">Meet our Talent Management Team</h1>
+          <h1 className="text-xl font-semibold md:text-5xl">Meet our Talent Management Team</h1>
           <div className="mt-6">
             <Link
               to="/nurturing"
-              className="inline-flex items-center justify-center rounded-xl bg-[#df8811] px-6 py-3 text-sm font-semibold tracking-wide text-white shadow-sm ring-1 ring-white/10 transition hover:bg-white hover:text-[#062747] md:text-base"
+              className="inline-block border mb-6 mt-6 border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-semibold text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
             >
               Nurturing Team
             </Link>
