@@ -14,9 +14,9 @@ type Leader = {
 };
 
 const hoi: Leader = {
-  name: 'Mr. John Maina',
+  name: 'Mr. Joseph Maina',
   role: 'Head of Institution, St Paul Thomas Academy',
-  photo: '/images/Maina.jpeg',
+  photo: '/images/maina.jpg',
   bio:
     'Learning here is holistic. Beyond the classroom, pupils engage in music, sports, clubs, and community service that sharpen talents and cultivate discipline, teamwork, and resilience. We uphold high expectations with warm, individualized support, ensuring each learner is known by name, encouraged to take bold steps, and celebrated for progress. Our teachers are caring professionals who model integrity and curiosity; our systems prioritize safeguarding and well-being; and our partnerships with families keep us aligned on shared goals..',
   stats: [
@@ -30,17 +30,17 @@ const leaders: Leader[] = [
   {
     name: 'Mr. James Mwangi',
     role: 'Head Master, St Paul Thomas Academy',
-    photo: '/images/Mr. Mwangi.png',
+    photo: '/images/Mwangi.png',
     bio:
-      'At St Paul Thomas, we believe every child is uniquely gifted and capable of excellence. Our commitment as a leadership team is to provide a safe, joyful, and intellectually rigorous environment where character and competence grow side by side. Guided by the Competency-Based Curriculum, we emphasize strong foundations in literacy and numeracy, while nurturing creativity, collaboration, critical thinking, and communication - skills your child needs to thrive in a fast-changing world',
+      'At St Paul Thomas, we believe every child is uniquely gifted and capable of excellence. Our commitment as a leadership team is to provide a safe, joyful, and intellectually rigorous environment where character and competence grow side by side. Guided by the Competency-Based Education, we emphasize strong foundations in literacy and numeracy, while nurturing creativity, collaboration, critical thinking, and communication - skills your child needs to thrive in a fast-changing world',
   
   },
   {
     name: 'Mr. Dominic Miyago',
     role: 'Senior Manager Grade 4-6',
-    photo: '/images/Dominics.jpeg',
+    photo: '/images/Dominic.jpg',
     bio:
-      'Grades 4-6 are a crucial bridge from Lower Primary. We move pupils from “learning to read” into “reading to learn,” deepen problem-solving in mathematics, and build study habits that last. Project-based tasks, practicals, and regular formative checks help learners apply knowledge and reflect on growth. Digital literacy, creative writing, and presentation skills feature strongly, while clubs - chess, music, athletics - build confidence and teamwork. We share weekly targets and simple trackers so pupils and parents can see progress at a glance. With consistent effort, feedback, and care, every child can finish Grade 6 confident, competent, and ready for the next step.',
+      'Grades 4-6 are a crucial bridge from Lower Primary. We move pupils from “learning to read” into “reading to learn,” deepen problem-solving in mathematics, and build study habits that last. Project-based tasks, practicals, and regular formative checks help learners apply knowledge and reflect on growth. Digital literacy, creative writing, and presentation skills feature strongly, while clubs and Society - chess, music, athletics - build confidence and teamwork. We share weekly targets and simple trackers so pupils and parents can see progress at a glance. With consistent effort, feedback, and care, every child can finish Grade 6 confident, competent, and ready for the next step.',
  
   },
 ];
@@ -53,7 +53,7 @@ const LeaderRowCard: React.FC<{ data: Leader; badge?: string }> = ({ data, badge
       <img
         src={data.photo}
         alt={data.name}
-        className="h-50 md:h-130 w-150 object-cover object-[50%_15%] rounded-100"
+        className="h-50 md:h-130 w-150 object-cover object-[50%_15%] rounded-full"
       />
     </div>
 

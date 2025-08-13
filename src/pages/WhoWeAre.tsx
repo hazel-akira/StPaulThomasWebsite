@@ -60,7 +60,7 @@ const WhoWeAre: React.FC = () => {
            
             Its idealic weather, spacial grounds, rural setting and beautiful sisal planted fields provided the perfect mix for young students to seek adventure, education and be resourceful.
             <br />
-            This was exemplified by the school's first headmaster Joseph Mukunda (Previously Headmaster of St Martins), who set the standard of discipline, high quality teaching and expectation of excellence which has continued till today.
+            This was exemplified by the school's first headmaster Titus Mukunda (Previously Headmaster of St Martins), who set the standard of discipline, high quality teaching and expectation of excellence which has continued till today.
             <br />
             St Paul Thomas Academy has consistently been the top Ranked primary school nationally (In Kenya) and in our county of Murang'a  
 

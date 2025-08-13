@@ -98,7 +98,7 @@ const Nurture: React.FC = () => (
     </section>
     <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/nurture1.webp')"}}>
+      style={{ backgroundImage: "url('/images/nurture.webp')"}}>
       <div className="absolute inset-0 bg-black/40" />
     </section>
 
