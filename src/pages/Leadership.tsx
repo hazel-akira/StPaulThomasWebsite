@@ -1,6 +1,7 @@
 // src/pages/Leadership.tsx
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom'
 
 type Stat = { label: string; value: string };
 type Leader = {
@@ -15,13 +16,13 @@ type Leader = {
 const hoi: Leader = {
   name: 'Mr. John Maina',
   role: 'Head of Institution, St Paul Thomas Academy',
-  photo: '/images/Mr. Maina.png',
+  photo: '/images/Maina.jpeg',
   bio:
-    'At St Paul Thomas Academy, we foster academic excellence, character, and creativity. Our dedicated team provides an environment where every learner can reach their full potential.',
+    'Learning here is holistic. Beyond the classroom, pupils engage in music, sports, clubs, and community service that sharpen talents and cultivate discipline, teamwork, and resilience. We uphold high expectations with warm, individualized support, ensuring each learner is known by name, encouraged to take bold steps, and celebrated for progress. Our teachers are caring professionals who model integrity and curiosity; our systems prioritize safeguarding and well-being; and our partnerships with families keep us aligned on shared goals..',
   stats: [
     { label: 'Years', value: '30+' },
     { label: 'Since', value: '1995' },
-    { label: 'Campus', value: 'Ichagaki' },
+    { label: 'Campus', value: 'Maragua' },
   ],
 };
 
@@ -31,54 +32,46 @@ const leaders: Leader[] = [
     role: 'Head Master, St Paul Thomas Academy',
     photo: '/images/Mr. Mwangi.png',
     bio:
-      'Committed to holistic education, discipline, and a strong culture of learning across all departments.',
-    stats: [
-      { label: 'Years', value: '10' },
-      { label: 'Since', value: '2015' },
-      { label: 'Dept.', value: 'Admin' },
-    ],
+      'At St Paul Thomas, we believe every child is uniquely gifted and capable of excellence. Our commitment as a leadership team is to provide a safe, joyful, and intellectually rigorous environment where character and competence grow side by side. Guided by the Competency-Based Curriculum, we emphasize strong foundations in literacy and numeracy, while nurturing creativity, collaboration, critical thinking, and communication - skills your child needs to thrive in a fast-changing world',
+  
   },
   {
     name: 'Mr. Dominic Miyago',
     role: 'Senior Manager Grade 4-6',
-    photo: '/images/Miyago.png',
+    photo: '/images/Dominics.jpeg',
     bio:
-      'Oversees Upper Primary, ensuring learners build strong literacy, numeracy, and values for life.',
-    stats: [
-      { label: 'Years', value: '9' },
-      { label: 'Since', value: '2016' },
-      { label: 'Hostels', value: '3' },
-    ],
+      'Grades 4-6 are a crucial bridge from Lower Primary. We move pupils from “learning to read” into “reading to learn,” deepen problem-solving in mathematics, and build study habits that last. Project-based tasks, practicals, and regular formative checks help learners apply knowledge and reflect on growth. Digital literacy, creative writing, and presentation skills feature strongly, while clubs - chess, music, athletics - build confidence and teamwork. We share weekly targets and simple trackers so pupils and parents can see progress at a glance. With consistent effort, feedback, and care, every child can finish Grade 6 confident, competent, and ready for the next step.',
+ 
   },
 ];
 
 /* Two-column row card: big image left, content right. No rounded image. */
 const LeaderRowCard: React.FC<{ data: Leader; badge?: string }> = ({ data, badge }) => (
-  <article className="grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-2xl bg-white shadow-xl">
+  <article className="grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-2xl bg-white/30 shadow-xl">
     {/* Left: Image (large, rectangular, not rounded) */}
     <div className="relative">
       <img
         src={data.photo}
         alt={data.name}
-        className="h-50 md:h-130 w-150 object-cover rounded-30"
+        className="h-50 md:h-130 w-150 object-cover object-[50%_15%] rounded-100"
       />
     </div>
 
     {/* Right: Content */}
     <div className="p-3 md:p-3">
       {badge && (
-        <span className="inline-block mb-2 font-bold text-xl p-3 tracking-widest bg-gray-900 rounded-full text-[#df8811] uppercase">
+        <span className="inline-block mb-2 font-bold text-xl p-3 tracking-widest bg-[#083056] rounded-full text-[#df8811] uppercase">
           {badge}
         </span>
       )}
-      <h3 className="text-2xl md:text-3xl mt-6 font-bold text-[#083056]">{data.name}</h3>
+      <h3 className="text-2xl md:text-3xl mt-2 font-bold text-[#083056]">{data.name}</h3>
       <p className="text-[#df8811] font-semibold mt-1">{data.role}</p>
 
-      {data.bio && <p className="mt-6 text-gray-900 text-2xl font-sans  leading-relaxed">{data.bio}</p>}
+      {data.bio && <p className="mt-4 text-gray-900 text-xl font-sans  leading-relaxed">{data.bio}</p>}
 
       {/* Tiny stat line (optional) */}
       {data.stats && (
-        <div className="mt-6 grid grid-cols-3 gap-4 max-w-sm">
+        <div className="mt-2 grid grid-cols-3 gap-4 max-w-sm">
           {data.stats.slice(0, 3).map((s) => (
             <div key={s.label} className="">
               <div className="text-xl font-semibold text-[#083056]">{s.value}</div>
@@ -93,19 +86,30 @@ const LeaderRowCard: React.FC<{ data: Leader; badge?: string }> = ({ data, badge
 
 const Leadership: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#e9eff5]">
+    <div className="min-h-screen bg-white font-sans">
       <Helmet>
-        <title>Inspired Leadership | St Paul Thomas Academy</title>
+        <title>Talent Management  Team | St Paul Thomas Academy</title>
       </Helmet>
       
-      {/* Page title */}
-      <header className="container mx-auto px-4 pt-6 pb-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-[#0b2f56]">Inspired Leadership</h1>
-        <div className="h-1 w-20 bg-[#0b2f56] mt-3 rounded"></div>
+      
+      {/* Hero / Header */}
+      <header className="bg-[#062747] mb-3 text-white">
+        <div className="mx-auto max-w-6xl px-4 py-14 text-center md:py-16">
+          <h1 className="text-3xl font-semibold md:text-5xl">Meet our Talent Management Team</h1>
+          <div className="mt-6">
+            <Link
+              to="/perfomance"
+              className="inline-flex items-center justify-center rounded-xl bg-[#df8811] px-6 py-3 text-sm font-semibold tracking-wide text-white shadow-sm ring-1 ring-white/10 transition hover:bg-white hover:text-[#062747] md:text-base"
+            >
+              Nurturing Team
+            </Link>
+          </div>
+        </div>
       </header>
+      
 
       {/* HOI Row */}
-      <section className="container mx-auto px-4">
+      <section className="container pt-3 mx-auto px-4">
         <LeaderRowCard data={hoi} badge="Head of Institution" />
       </section>
 
@@ -120,6 +124,7 @@ const Leadership: React.FC = () => {
           <LeaderRowCard key={leader.name} data={leader} />
         ))}
       </section>
+
     </div>
   );
 };
