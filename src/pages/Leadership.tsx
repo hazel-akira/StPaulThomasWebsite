@@ -10,14 +10,12 @@ type Leader = {
   bio?: string;
   stats?: Stat[];
   email?: string;
-  phone?: string;
 };
 
 const hoi: Leader = {
   name: 'Mr. John Maina',
   role: 'Head of Institution, St Paul Thomas Academy',
   photo: '/images/Mr. Maina.png',
-  phone: '+254 700 000 000',
   bio:
     'At St Paul Thomas Academy, we foster academic excellence, character, and creativity. Our dedicated team provides an environment where every learner can reach their full potential.',
   stats: [
