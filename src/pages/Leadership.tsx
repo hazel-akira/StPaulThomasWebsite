@@ -21,8 +21,8 @@ const hoi: Leader = {
   bio:
     'At St Paul Thomas Academy, we foster academic excellence, character, and creativity. Our dedicated team provides an environment where every learner can reach their full potential.',
   stats: [
-    { label: 'Years', value: '15+' },
-    { label: 'Since', value: '2010' },
+    { label: 'Years', value: '30+' },
+    { label: 'Since', value: '1995' },
     { label: 'Campus', value: 'Ichagaki' },
   ],
 };
