@@ -29,8 +29,8 @@ const MemberRowCard: React.FC<{ data: Member; badge?: string }> = ({ data, badge
       <img
         src={data.photo}
         alt={data.name}
-       className="h-100 lg:h-100 md:h-150 w-150 object-cover object-[50%_15%] rounded-3xl"
-      />
+        className="h-150 md:h-150 lg:h-150  w-150 object-cover object-[50%_15%] md:rounded-3xl"
+        />
     </div>
 
     {/* Right: Content */}
