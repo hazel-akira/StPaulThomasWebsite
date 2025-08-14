@@ -13,7 +13,7 @@ type Leader = {
   email?: string;
 };
 
-const hoi: Leader = {
+/*const hoi: Leader = {
   name: 'Mr. Joseph Maina',
   role: 'Head of Institution, St Paul Thomas Academy',
   photo: '/images/maina.jpg',
@@ -24,13 +24,13 @@ const hoi: Leader = {
     { label: 'Since', value: '1995' },
     { label: 'Campus', value: 'Maragua' },
   ],
-};
+};*/
 
 const leaders: Leader[] = [
   {
     name: 'Mr. James Mwangi',
     role: 'Head Master, St Paul Thomas Academy',
-    photo: '/images/Mwangi.png',
+    photo: '/images/Mwangi.jpeg',
     bio:
       'At St Paul Thomas, we believe every child is uniquely gifted and capable of excellence. Our commitment as a leadership team is to provide a safe, joyful, and intellectually rigorous environment where character and competence grow side by side. Guided by the Competency-Based Education, we emphasize strong foundations in literacy and numeracy, while nurturing creativity, collaboration, critical thinking, and communication - skills your child needs to thrive in a fast-changing world',
   
@@ -108,10 +108,10 @@ const Leadership: React.FC = () => {
       </header>
       
 
-      {/* HOI Row */}
+      {/* HOI Row 
       <section className="container pt-3 mx-auto px-4">
         <LeaderRowCard data={hoi} badge="Head of Institution" />
-      </section>
+      </section>*/}
 
       {/* Spacer */}
       <div className="container mx-auto px-4">
