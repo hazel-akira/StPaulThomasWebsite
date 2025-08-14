@@ -113,7 +113,7 @@ export default function grade6Fees() {
               Grade 6 FEES
             </h1>
             <p className="text-xl md:text-2xl font-light text-white">
-              AT PIONEER SCHOOLS, THERE ARE NO HIDDEN FEES AND CHARGES
+            At St Paul Thomas Academy, THERE ARE NO HIDDEN FEES AND CHARGES
             </p>
           </div>
         </div>
@@ -223,7 +223,7 @@ export default function grade6Fees() {
       </p>
       <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
         <a
-          href="mailto:finance.enquiries@pioneerschools.co.ke"
+          href="mailto:finance@stpaulthomasacademy.co.ke"
           className="inline-flex items-center px-4 py-2 bg-[#df8811] text-[#083056] rounded-lg font-semibold hover:bg-white transition-colors"
         >
           <Mail className="w-4 h-4 mr-1" /> Send Email

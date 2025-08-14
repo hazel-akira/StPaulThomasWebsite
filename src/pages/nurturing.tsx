@@ -17,7 +17,7 @@ const team: Member[] = [
     role: 'Boarding Master',
     photo: '/images/Bosco.jpg',
     bio:
-      'At St Paul Thomas Academy, the boarding house is a home-from-home where safety, respect, and personal responsibility guide our daily life. My team and I ensure every learner is known by name, supported in their studies, and encouraged to grow in character. Clear routines morning and evening prep, quiet hours, and lights-out create the structure pupils need to thrive, while our values of punctuality, cleanliness, courtesy, and care for others shape a calm and orderly environment.Wellbeing sits at the centre of our work. We operate a zero-tolerance stance on bullying, partner closely with our matron, counsellor, and chaplain, and keep parents informed through timely communication. Student leadership is nurtured through dorm captains and duty rosters that build ownership and service. Weekends blend rest with enrichment sport, clubs, reading, and community service so boarders return to class refreshed and focused. Together with families, we are committed to raising disciplined, compassionate young people ready to lead and serve',
+      'At St Paul Thomas Academy, the boarding house is a home away-from home where safety, respect, and personal responsibility guide our daily life. My team and I ensure every learner is known by name, supported in their studies, and encouraged to grow in character. Clear routines morning and evening prep, quiet hours, and lights-out create the structure pupils need to thrive, while our values of punctuality, cleanliness, courtesy, and care for others shape a calm and orderly environment.Wellbeing sits at the centre of our work. We operate a zero-tolerance stance on bullying, partner closely with our matron, counsellor, and chaplain, and keep parents informed through timely communication. Student leadership is nurtured through dorm captains and duty rosters that build ownership and service. Weekends blend rest with enrichment sport, clubs, reading, and community service so boarders return to class refreshed and focused. Together with families, we are committed to raising disciplined, compassionate young people ready to lead and serve',
   },
 
 ];
@@ -29,7 +29,7 @@ const MemberRowCard: React.FC<{ data: Member; badge?: string }> = ({ data, badge
       <img
         src={data.photo}
         alt={data.name}
-       className="h-50 md:h-130 w-150 object-cover object-[50%_15%] rounded-full"
+       className="h-100 lg:h-100 md:h-150 w-150 object-cover object-[50%_15%] rounded-3xl"
       />
     </div>
 

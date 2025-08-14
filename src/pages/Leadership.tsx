@@ -40,7 +40,7 @@ const leaders: Leader[] = [
     role: 'Senior Manager Grade 4-6',
     photo: '/images/Dominic.jpg',
     bio:
-      'Grades 4-6 are a crucial bridge from Lower Primary. We move pupils from “learning to read” into “reading to learn,” deepen problem-solving in mathematics, and build study habits that last. Project-based tasks, practicals, and regular formative checks help learners apply knowledge and reflect on growth. Digital literacy, creative writing, and presentation skills feature strongly, while clubs and Society - chess, music, athletics - build confidence and teamwork. We share weekly targets and simple trackers so pupils and parents can see progress at a glance. With consistent effort, feedback, and care, every child can finish Grade 6 confident, competent, and ready for the next step.',
+      'Grades 4-6 are a crucial bridge from Lower Primary. We move pupils from “learning to read” into “reading to learn,” deepen problem-solving in mathematics, and build study habits that last. Project-based tasks, practicals, and regular formative checks help learners apply knowledge and reflect on growth. Digital literacy, creative writing, and presentation skills feature strongly, while clubs and Society - chess, music, athletics - build confidence and teamwork. We share weekly targets and simple trackers so pupils and parents can see progress at a glance. With consistent effort, feedback, and care, every child can finish Grade 6 confident, competent, and ready for Junior School.',
  
   },
 ];
@@ -53,12 +53,12 @@ const LeaderRowCard: React.FC<{ data: Leader; badge?: string }> = ({ data, badge
       <img
         src={data.photo}
         alt={data.name}
-        className="h-50 md:h-130 w-150 object-cover object-[50%_15%] rounded-full"
+        className="h-100 md:h-150 lg:h-100  w-150 object-cover object-[50%_15%] md:rounded-3xl"
       />
     </div>
 
     {/* Right: Content */}
-    <div className="p-3 md:p-3">
+    <div className=" md:p-3 p-5">
       {badge && (
         <span className="inline-block mb-2 font-bold text-xl p-3 tracking-widest bg-[#083056] rounded-full text-[#df8811] uppercase">
           {badge}
