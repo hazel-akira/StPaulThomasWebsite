@@ -21,8 +21,8 @@ const CodingLife: React.FC = () => (
     {/* Hero Section */}
     <section
       className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/coding.webp')" }}>
-      <div className="absolute inset-0 bg-[#74d1f6]/30" /> 
+      style={{ backgroundImage: "url('/images/COMP.jpg')" }}>
+      <div className="absolute inset-0 bg-[#74d1f6]/10" /> 
     </section>
 
     {/* Main Content */}
