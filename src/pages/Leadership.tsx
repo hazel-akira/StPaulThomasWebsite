@@ -1,132 +1,137 @@
 // src/pages/Leadership.tsx
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom'
 
-type Stat = { label: string; value: string };
+import { Helmet } from 'react-helmet-async';
+import { Link } from "react-router-dom";
+
 type Leader = {
   name: string;
   role: string;
   photo: string;
   bio?: string;
-  stats?: Stat[];
-  email?: string;
+  campus?: string;
+  school?: string;
 };
-
-/*const hoi: Leader = {
-  name: 'Mr. Joseph Maina',
-  role: 'Head of Institution, St Paul Thomas Academy',
-  photo: '/images/maina.jpg',
-  bio:
-    'Learning here is holistic. Beyond the classroom, pupils engage in music, sports, clubs, and community service that sharpen talents and cultivate discipline, teamwork, and resilience. We uphold high expectations with warm, individualized support, ensuring each learner is known by name, encouraged to take bold steps, and celebrated for progress. Our teachers are caring professionals who model integrity and curiosity; our systems prioritize safeguarding and well-being; and our partnerships with families keep us aligned on shared goals..',
-  stats: [
-    { label: 'Years', value: '30+' },
-    { label: 'Since', value: '1995' },
-    { label: 'Campus', value: 'Maragua' },
-  ],
-};*/
 
 const leaders: Leader[] = [
   {
-    name: 'Mr. James Mwangi',
-    role: 'Head Master, St Paul Thomas Academy',
-    photo: '/images/Mwangi.jpeg',
+    name: "Mr. James Mwangi",
+    role: "Head Master",
+    photo: "/images/Mwangi.jpeg",
+    school: "St Paul Thomas Academy",
+    campus: "Maragua",
     bio:
-      'At St Paul Thomas, we believe every child is uniquely gifted and capable of excellence. Our commitment as a leadership team is to provide a safe, joyful, and intellectually rigorous environment where character and competence grow side by side. Guided by the Competency-Based Education, we emphasize strong foundations in literacy and numeracy, while nurturing creativity, collaboration, critical thinking, and communication - skills your child needs to thrive in a fast-changing world',
-  
+      "At St Paul Thomas, we believe every child is uniquely gifted and capable of excellence. Our commitment as a leadership team is to provide a safe, joyful, and intellectually rigorous environment where character and competence grow side by side. Guided by the Competency-Based Education, we emphasize strong foundations in literacy and numeracy, while nurturing creativity, collaboration, critical thinking, and communication - skills your child needs to thrive in a fast-changing world",
   },
   {
-    name: 'Mr. Dominic Miyago',
-    role: 'Senior Manager Grade 4-6',
-    photo: '/images/Dominic.jpg',
+    name: "Mr. Dominic Miyago",
+    role: "Senior Manager Grade 4 - 6",
+    photo: "/images/Dominic.jpg",
+    school: "St Paul Thomas Academy",
+    campus: "Maragua",
     bio:
-      'Grades 4-6 are a crucial bridge from Lower Primary. We move pupils from “learning to read” into “reading to learn,” deepen problem-solving in mathematics, and build study habits that last. Project-based tasks, practicals, and regular formative checks help learners apply knowledge and reflect on growth. Digital literacy, creative writing, and presentation skills feature strongly, while clubs and Society - chess, music, athletics - build confidence and teamwork. We share weekly targets and simple trackers so pupils and parents can see progress at a glance. With consistent effort, feedback, and care, every child can finish Grade 6 confident, competent, and ready for Junior School.',
- 
+      "Grades 4-6 are a crucial bridge from Lower Primary. We move pupils from “learning to read” into “reading to learn,” deepen problem-solving in mathematics, and build study habits that last. Project-based tasks, practicals, and regular formative checks help learners apply knowledge and reflect on growth. Digital literacy, creative writing, and presentation skills feature strongly, while clubs and Society - chess, music, athletics - build confidence and teamwork. We share weekly targets and simple trackers so pupils and parents can see progress at a glance. With consistent effort, feedback, and care, every child can finish Grade 6 confident, competent, and ready for Junior School.",
   },
 ];
 
-/* Two-column row card: big image left, content right. No rounded image. */
-const LeaderRowCard: React.FC<{ data: Leader; badge?: string }> = ({ data, badge }) => (
-  <article className="grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-2xl bg-white/30 shadow-xl">
-    {/* Left: Image (large, rectangular, not rounded) */}
-    <div className="relative">
-      <img
-        src={data.photo}
-        alt={data.name}
-        className="h-100 md:h-150 lg:h-100  w-150 object-cover object-[50%_15%] md:rounded-3xl"
-      />
-    </div>
-
-    {/* Right: Content */}
-    <div className=" md:p-3 p-5">
-      {badge && (
-        <span className="inline-block mb-2 font-bold text-xl p-3 tracking-widest bg-[#083056] rounded-full text-[#df8811] uppercase">
-          {badge}
-        </span>
-      )}
-      <h3 className="text-2xl md:text-3xl mt-2 font-bold text-[#083056]">{data.name}</h3>
-      <p className="text-[#df8811] font-semibold mt-1">{data.role}</p>
-
-      {data.bio && <p className="mt-4 text-gray-900 text-xl font-sans  leading-relaxed">{data.bio}</p>}
-
-      {/* Tiny stat line (optional) */}
-      {data.stats && (
-        <div className="mt-2 grid grid-cols-3 gap-4 max-w-sm">
-          {data.stats.slice(0, 3).map((s) => (
-            <div key={s.label} className="">
-              <div className="text-xl font-semibold text-[#083056]">{s.value}</div>
-              <div className="text-xs text-gray-500">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  </article>
-);
-
-const Leadership: React.FC = () => {
+function FramedLeaderPanel({ leader }: { leader: Leader }) {
   return (
-    <div className="min-h-screen bg-white font-sans">
-      <Helmet>
-        <title>Talent Management  Team | St Paul Thomas Academy</title>
-      </Helmet>
-      
-      
-      {/* Hero / Header */}
-      <header className="bg-[#062747] mb-2 text-white">
-        <div className="mx-auto max-w-6xl px-4 py-14 text-center md:py-16">
-          <h1 className="text-xl font-semibold md:text-5xl">Meet our Talent Management Team</h1>
-          <div className="mt-6">
-            <Link
-              to="/nurturing"
-              className="inline-block border mb-6 mt-6 border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-semibold text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
-            >
-              Nurturing Team
-            </Link>
+    <div className="mx-auto max-w-6xl rounded-2xl bg-[#d4d6da] shadow-[0_10px_30px_rgba(0,0,0,.25)] ring-1 ring-black/10 p-6 md:p-10">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-[minmax(280px,420px)_1fr] items-center">
+        {/* LEFT: Framed portrait */}
+        <div className="mx-auto md:mx-0">
+          <div className="rounded-md bg-neutral-800 p-4 md:p-5 shadow-[10px_10px_0_rgba(0,0,0,.35)]">
+            <div className="bg-white p-5 md:p-7">
+              <div className="relative aspect-[3/4] w-[240px] md:w-[300px] lg:w-[340px]">
+                <img
+                  src={leader.photo}
+                  alt={`${leader.name} - $  {leader.role}`}
+                  className="absolute inset-0 h-full w-full object-cover object-top"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </header>
-      
+ 
+        {/* RIGHT: Text block, matching Pioneer Junior layout + message */}
+        <div className="flex flex-col">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-[black] tracking-tight">
+            {leader.name}
+          </h2>
 
-      {/* HOI Row 
-      <section className="container pt-3 mx-auto px-4">
-        <LeaderRowCard data={hoi} badge="Head of Institution" />
-      </section>*/}
+          <hr className="mt-6 border-t border-black/30 w-full max-w-xl" />
 
-      {/* Spacer */}
-      <div className="container mx-auto px-4">
-        <div className="my-10 md:my-14" />
+          {/* Role */}
+          <div className="mt-3 grid grid-cols-2 max-w-xl">
+            <div className="font-semibold text-[#df8811]">{leader.role}</div>
+            <div />
+          </div>
+
+          <hr className="mt-3 border-t border-black/30 w-full max-w-xl" />
+
+          {/* School + Location */}
+          <div className="mt-3 grid grid-cols-2 gap-x-10 max-w-xl text-black/80">
+            <div className="leading-snug">
+              {leader.school ?? "St Paul Thomas Academy"}
+              <br />
+              {/* you can add department/stream here if needed */}
+            </div>
+            <div className="leading-snug">{leader.campus ?? "Maragua"}</div>
+          </div>
+
+          <hr className="mt-3 border-t border-black/30 w-full max-w-xl" />
+
+          {/* Message from the Leader (bio) */}
+          {leader.bio && (
+            <div className="mt-6 max-w-3xl">
+              <h3 className="text-xl font-bold text-[#df8811]">
+                Message 
+              </h3>
+              <p className="mt-3 text-[#5f4c31] italic font-semibold  leading-relaxed text-[17px]">
+                {leader.bio}
+              </p>
+            </div>
+          )}
+        </div>
       </div>
-
-      {/* Other leaders (stacked rows like the reference) */}
-      <section className="container mx-auto px-3 space-y-6 md:space-y-14 pb-10">
-        {leaders.map((leader) => (
-          <LeaderRowCard key={leader.name} data={leader} />
-        ))}
-      </section>
-
     </div>
   );
-};
+}
 
-export default Leadership;
+export default function Leadership() {
+  return (
+    <div className="bg-[#161e2e] min-h-screen text-white">
+      <Helmet>
+        <title>Our Leadership Team | St Paul Thomas Academy</title>
+      </Helmet>
+
+      {/* Top bar / breadcrumb area */}
+      <section className="py-8 md:py-10">
+        <div className="mx-auto max-w-6xl px-4">
+          <h1 className="text-4xl font-bold">Our Leadership Team</h1>
+          <div className="mt-4 h-4 w-full bg-white/90" />
+        </div>
+      </section>
+
+      {/* Panels */}
+      <div className="bg-[#083563] pt-12 pb-10 space-y-8 md:space-y-10">
+        {leaders.map((l) => (
+          <FramedLeaderPanel key={l.name} leader={l} />
+        ))}
+
+        {/* Bottom CTA (optional, mirrors PJA’s right-aligned button but centered here) */}
+        <div className="flex justify-center mt-2">
+          <Link
+            to="/nurturing"
+            className="inline-block border mb-6 border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
+          >
+            Nurturing Team
+          </Link>
+        </div>
+
+        <div className="h-4" />
+      </div>
+    </div>
+  );
+}
