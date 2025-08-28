@@ -18,8 +18,8 @@ const Home: React.FC = () => {
       <Modal
         show={showModal}
         logoSrc="/images/favicon.webp"
-        title="Apply for grade 10"
-        imageSrc="/images/Modal.webp"
+        title="Apply for grade 4-6"
+        imageSrc="/images/Modal1.webp"
         enquiryUrl="https://enquireto.pioneergroupofschools.co.ke/SignIn?ReturnUrl=%2F"
         onClose={() => setShowModal(false)}
       />
