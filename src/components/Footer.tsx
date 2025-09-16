@@ -149,7 +149,7 @@ const Footer: React.FC = () => (
         </div>
         <div className="mt-2 text-base space-y-1">
           <p>Regulated by the Ministry of Education Kenya</p>
-          <p>P/1/968/2002</p>
+          <p>(P/1/968/2002)</p>
           <p>Licensed by Murang'a County</p>
         </div>
       </div>
