@@ -14,7 +14,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <Hero />
 
-      {/* Enquiry Modal */}
+      
       <Modal
         show={showModal}
       
