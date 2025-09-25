@@ -18,12 +18,12 @@ const accessItems = [
   },
   {
     title: 'Moodle Access',
-    url: 'https://elearning.pioneerschools.ac.ke',
+    url: 'https://elearning.stpaulthomasacademy.ac.ke',
     Icon: ComputerDesktopIcon,
   },
   {
     title: 'Online Library',
-    url: 'https://elearning.pioneerschools.ac.ke',
+    url: 'https://library.stpaulthomasacademy.co.ke/',
     Icon: BookOpenIcon,
   },
   {
