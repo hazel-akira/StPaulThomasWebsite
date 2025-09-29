@@ -173,7 +173,7 @@ export default function App() {
       */}
       <FloatingAdmissionTimer
         target="2025-10-29T23:59:59+03:00"
-        start="2025-09-29T00:00:00+03:00"
+        start="2025-09-27T00:00:00+03:00"
         ctaText="Apply for Upper Primary"
         ctaHref="https://enquireto.pioneergroupofschools.co.ke"
         heading="Grade 4-6 admissions close in"
