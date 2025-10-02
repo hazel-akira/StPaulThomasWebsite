@@ -25,7 +25,7 @@ const JoinUs: React.FC = () => {
             <Link to="/grade6" className="bg-[#E4AF23] hover:bg-white hover:text-[#E4AF23] text-[#093056] py-3 px-4 rounded shadow text-sm font-medium">
               Join Grade 6
             </Link>
-            <Link to="/enquire" className="bg-[#E4AF23] hover:bg-white hover:text-[#E4AF23] text-[#093056] py-3 px-4 rounded shadow text-sm font-medium">
+            <Link to="https://enquireto.pioneergroupofschools.co.ke/main/register?school=stpaulthomasacademy.co.ke/main/register?school=stpaulthomasacademy.co.ke" className="bg-[#E4AF23] hover:bg-white hover:text-[#E4AF23] text-[#093056] py-3 px-4 rounded shadow text-sm font-medium">
               Register to Join
             </Link>
           </div>

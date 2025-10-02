@@ -175,7 +175,7 @@ export default function App() {
         target="2025-10-29T23:59:59+03:00"
         start="2025-09-27T00:00:00+03:00"
         ctaText="Apply for Upper Primary"
-        ctaHref="https://enquireto.pioneergroupofschools.co.ke"
+        ctaHref="https://enquireto.pioneergroupofschools.co.ke/main/register?school=stpaulthomasacademy.co.ke"
         heading="Grade 4-6 admissions close in"
       />
     </>
