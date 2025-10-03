@@ -152,6 +152,13 @@ const Footer: React.FC = () => (
           <p>(P/1/968/2002)</p>
           <p>Licensed by Murang'a County</p>
         </div>
+        <div className="flex items-center space-x-2">
+      <img
+        src="/images/dpc.webp"
+        alt="data protection certificate"
+        className="w-48 rounded-xl" 
+      /> 
+    </div>
       </div>
 
     </div>
