@@ -147,6 +147,7 @@ const Footer: React.FC = () => (
             </a>
           ))}
         </div>
+        
         <div className="mt-2 text-base space-y-1">
           <p>Regulated by the Ministry of Education Kenya</p>
           <p>(P/1/968/2002)</p>
@@ -154,9 +155,9 @@ const Footer: React.FC = () => (
         </div>
         <div className="flex items-center space-x-2">
       <img
-        src="/images/dpc.webp"
+        src="/images/dpa.jpg"
         alt="data protection certificate"
-        className="w-48 rounded-xl" 
+        className="w-50" 
       /> 
     </div>
       </div>
