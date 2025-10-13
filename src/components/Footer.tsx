@@ -155,9 +155,9 @@ const Footer: React.FC = () => (
         </div>
         <div className="flex items-center space-x-2">
       <img
-        src="/images/dpa.jpg"
+        src="/images/dpa1.png"
         alt="data protection certificate"
-        className="w-50 rounded-tl-xl" 
+        className="w-48 rounded-sm" 
       /> 
     </div>
       </div>
