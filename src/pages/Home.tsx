@@ -4,6 +4,7 @@ import Hero from '../components/HeroSlider';
 import Modal from '../components/Modal';
 
 
+
 const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(true);
 
