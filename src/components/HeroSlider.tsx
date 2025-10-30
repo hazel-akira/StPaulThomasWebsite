@@ -111,7 +111,7 @@ const Hero: React.FC = () => {
   return (
     <>
     <Helmet>
-      <title>Home | Pioneer Junior Academy</title>
+      <title>Home |  St Paul Thomas Academy</title>
     </Helmet>
     <div className="relative w-full bg-white">
       <div
