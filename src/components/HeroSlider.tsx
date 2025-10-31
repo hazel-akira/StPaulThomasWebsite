@@ -115,8 +115,8 @@ const Hero: React.FC = () => {
     </Helmet>
     <div className="relative w-full bg-white">
       <div
-        className="relative w-full overflow-hidden"
-        style={{ height: "800px" }}
+        className="relative w-full min-h-screen overflow-hidden"
+       
       >
         {/* Image Slides */}
         {images.map((image, index) => (

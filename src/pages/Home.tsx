@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(true);
 
   return (
-    <div className="bg-white min-h-[90vh] relative">
+    <div className="bg-white min-h-[100vh] relative">
       
 
       {/* Hero Section */}
