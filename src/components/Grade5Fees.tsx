@@ -85,7 +85,7 @@ export default function Grade5Fees() {
   ];
  
   const oneOffCharges = [
-    { title: "Non-refundable Commitment Fee", amount: "KES 20,000" },
+    { title: "Non-refundable Commitment Fee(which is part of the school fees)", amount: "KES 20,000" },
     { title: "Extra charge for uniform, bedding and textbooks", amount: "KES 30,000" },
     { title: "Free transport to and from Nyanyuki, Mombasa, and Embu", isFree: true }
   ];

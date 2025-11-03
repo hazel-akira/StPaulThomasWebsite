@@ -86,8 +86,8 @@ export default function grade6Fees() {
   ];
  
   const oneOffCharges = [
-    { title: "Non-refundable Commitment Fee", amount: "KES 20,000" },
-    { title: "Extra charge for uniform, bedding and textbooks", amount: "KES 0,000" },
+    { title: "Non-refundable Commitment Fee(which is part of the school fees)", amount: "KES 20,000" },
+    { title: "Extra charge for uniform, bedding and textbooks", amount: "KES 30,000" },
     { title: "Free transport to and from Nanyuki, Mombasa, and Embu", isFree: true }
   ];
  
@@ -149,6 +149,7 @@ export default function grade6Fees() {
               New Students Only
             </h2>
             <p className="text-gray-600 text-center mb-8">One-time charges for first-year students</p>
+            
            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {oneOffCharges.map((charge, idx) => (
