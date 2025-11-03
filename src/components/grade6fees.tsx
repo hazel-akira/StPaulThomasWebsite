@@ -14,6 +14,7 @@ interface OneOffChargeProps {
   isFree?: boolean;
 }
  
+// eslint-disable-next-line react-refresh/only-export-components
 const TermFeeCard: React.FC<TermFeeCardProps> = ({ term, amount, isAnnual = false }) => (
   <div className={`rounded-xl p-6 shadow-lg transition-all hover:shadow-xl hover:-translate-y-1 ${
     isAnnual
@@ -34,6 +35,7 @@ const TermFeeCard: React.FC<TermFeeCardProps> = ({ term, amount, isAnnual = fals
   </div>
 );
  
+// eslint-disable-next-line react-refresh/only-export-components
 const OneOffChargeCard: React.FC<OneOffChargeProps> = ({ title, amount, isFree = false }) => (
   <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-md hover:shadow-lg transition-shadow">
     <div className="flex items-start justify-between">
@@ -57,6 +59,7 @@ const OneOffChargeCard: React.FC<OneOffChargeProps> = ({ title, amount, isFree =
   </div>
 );
  
+// eslint-disable-next-line react-refresh/only-export-components
 const PaymentMethodCard: React.FC<{ method: string; accepted: boolean }> = ({ method, accepted }) => (
   <div className={`rounded-lg p-4 border-2 ${
     accepted
@@ -87,7 +90,7 @@ export default function grade6Fees() {
  
   const oneOffCharges = [
     { title: "Non-refundable Commitment Fee", amount: "KES 20,000" },
-    { title: "Extra charge for uniform, bedding and textbooks", amount: "KES 100,000" },
+    { title: "Extra charge for uniform, bedding and textbooks", amount: "KES 30,000" },
     { title: "Free transport to and from Nanyuki, Mombasa, and Embu", isFree: true }
   ];
  
