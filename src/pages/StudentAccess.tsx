@@ -18,7 +18,7 @@ const accessItems = [
   },
   {
     title: 'Moodle Access',
-    url: 'https://elearning.stpaulthomasacademy.ac.ke',
+    url: 'https://elearning.stpaulthomasacademy.co.ke',
     Icon: ComputerDesktopIcon,
   },
   {
