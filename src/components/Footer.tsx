@@ -71,12 +71,12 @@ const Footer: React.FC = () => (
 
              {/* Email */}
                <div className="flex items-center space-x-2  ">
-             <Mail size={16} />               
+             <Mail size={14} />      <br />         
                   <a href="mailto:admissions@stpaulthomasacademy.co.ke" className='hover:text-white '>  <span> admissions@stpaulthomasacademy.co.ke</span></a>
               </div>
 
             {/* Address */}
-              <div className="flex items-start space-x-2 "> <MapPin size={24} />
+              <div className="flex items-start space-x-2 "> <MapPin size={20} />
                 <a href="https://maps.app.goo.gl/oUQbvDr7T3PNzCSC7 " className=' hover:text-white'>
                <p> P.O. BOX 555-10205 MARAGUA</p>
               <p>
@@ -150,7 +150,7 @@ const Footer: React.FC = () => (
         
         <div className="mt-2 text-base space-y-1">
           <p>Regulated by the Ministry of Education Kenya</p>
-          <p>(P/1/968/2002)</p>
+          <p>Reg No:21P120000207</p>
           <p>Licensed by Murang'a County</p>
         </div>
         <div className="flex items-center space-x-2">
