@@ -18,7 +18,7 @@ const accessItems = [
  
   {
     title: 'Staff Online Library',
-    url: 'https://library.pioneerschools.ac.ke',
+    url: 'https://library.stpaulthomasacademy.co.ke/',
     Icon: BookOpenIcon,
   },
   {
