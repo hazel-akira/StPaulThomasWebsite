@@ -1,234 +1,233 @@
-import React, { useState} from 'react';
-import { BarChart3, TrendingUp, Award, Calendar, ExternalLink, Loader2 } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom'
-interface DashboardData {
-  id: string;
-  year: string;
+import React, { useState } from "react";
+import {
+  BarChart3,
+  TrendingUp,
+  Award,
+  Calendar,
+  ChevronDown,
+  //LineChart,
+  //GraduationCap,
+} from "lucide-react";
+import { Helmet } from "react-helmet-async";
+import { motion, AnimatePresence } from "framer-motion";
+// ---------------- HERO SECTION ---------------- //
+interface HeroSectionProps {
   title: string;
   description: string;
-  embedUrl: string;
-  aspectRatio: string;
-  icon: React.ReactNode;
+  //icon: React.ReactNode;
 }
 
-const dashboardsData: DashboardData[] = [
-  {
-    id: 'kpsea-202-1',
-    year: '2023',
-    title: 'Kenya Primary School Education Assessment(KPSEA) 2023',
-    description: '',
-    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiOTg0OWYxZDAtMjYzNi00NWUyLTg2YjMtMmQzODZiZjhjY2I1IiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&amp;embedImagePlaceholder=true',
-    aspectRatio: 'aspect-[16/10]',
-    icon: <BarChart3 className="w-6 h-6" />
-  },
-  {
-    id: 'kcpe-2023-2',
-    year: '2023',
-    title: 'ST PAUL THOMAS ACADEMY COMPARISON AGAINST NATIONAL KCPE 2023',
-    description: '',
-    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiYjZiZTkzNDQtN2I1OC00MzU4LTkxNzMtNzg4NDk1ZjMxOGNhIiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&amp;pageName=3a6be48f43c92a05c63e&amp;embedImagePlaceholder=true',
-    aspectRatio: 'aspect-[16/10]',
-    icon: <TrendingUp className="w-6 h-6" />
-  },
-  {
-    id: 'kcpe-2023',
-    year: '2023',
-    title: 'Kenya National Examination results 2023',
-    description: '',
-    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiZTdmYjY3MmItNWM5NS00OGU3LWIwMjktMTAwMWM1Mzg1MzI3IiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&embedImagePlaceholder=true',
-    aspectRatio: 'aspect-[16/9]',
-    icon: <Award className="w-6 h-6" />
-  },
-  {
-    id: 'kcpe-2022',
-    year: '2022',
-    title: 'Kenya National Examination results 2022',
-    description: '',
-    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiZDEzM2EwMmUtM2I0OS00NTMwLWEzYTMtOTM3ZGIwOTk1MGU1IiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&embedImagePlaceholder=true',
-    aspectRatio: 'aspect-[16/9]',
-    icon: <Award className="w-6 h-6" />
-  },
-
-  {
-    id: 'kcpe-2019 to 2021',
-    year: '2019 - 2021',
-    title: 'Kenya National Examination results 2019 to 2021',
-    description: '',
-    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiZTYwYzQ1YTgtZmU4ZS00NzA1LWFiZWItZWY1ZDU3M2Q4ZjUxIiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&embedImagePlaceholder=true',
-    aspectRatio: 'aspect-[16/9]',
-    icon: <Award className="w-6 h-6" />
-  }
-];
-
-const DashboardCard: React.FC<{ dashboard: DashboardData }> = ({ dashboard }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
-
-  const handleIframeLoad = () => {
-    setIsLoading(false);
-  };
-
-  const handleIframeError = () => {
-    setIsLoading(false);
-    setHasError(true);
-  };
-
+const HeroSection: React.FC<HeroSectionProps> = ({ title, description}) => {
   return (
-    <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 overflow-hidden">
-      {/* Card Header */}
-      <div className="p-6 bg-gradient-to-br from-[#093057] to-[#093057ae] border-b border-gray-100">
-        <div className="flex items-start justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="p-2 bg-[#df8811] text-[#ffff] rounded-xl transition-colors">
-              {dashboard.icon}
+    <div className="max-w-full mx-auto w-full bg-gradient-to-br from-[#0d1e42] via-[#132d6b] to-[#0a1b3c] text-white py-20 px-6 mb-10 animate-fadeIn">
+     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+              <Award className="w-7 h-7 text-[#df8811]" />
+              <span className="text-blue-100 font-medium">Our Educational Excellence</span>
             </div>
-            <div>
-              <h3 className="text-xl font-bold text-[#df8811]  transition-colors">
-                {dashboard.title}
-              </h3>
-              <div className="flex items-center space-x-2 mt-1">
-                <Calendar className="w-4 h-4 text-[white]" />
-                <span className="text-sm font-medium text-[white]">{dashboard.year}</span>
-              </div>
-            </div>
-          </div>
-          <ExternalLink className="w-5 h-5 text-[#df8811] group-hover:text-[#093057] transition-colors" />
-        </div>
-       
-      </div>
 
-      {/* Dashboard Embed */}
-      <div className="relative">
-        {isLoading && (
-          <div className={`${dashboard.aspectRatio} flex items-center justify-center bg-gray-50 border-t border-gray-100`}>
-            <div className="text-center">
-              <Loader2 className="w-8 h-8 text-[#093057] animate-spin mx-auto mb-3" />
-              <p className="text-gray-600 font-medium">Loading dashboard...</p>
-              <div className="flex space-x-1 mt-2 justify-center">
-                <div className="w-2 h-2 bg-[#df8811] rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-[#093057] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                <div className="w-2 h-2 bg-[#093057] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-              </div>
-            </div>
-          </div>
-        )}
-        
-        {hasError && (
-          <div className={`${dashboard.aspectRatio} flex items-center justify-center bg-red-50 border-t border-red-100`}>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <ExternalLink className="w-6 h-6 text-red-500" />
-              </div>
-              <p className="text-red-600 font-medium">Unable to load dashboard</p>
-              <p className="text-red-500 text-sm mt-1">Please check your connection and try again</p>
-            </div>
-          </div>
-        )}
+      {/* Title */}
+      <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-bl from-[#df8811] via-yellow-400 to-[#df8811] bg-clip-text text-transparent text-center drop-shadow mb-4">
+        {title}
+      </h1>
 
-        <iframe
-          src={dashboard.embedUrl}
-          className={`w-full ${dashboard.aspectRatio} ${isLoading || hasError ? 'hidden' : 'block'} border-0`}
-          title={dashboard.title}
-          onLoad={handleIframeLoad}
-          onError={handleIframeError}
-          allow="fullscreen"
-        />
+      {/* Subtitle */}
+      <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto text-center">
+        {description}
+      </p>
+
+      {/* Icon section 
+      <div className="mt-8 w-fit mx-auto p-4 bg-[#df8811] text-right rounded-2xl shadow-lg">
+        {icon}
+        </div>*/}
       </div>
     </div>
   );
 };
 
-export default function BeInspired() {
-  const [selectedYear, setSelectedYear] = useState<string>('all');
-  
-  const filteredDashboards = selectedYear === 'all' 
-    ? dashboardsData 
-    : dashboardsData.filter(d => d.year === selectedYear);
+// ---------------- DASHBOARD CARD ---------------- //
+interface DashboardCardProps {
+  dashboard: {
+    icon: React.ReactNode;
+    title: string;
+    year: string | number;
+    aspectRatio: string;
+    embedUrl: string;
+  };
+}
 
-  const uniqueYears = ['all', ...Array.from(new Set(dashboardsData.map(d => d.year)))];
+const DashboardCard: React.FC<DashboardCardProps> = ({ dashboard }) => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  return (
+    <div className="group bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 animate-fadeIn">
+      {/* Header */}
+      <div className="p-6 bg-gradient-to-br from-[#093057] to-[#0d447e]">
+        <div className="flex items-start justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="p-2 bg-[#df8811] text-white rounded-xl shadow-md">
+              {dashboard.icon}
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-[#df8811]">
+                {dashboard.title}
+              </h3>
+              <div className="flex items-center space-x-2 mt-1 text-white">
+                <Calendar className="w-4 h-4" />
+                <span className="text-sm font-medium">{dashboard.year}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Loading */}
+      {loading && !error && (
+        <div
+          className={`${dashboard.aspectRatio} flex items-center justify-center bg-gray-50`}
+        >
+          <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-[#093057]"></div>
+        </div>
+      )}
+
+      {/* Error */}
+      {error && (
+        <div className="p-6 text-center bg-red-50 text-red-600">
+          <p>Error loading dashboard</p>
+        </div>
+      )}
+
+      {/* Iframe */}
+      <iframe
+        src={dashboard.embedUrl}
+        className={`w-full ${
+          loading || error ? "hidden" : "block"
+        } ${dashboard.aspectRatio} border-0`}
+        onLoad={() => setLoading(false)}
+        onError={() => {
+          setLoading(false);
+          setError(true);
+        }}
+        allow="fullscreen"
+      />
+    </div>
+  );
+};
+
+// ---------------- MAIN PAGE ---------------- //
+export default function BeInspired() {
+  const [kpseaOpen, setKpseaOpen] = useState(true);
+  const [kcpeOpen, setKcpeOpen] = useState(false);
+
+  const dashboardsData = [
+    {
+      id: "kpsea-2023",
+      year: "2023",
+      title: "Kenya Primary School Education Assessment (KPSEA) 2023",
+      embedUrl:
+        "https://app.powerbi.com/view?r=eyJrIjoiOTg0OWYxZDAtMjYzNi00NWUyLTg2YjMtMmQzODZiZjhjY2I1IiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&embedImagePlaceholder=true",
+      aspectRatio: "aspect-[16/10]",
+      icon: <BarChart3 className="w-6 h-6" />,
+    },
+    {
+      id: "kcpe-2023-2",
+      year: "2023",
+      title: "ST PAUL THOMAS ACADEMY COMPARISON AGAINST NATIONAL KCPE 2023",
+      embedUrl:
+        "https://app.powerbi.com/view?r=eyJrIjoiYjZiZTkzNDQtN2I1OC00MzU4LTkxNzMtNzg4NDk1ZjMxOGNhIiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9&pageName=3a6be48f43c92a05c63e",
+      aspectRatio: "aspect-[16/10]",
+      icon: <TrendingUp className="w-6 h-6" />,
+    },
+    {
+      id: "kcpe-2023",
+      year: "2023",
+      title: "Kenya National Examination Results 2023",
+      embedUrl:
+        "https://app.powerbi.com/view?r=eyJrIjoiZTdmYjY3MmItNWM5NS00OGU3LWIwMjktMTAwMWM1Mzg1MzI3IiwidCI6ImJkNzIyMmM3LTBjZWYtNGJjNS05ZTllLWQ1ZjhiNWJiYjFlMiIsImMiOjl9",
+      aspectRatio: "aspect-[16/9]",
+      icon: <Award className="w-6 h-6" />,
+    },
+  ];
+
+  const kpseaDashboards = dashboardsData.filter((d) => d.id.startsWith("kpsea-"));
+  const kcpeDashboards = dashboardsData.filter((d) => d.id.startsWith("kcpe-"));
 
   return (
     <>
       <Helmet>
-        <title>KCPE Results | St Paul Thomas Academy</title>
+        <title>KCPE & KPSEA Results | St Paul Thomas Academy</title>
       </Helmet>
-      <div className="min-h-screen font-sans bg-gradient-to-br from-slate-200 via-blue-50 to-indigo-50">
-        {/* Hero Section */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-[#13365e] via-blue-900 to-[#093057]">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-            <div className="text-center">
-              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-                <Award className="w-7 h-7 text-[#df8811]" />
-                <span className="text-blue-100 font-medium"> Our Educational Excellence</span>
+
+      <div className="w-full min-h-screen bg-gray-100 pb-20">
+        {/* ---------- KPSEA HERO ---------- */}
+        <HeroSection
+          title="KPSEA Performance Analytics"
+          description="Explore detailed analysis, performance trends, and score distributions for KPSEA assessments."
+         
+        />
+
+        <div className="max-w-full mx-auto px-4 w-full">
+          {/* ---------- KPSEA ACCORDION ---------- */}
+          <div className="bg-white rounded-xl shadow mb-12 animate-fadeIn">
+            <button
+              onClick={() => setKpseaOpen((prev) => !prev)}
+              className="w-full flex justify-between items-center p-5 text-left font-bold text-xl text-[#093057]"
+            >
+              KPSEA Results
+              <ChevronDown className={`transition-transform ${kpseaOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {kpseaOpen && (
+              <div className="p-5 border-t grid gap-6">
+                {kpseaDashboards.map((dashboard) => (
+                  <DashboardCard key={dashboard.id} dashboard={dashboard} />
+                ))}
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#df8811] mb-6">
-                KCPE Results
-                <span className="bg-gradient-to-r from-yellow-400 to-[#df8811] bg-clip-text text-transparent"> Analytics</span>
-              </h1>
-              <p className="text-xl text-gray-100 max-w-3xl font-sans mx-auto leading-relaxed ">
-                
-              "Parents often choose academies over public schools for various reasons, with academic performance being a significant factor".
-<br />
-<br />
-Well, they are not wrong, see our results over the past few years below
-              </p>
-            </div>
-          </div>
-        </div>
+            )}
+          </div></div>
+          {/* KCPE HERO */}
+        <HeroSection
+           title="KCPE Performance Analytics"
+            description="View comprehensive KCPE exam performance, comparisons, and national ranking insights."
+          
+          />
 
-        {/* Filter Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-wrap items-center justify-between gap-4 bg-white rounded-xl shadow-sm border border-gray-200 p-4">
-            <h2 className="text-lg font-semibold text-gray-900">Filter by Year</h2>
-            <div className="flex flex-wrap gap-2">
-              {uniqueYears.map((year) => (
-                <button
-                  key={year}
-                  onClick={() => setSelectedYear(year)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                    selectedYear === year
-                      ? 'bg-[#093057] text-white shadow-lg shadow-blue-200'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }`}
+<div className="w-full px-4 max-w-full mx-auto">
+  {/* KCPE Accordion */}
+</div>
+
+        
+
+          {/* KCPE Accordion */}
+          <div className="bg-white rounded-xl shadow">
+            <button
+              onClick={() => setKcpeOpen((prev) => !prev)}
+              className="w-full flex justify-between items-center p-5 text-left font-bold text-xl text-[#093057] dark:text-[#df8811]"
+            >
+              KCPE Results
+              <ChevronDown className={`transition-transform ${kcpeOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            <AnimatePresence>
+              {kcpeOpen && (
+                <motion.div
+                  key="kcpe"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="p-5 border-t grid gap-6"
                 >
-                  {year === 'all' ? 'All Years' : year}
-                </button>
-              ))}
-            </div>
+                  {kcpeDashboards.map((dashboard) => (
+                    <DashboardCard key={dashboard.id} dashboard={dashboard} />
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
-
-        {/* Dashboard Grid */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-          <div className="grid gap-8 lg:gap-12">
-            {filteredDashboards.map((dashboard) => (
-              <DashboardCard key={dashboard.id} dashboard={dashboard} />
-            ))}
-          </div>
-        </div>
-
-        {/* Footer Section */}
-        <div className="bg-[#093057] border-t border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            
-              <Link
-          to="/nurture"
-          className="inline-block border mb-6 border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
-            >
-      Nurturing Students
-        </Link>
-        <Link
-          to="/studylife"
-          className="inline-block border ml-10 border-[#bdd6f0] bg-transparent px-8 py-3 text-2xl font-bold uppercase text-white hover:bg-[#bdd6f0] hover:text-[#0C356A] transition-colors rounded"
-            >
-      Study Life
-        </Link>
-           
-          </div>
-        </div>
-      </div>
+     
     </>
   );
 }

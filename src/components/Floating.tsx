@@ -13,7 +13,7 @@ export const Floating  = () => (
         rel="noopener noreferrer"
         className="
           w-20 h-20 fix  sm:bottom-
-          bg-[#74d1f6] text-white
+          bg-[#85a7c9] text-white
           hover:bg-[#093057] hover:text-white
           shadow-lg rounded-full
           flex items-center justify-center
@@ -32,7 +32,7 @@ export const Floating  = () => (
       className="
         fixed bottom-15 right-4 z-50
         sm:bottom-10 md:bottom-14 sm:right-10
-        bg-[#74d1f6]  backdrop-blur-md
+        bg-[#85a7c9]  backdrop-blur-md
         w-10 h-10 rounded-full
         hover:bg-opacity-40
         flex items-center justify-center

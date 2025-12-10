@@ -172,7 +172,7 @@ const Navbar: React.FC = () => {
           key={item.to}
           to={item.to}
           onClick={() => setTimeout(closeAll, 100)}
-          className="block px-4 py-2 text-black bg-[#74d1f6] hover:bg-black hover:text-white transition-colors"
+          className="block px-4 py-2 text-black bg-[#85a7c9] hover:bg-black hover:text-white transition-colors"
         >
           {item.label}
         </NavLink>
@@ -181,7 +181,7 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className="bg-[#74d1f6] text-black sticky top-0 z-50 font-sans shadow-lg"
+      className="bg-[#85a7c9] text-black sticky top-0 z-50 font-sans shadow-lg"
       style={{ fontFamily: 'Poppins, sans-serif' }} 
     >
     
@@ -240,7 +240,7 @@ const Navbar: React.FC = () => {
           {/* 3rd item: KCPE Results */}
           <div className="flex items-center border-l border-black px-2 first:border-l-0">
             <NavLink to="/perfomance" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
-              KCPE Results
+              KPSEA 
             </NavLink>
           </div>
 
@@ -299,7 +299,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Nav */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#74d1f6] text-black p-6 space-y-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+        <div className="lg:hidden bg-[#85a7c9] text-black p-6 space-y-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
           <nav className="space-y-3 ">
             <NavLink to="/" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
               HOME
@@ -324,7 +324,7 @@ const Navbar: React.FC = () => {
 
             {/* 3rd item: KCPE Results */}
             <NavLink to="/perfomance" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
-              KCPE Results
+              KPSEA 
             </NavLink>
 
             {/* Remaining dropdowns except Get Access */}

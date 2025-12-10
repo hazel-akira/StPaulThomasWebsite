@@ -236,7 +236,7 @@ const Navbar: React.FC = () => {
 
           <div className="flex items-center border-l border-black px-2 first:border-l-0">
             <NavLink to="/perfomance" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
-              KCPE Results
+              KPSEA 
             </NavLink>
           </div>
 
@@ -320,7 +320,7 @@ const Navbar: React.FC = () => {
             ))}
 
             <NavLink to="/perfomance" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
-              KCPE Results
+              KPSEA Results
             </NavLink>
 
             {orderedKeys.slice(2, -1).map((key) => (

@@ -35,7 +35,7 @@ const Footer: React.FC = () => (
             {[
               { to: '/', icon: <Home size={14} />, label: 'Home' },
               { to: '/who', icon: <Users size={14} />, label: 'Who We Are' },
-              { to: '/perfomance', icon: <GraduationCap size={14} />, label: 'KCPE Results' },
+              { to: '/perfomance', icon: <GraduationCap size={14} />, label: 'KPSEA Results' },
               { to: '/nurture', icon: <UserCheck size={14} />, label: 'Nurture' },
               { to: '/studylife', icon: <BookOpen size={14} />, label: 'Study Life' },
               { to: '/talent', icon: <Building2 size={14} />, label: 'Talent' },

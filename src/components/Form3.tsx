@@ -26,8 +26,8 @@ const JoinForm3: React.FC = () => (
           Eligibility Requirements for Joining Form 3
         </h2>
         <ol className="list-decimal list-inside text-gray-700 space-y-2">
-          <li>Minimum KCPE score of 350 or higher.</li>
-          <li>Provide original KCPE certificate (copy kept by school).</li>
+          <li>Minimum  score of 350 or higher.</li>
+          <li>Provide original  certificate (copy kept by school).</li>
           <li>Supply NEMIS/Assessment Number or, for foreign students, a Ministry of Education ID.</li>
           <li>Pass a medical examination.</li>
           <li>Provide recent Form 1 & Form 2 report forms (original; copy kept by school).</li>

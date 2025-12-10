@@ -138,7 +138,7 @@ const FloatingAdmissionTimer: React.FC<Props> = ({
               {/* CTA */}
               <a
                 href={ctaHref}
-                className="order-2 sm:order-3 ml-auto inline-flex items-center justify-center rounded-full bg-[#74d1f6]/60 px-4 py-2 text-black text-sm font-semibold hover:bg-[#c8740e]/60 transition whitespace-nowrap w-full sm:w-auto"
+                className="order-2 sm:order-3 ml-auto inline-flex items-center justify-center rounded-full bg-[#85a7c9]/90 px-4 py-2 text-black text-sm font-semibold hover:bg-[#c8740e]/60 transition whitespace-nowrap w-full sm:w-auto"
               >
                 {ctaText}
               </a>
@@ -173,7 +173,7 @@ const Pill: React.FC<{ label: string; value: number; emphasize?: boolean; bump?:
 }) => (
   <div
     className={`flex flex-col items-center justify-center px-2 sm:px-3 py-1 rounded-xl ${
-      emphasize ? "bg-[#df8811] text-black" : "bg-[#74d1f6] text-black"
+      emphasize ? "bg-[#df8811] text-black" : "bg-[#85a7c9] text-black"
     } text-xs sm:text-sm font-bold`}
   >
     <span className={`tabular-nums leading-none text-base sm:text-lg ${bump ? "animate-pulseTick" : ""}`}>
