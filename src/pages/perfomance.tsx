@@ -203,7 +203,7 @@ export default function BeInspired() {
           <div className="bg-white rounded-xl shadow">
             <button
               onClick={() => setKcpeOpen((prev) => !prev)}
-              className="w-full flex justify-between items-center p-5 text-left font-bold text-xl text-[#093057] dark:text-[#df8811]"
+              className="w-full flex justify-between items-center p-5 text-left font-bold text-xl text-[#093057]"
             >
               KCPE Results
               <ChevronDown className={`transition-transform ${kcpeOpen ? "rotate-180" : ""}`} />
