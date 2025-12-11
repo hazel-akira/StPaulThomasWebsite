@@ -156,7 +156,7 @@ export default function BeInspired() {
   return (
     <>
       <Helmet>
-        <title>KCPE & KPSEA Results | St Paul Thomas Academy</title>
+        <title> KPSEA| St Paul Thomas Academy</title>
       </Helmet>
 
       <div className="w-full min-h-screen bg-gray-100 pb-20">
