@@ -158,7 +158,7 @@ export default function App() {
         />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
-        <Route path="/perfomance" element={<PerformancePage/>}/>
+        <Route path="/kpsea" element={<PerformancePage/>}/>
         <Route path='/sitemap' element={<Sitemap/>}/>
         {/* 404 Not Found route */}
         <Route path="*" element={<NotFound />} />

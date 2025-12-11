@@ -239,7 +239,7 @@ const Navbar: React.FC = () => {
 
           {/* 3rd item: KCPE Results */}
           <div className="flex items-center border-l border-black px-2 first:border-l-0">
-            <NavLink to="/perfomance" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
+            <NavLink to="/kpsea" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
               KPSEA 
             </NavLink>
           </div>
