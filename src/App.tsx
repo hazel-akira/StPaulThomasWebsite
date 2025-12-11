@@ -35,7 +35,7 @@ import StaffAccess from './pages/StaffAccess'
 import InfoCard from './components/InfoCard'
 import PrivacyPolicyPage from './pages/PrivacyPolicy'
 import Disclaimer from './pages/Disclaimer';
-import PerformancePage from './pages/perfomance'
+import PerformancePage from './pages/KPSEA'
 import NotFound from './pages/NotFound'
 import { Floating } from './components/Floating'
 import Grade4Fees from './components/grade4Fees'
@@ -172,8 +172,8 @@ export default function App() {
           - Sticks to bottom across other pages.
       */}
       <FloatingAdmissionTimer
-        target="2025-10-29T23:59:59+03:00"
-        start="2025-09-27T00:00:00+03:00"
+        target="2026-01-29T23:59:59+03:00"
+        start="2025-12-11T00:00:00+03:00"
         ctaText="Apply for Upper Primary"
         ctaHref="https://enquireto.pioneergroupofschools.co.ke/main/register?school=stpaulthomasacademy.co.ke"
         heading="Grade 4-6 admissions close in"
