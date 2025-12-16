@@ -1,387 +1,354 @@
-import React, { useEffect, useRef, useState, type ReactNode } from "react";
-import { NavLink } from "react-router-dom";
-import {
-  ChevronDownIcon,
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { useEffect, useState, useRef } from "react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-/* ===================== TYPES ===================== */
-
-type MenuItem = {
-  to: string;
-  label: string;
-  external?: boolean;
-};
-
-type MenuGroup = {
-  label: string;
-  to: string;
-  items: MenuItem[];
-};
-
-type MenuKey =
-  | "whoWeAre"
-  | "nurture"
-  | "studyLife"
-  | "talent"
-  | "fees"
-  | "joinUs"
-  | "getAccess";
-
-/* ===================== MENU DATA ===================== */
-
-const MENU: Record<MenuKey, MenuGroup> = {
-  whoWeAre: {
+const navItems = [
+  { label: "Home", path: "/", hasDropdown: false },
+  {
     label: "Who We Are",
-    to: "/who",
-    items: [
-      { to: "/history", label: "Our History" },
-      { to: "/leadership", label: "Our Leadership" },
-      { to: "/nurturing", label: "Our Nurturing Team" },
-    ],
+    path: "/who",
+    hasDropdown: true,
+    options: [
+      { label: "Our History", path: "/history" },
+      { label: "Our Leadership", path: "/leadership" },
+      { label: "Our Nurturing Team", path: "/nurturing" },
+    ]
   },
-
-  nurture: {
+  {
     label: "Nurture",
-    to: "/nurture",
-    items: [
-      { to: "/farm-2-fork", label: "Farm 2 Fork" },
-      { to: "/homefromhome", label: "Home From Home" },
-      { to: "/discipline", label: "Discipline" },
-      { to: "/chaplaincy", label: "Chaplaincy" },
-      { to: "/nursing-care", label: "Nursing Care" },
-      { to: "/safety", label: "Safety & Security" },
-    ],
+    path: "/nurture",
+    hasDropdown: true,
+    options: [
+      { label: "Farm 2 Fork", path: "/farm-2-fork" },
+      { label: "Home From Home", path: "/homefromhome" },
+      { label: "Discipline", path: "/discipline" },
+      { label: "Chaplaincy", path: "/chaplaincy" },
+      { label: "Nursing Care", path: "/nursing-care" },
+      { label: "Safety & Security", path: "/safety" },
+    ]
   },
-
-  studyLife: {
+  {
     label: "Study Life",
-    to: "/studylife",
-    items: [
-      { to: "/tailor-made-leadership-pathways", label: "Leadership Pathways" },
-      { to: "/cadet", label: "Young Air Cadet" },
-      { to: "/coding", label: "Coding Life" },
-      { to: "/seafarers", label: "Young Seafarers" },
-    ],
+    path: "/studylife",
+    hasDropdown: true,
+    options: [
+      { label: "Leadership Pathways", path: "/tailor-made-leadership-pathways" },
+      { label: "Young Air Cadet", path: "/cadet" },
+      { label: "Coding Life", path: "/coding" },
+      { label: "Young Seafarers", path: "/seafarers" },
+    ]
   },
-
-  talent: {
+  { label: "KPSEA", path: "/kpsea", hasDropdown: false },
+  {
     label: "Talent",
-    to: "/talent",
-    items: [
-      { to: "/band", label: "Band Life" },
-      { to: "/chess", label: "Chess Masters" },
-      { to: "/scouts", label: "Scouts Life" },
-      { to: "/swimmers", label: "Swimmers Life" },
-      { to: "/basket", label: "Basketball Life" },
-      { to: "/football", label: "Footballer Life" },
-    ],
+    path: "/talent",
+    hasDropdown: true,
+    options: [
+      { label: "Band Life", path: "/band" },
+      { label: "Chess Masters", path: "/chess" },
+      { label: "Scouts Life", path: "/scouts" },
+      { label: "Swimmers Life", path: "/swimmers" },
+      { label: "Basketball Life", path: "/basket" },
+      { label: "Footballer Life", path: "/football" },
+    ]
   },
-
-  fees: {
+  {
     label: "Fees",
-    to: "/fees",
-    items: [
-      { to: "/grade4fee", label: "Grade 4 Fees" },
-      { to: "/grade5fee", label: "Grade 5 Fees" },
-      { to: "/grade6fee", label: "Grade 6 Fees" },
-      { to: "/terms", label: "Terms & Conditions" },
-    ],
+    path: "/fees",
+    hasDropdown: true,
+    options: [
+      { label: "Grade 4 Fees", path: "/grade4fee" },
+      { label: "Grade 5 Fees", path: "/grade5fee" },
+      { label: "Grade 6 Fees", path: "/grade6fee" },
+      { label: "Terms & Conditions", path: "/terms" },
+    ]
   },
-
-  joinUs: {
+  {
     label: "Join Us",
-    to: "/join",
-    items: [
-      { to: "/grade4", label: "Join Grade 4" },
-      { to: "/grade5", label: "Join Grade 5" },
-      { to: "/grade6", label: "Join Grade 6" },
-      { to: "/admissions", label: "Admissions Policy" },
-      {
-        to: "https://enquireto.pioneergroupofschools.co.ke",
-        label: "Enquire",
-        external: true,
-      },
-    ],
+    path: "/join",
+    hasDropdown: true,
+    options: [
+      { label: "Join Grade 4", path: "/grade4" },
+      { label: "Join Grade 5", path: "/grade5" },
+      { label: "Join Grade 6", path: "/grade6" },
+      { label: "Admissions Policy", path: "/admissions" },
+      { label: "Enquire", path: "https://enquireto.pioneergroupofschools.co.ke", external: true },
+    ]
   },
-
-  getAccess: {
+  { label: "Location", path: "/location", hasDropdown: false },
+  {
     label: "Get Access",
-    to: "/access",
-    items: [
-      { to: "/events", label: "Calendar of Events" },
-      { to: "/StuAccess", label: "Student Access" },
-      { to: "/staffAccess", label: "Staff Access" },
-    ],
+    path: "/access",
+    hasDropdown: true,
+    options: [
+      { label: "Calendar of Events", path: "/events" },
+      { label: "Student Access", path: "/StuAccess" },
+      { label: "Staff Access", path: "/staffAccess" },
+    ]
   },
-};
-
-const ORDER: MenuKey[] = [
-  "whoWeAre",
-  "nurture",
-  "studyLife",
-  "talent",
-  "fees",
-  "joinUs",
 ];
-const LinkItem = ({
-  item,
-  onClick,
-}: {
-  item: MenuItem;
-  onClick: () => void;
-}) =>
-  item.external ? (
-    <a
-      href={item.to}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={onClick}
-      className="block px-3 py-2 rounded-md hover:bg-[#85a7c9]"
-    >
-      {item.label}
-    </a>
-  ) : (
-    <NavLink
-      to={item.to}
-      onClick={onClick}
-      className="block px-3 py-2 rounded-md hover:bg-[#85a7c9]"
-    >
-      {item.label}
-    </NavLink>
-  );
 
-/* ===================== UI HELPERS ===================== */
+export default function Navbar() {
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
+  const [isDropdownClicked, setIsDropdownClicked] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState<number | null>(null);
+  const [visibleItems, setVisibleItems] = useState<number>(0);
 
-const Divider = () => (
-  <span className="hidden lg:block mx-2 h-5 w-px bg-black" />
-);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const leaveTimeout = useRef<number | null>(null);
+  const navigate = useNavigate();
 
-const Dropdown = ({
-  open,
-  children,
-}: {
-  open: boolean;
-  children: ReactNode;
-}) => (
-  <div
-    className={`absolute left-0 top-full mt-2 w-64 rounded-xl text-sm font-bold text-black bg-[white] shadow-lg transition
-      ${
-        open
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 -translate-y-1 pointer-events-none"
-      }`}
-  >
-    <div className="p-1 space-y-1">{children}</div>
-  </div>
-);
-
-/* ===================== NAVBAR ===================== */
-
-const Navbar: React.FC = () => {
-  const [openKey, setOpenKey] = useState<MenuKey | null>(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileKey, setMobileKey] = useState<MenuKey | null>(null);
-
-  const navRef = useRef<HTMLDivElement>(null);
-  const closeTimeout = useRef<number | null>(null);
-
+  // Staggered animation for nav items
   useEffect(() => {
-    const handler = (e: MouseEvent | TouchEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
-        setOpenKey(null);
-        setMobileOpen(false);
-        setMobileKey(null);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    document.addEventListener("touchstart", handler);
-    return () => {
-      document.removeEventListener("mousedown", handler);
-      document.removeEventListener("touchstart", handler);
-    };
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < navItems.length) {
+        setVisibleItems(i + 1);
+        i++;
+      } else clearInterval(interval);
+    }, 100);
+    return () => clearInterval(interval);
   }, []);
 
-  const openMenu = (key: MenuKey) => {
-    if (closeTimeout.current) window.clearTimeout(closeTimeout.current);
-    setOpenKey(key);
+  // Click outside handler
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
+        setActiveDropdown(null);
+        setIsDropdownClicked(false);
+      }
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(target)) {
+        const htmlTarget = event.target as HTMLElement;
+        if (!htmlTarget.closest('.mobile-menu-button')) {
+          setMobileMenuOpen(false);
+          setActiveMobileDropdown(null);
+        }
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
   };
 
+  const handleDropdownToggle = (e: React.MouseEvent, index: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setActiveDropdown(activeDropdown === index ? null : index);
+    setIsDropdownClicked(true);
+  };
 
-  const closeAll = () => {
-    setOpenKey(null);
-    setMobileOpen(false);
-    setMobileKey(null);
+  const handleMouseEnter = (index: number) => {
+    if (leaveTimeout.current) clearTimeout(leaveTimeout.current);
+    if (!isDropdownClicked) setActiveDropdown(index);
   };
-  const scheduleCloseMenu = () => {
-    closeTimeout.current = window.setTimeout(() => {
-      setOpenKey(null);
-    }, 300);
+
+  const handleMouseLeave = () => {
+    if (!isDropdownClicked) {
+      leaveTimeout.current = window.setTimeout(() => setActiveDropdown(null), 200);
+    }
   };
-  
+
+  const handleDropdownItemClick = () => {
+    setActiveDropdown(null);
+    setIsDropdownClicked(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    setActiveMobileDropdown(null);
+  };
+
+  const handleMobileDropdownToggle = (index: number) => {
+    setActiveMobileDropdown(activeMobileDropdown === index ? null : index);
+  };
+
+  const handleMobileItemClick = () => {
+    setMobileMenuOpen(false);
+    setActiveMobileDropdown(null);
+  };
+
+  const NavLink = ({ to, children, className, onClick }: { to: string; children: React.ReactNode; className?: string; onClick?: () => void }) => (
+    <a
+      href={to}
+      className={className}
+      onClick={(e) => {
+        e.preventDefault();
+        if (!to.startsWith("http")) handleNavigation(to);
+        onClick?.();
+      }}
+    >
+      {children}
+    </a>
+  );
 
   return (
-    <header className="sticky top-0 z-50 bg-[#85a7c9] text-black">
-      <div
-        ref={navRef}
-        className="max-w-8xl mx-auto px-4 py-4 flex items-center justify-between"
-      >
-        {/* BRAND */}
-        <NavLink to="/" className="text-2xl font-bold">
+    <nav className="bg-[#85a7c9] text-black shadow-md relative z-50">
+      <div className="w-full px-6 flex items-center justify-between h-full relative py-4">
+        {/* Logo */}
+        <div className="font-bold text-xl cursor-pointer z-20" onClick={() => handleNavigation('/')}>
           St Paul Thomas Academy
-        </NavLink>
+        </div>
 
-        {/* DESKTOP */}
-        <nav className="hidden lg:flex items-center text-lg font-bold">
-          <NavLink to="/" className="px-3 py-2">
-            Home
-          </NavLink>
-          <Divider />
-
-          {ORDER.map((k, i) => (
-            <React.Fragment key={k}>
-              <div
-  className="relative"
-  onMouseEnter={() => openMenu(k)}
-  onMouseLeave={scheduleCloseMenu}
->
-<Dropdown open={openKey === k}>
-  <div
-    onMouseEnter={() => openMenu(k)}
-    onMouseLeave={scheduleCloseMenu}
-  >
-    {MENU[k].items.map((it) => (
-      <LinkItem key={it.label} item={it} onClick={closeAll} />
-    ))}
-  </div>
-</Dropdown>
-
-                <NavLink
-                  to={MENU[k].to}
-                  className="px-3 py-2 inline-flex items-center gap-1"
-                >
-                  {MENU[k].label}
-                  <ChevronDownIcon className="w-4 h-4" />
-                </NavLink>
-
-                <Dropdown open={openKey === k}>
-                  {MENU[k].items.map((it) => (
-                    <LinkItem key={it.label} item={it} onClick={closeAll} />
-                  ))}
-                </Dropdown>
-              </div>
-              <Divider />
-
-              {i === 1 && (
-                <>
-                  <NavLink to="/kpsea" className="px-3 py-2">
-                    KPSEA
-                  </NavLink>
-                  <Divider />
-                </>
-              )}
-            </React.Fragment>
-          ))}
-
-        {/* Location */}
-<NavLink to="/location" className="px-3 py-2">
-  Location
-</NavLink>
-<Divider />
-
-{/* Get Access as dropdown */}
-<div
-  className="relative"
-  onMouseEnter={() => openMenu("getAccess")}
-  onMouseLeave={scheduleCloseMenu}
->
-  <NavLink
-    to={MENU.getAccess.to}
-    className="px-3 py-2 inline-flex items-center gap-1"
-  >
-    {MENU.getAccess.label}
-    <ChevronDownIcon className="w-4 h-4" />
-  </NavLink>
-
-  <Dropdown open={openKey === "getAccess"}>
-    {MENU.getAccess.items.map((it) => (
-      <LinkItem key={it.label} item={it} onClick={closeAll} />
-    ))}
-  </Dropdown>
-</div>
-        </nav>
-        {/* MOBILE TOGGLE */}
+        {/* Mobile Menu Button */}
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden p-2"
+          className="xl:hidden mobile-menu-button z-20 p-2 rounded-md bg-[#de9642] hover:bg-[#cfa53a] transition-colors duration-200"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
         >
-          {mobileOpen ? (
-            <XMarkIcon className="h-6 w-6" />
-          ) : (
-            <Bars3Icon className="h-6 w-6" />
-          )}
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div>
 
-      {/* MOBILE MENU */}
-      {mobileOpen && (
-        <div className="lg:hidden bg-[#85a7c9] px-4 pb-4 space-y-3">
-          <NavLink to="/" onClick={closeAll}>
-            Home
-          </NavLink>
-
-          {ORDER.map((k) => (
-            <div key={k}>
-              <div className="flex justify-between items-center">
-                <NavLink to={MENU[k].to} onClick={closeAll}>
-                  {MENU[k].label}
-                </NavLink>
-                <button
-                  onClick={() =>
-                    setMobileKey(mobileKey === k ? null : k)
-                  }
+        {/* Desktop Navigation */}
+        <div className="hidden xl:flex items-center h-full" ref={dropdownRef}>
+          {navItems.slice(0, visibleItems).map((item, index) => (
+            <div
+              key={`nav-${index}`}
+              className={`relative group h-6 flex items-center ${index < navItems.length - 1 ? 'border-r border-black' : ''}`}
+              onMouseEnter={() => item.hasDropdown && handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+            >
+              {item.hasDropdown ? (
+                <div
+                  className="flex items-center px-3 py-2 rounded-sm hover:bg-[#7fa0c0] cursor-pointer h-full transition-colors duration-200"
+                  onClick={(e) => handleDropdownToggle(e, index)}
                 >
-                  <ChevronDownIcon
-                    className={`h-4 w-4 transition ${
-                      mobileKey === k ? "rotate-180" : ""
-                    }`}
+                  <NavLink to={item.path} className="text-md font-bold whitespace-nowrap">
+                    {item.label}
+                  </NavLink>
+                  <ChevronDown
+                    size={14}
+                    className={`ml-1 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180' : ''}`}
                   />
-                </button>
-              </div>
+                </div>
+              ) : (
+                <NavLink
+                  to={item.path}
+                  className="px-4 py-2 rounded-sm hover:bg-[#7fa0c0] cursor-pointer h-full flex items-center transition-colors duration-200"
+                >
+                  {item.label}
+                </NavLink>
+              )}
 
-              {mobileKey === k && (
-                <div className="pl-4 mt-2 space-y-1">
-                  {MENU[k].items.map((it) => (
-                    <NavLink
-                      key={it.to}
-                      to={it.to}
-                      onClick={closeAll}
-                      className="block"
-                    >
-                      {it.label}
-                    </NavLink>
-                  ))}
+              {/* Dropdown Menu */}
+              {item.hasDropdown && activeDropdown === index && (
+                <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md border border-gray-200 z-50 min-w-max animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="p-2">
+                    {item.options?.map((option, idx) =>
+                      option.external ? (
+                        <a
+                          key={`dropdown-${idx}`}
+                          href={option.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block py-1 text-md font-bold text-black hover:bg-[#7fa0c0] rounded-md p-2 whitespace-nowrap transition-colors duration-150"
+                          onClick={handleDropdownItemClick}
+                        >
+                          {option.label}
+                        </a>
+                      ) : (
+                        <NavLink
+                          key={`dropdown-${idx}`}
+                          to={option.path}
+                          className="block py-1 text-md font-bold text-black hover:bg-[#7fa0c0] rounded-md p-2 whitespace-nowrap transition-colors duration-150"
+                          onClick={handleDropdownItemClick}
+                        >
+                          {option.label}
+                        </NavLink>
+                      )
+                    )}
+                  </div>
                 </div>
               )}
             </div>
           ))}
-
-          <NavLink to="/kpsea" onClick={closeAll}>
-            KPSEA
-          </NavLink>
-
-          <NavLink to="/location" onClick={closeAll}>
-            Location
-          </NavLink>
-
-          <NavLink to="/access" onClick={closeAll}>
-            Get Access
-          </NavLink>
         </div>
-      )}
-    </header>
-  );
-};
+      </div>
 
-export default Navbar;
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && <div className="xl:hidden fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setMobileMenuOpen(false)} />}
+
+      {/* Mobile Menu */}
+      <div
+        ref={mobileMenuRef}
+        className={`xl:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-[#85a7c9] shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-300">
+            <span className="font-bold text-lg text-black">Menu</span>
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-md hover:bg-[#de9642] transition-colors duration-200"
+              aria-label="Close mobile menu"
+            >
+              <X size={20} />
+            </button>
+          </div>
+
+          {/* Mobile Menu Items */}
+          <div className="flex-1 overflow-y-auto py-4">
+            {navItems.map((item, index) => (
+              <div key={`mobile-${index}`} className="border-b border-gray-200 last:border-b-0">
+                {item.hasDropdown ? (
+                  <div>
+                    <button
+                      className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-[#de9642] transition-colors duration-200"
+                      onClick={() => handleMobileDropdownToggle(index)}
+                    >
+                      <span className="font-medium text-black">{item.label}</span>
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform duration-200 ${activeMobileDropdown === index ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    {activeMobileDropdown === index && (
+                      <div className="bg-[#d0d4db] border-t border-gray-200">
+                        {item.options?.map((option, idx) =>
+                          option.external ? (
+                            <a
+                              key={`mobile-dropdown-${idx}`}
+                              href={option.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block px-8 py-3 text-sm text-black hover:bg-[#de9642] transition-colors duration-200"
+                              onClick={handleMobileItemClick}
+                            >
+                              {option.label}
+                            </a>
+                          ) : (
+                            <NavLink
+                              key={`mobile-dropdown-${idx}`}
+                              to={option.path}
+                              className="block px-8 py-3 text-sm text-black hover:bg-[#de9642] transition-colors duration-200"
+                              onClick={handleMobileItemClick}
+                            >
+                              {option.label}
+                            </NavLink>
+                          )
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <NavLink
+                    to={item.path}
+                    className="block px-6 py-4 font-medium text-black hover:bg-[#cfa53a] transition-colors duration-200"
+                    onClick={handleMobileItemClick}
+                  >
+                    {item.label}
+                  </NavLink>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}
