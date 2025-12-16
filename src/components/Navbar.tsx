@@ -163,7 +163,7 @@ const Navbar: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => setTimeout(closeAll, 100)}
-          className="block px-4 py-2 text-black bg-transparent hover:bg-black hover:text-white transition-colors"
+          className="block px-4 py-2 text-black bg-transparent hover:bg-black text-sm hover:text-white transition-colors"
         >
           {item.label}
         </a>
@@ -172,7 +172,7 @@ const Navbar: React.FC = () => {
           key={item.to}
           to={item.to}
           onClick={() => setTimeout(closeAll, 100)}
-          className="block px-4 py-2 text-black bg-[#85a7c9] hover:bg-black hover:text-white transition-colors"
+          className="block px-4 py-2 text-black bg-[#85a7c9] hover:bg-black text-sm hover:text-white transition-colors"
         >
           {item.label}
         </NavLink>
@@ -184,12 +184,11 @@ const Navbar: React.FC = () => {
       className="bg-[#85a7c9] text-black sticky top-0 z-50 font-sans shadow-lg"
       style={{ fontFamily: 'Poppins, sans-serif' }} 
     >
-    
 
-      <div className="container mx-auto px-4 h-15 flex items-center justify-between">
+    <div className="max-w-8xl mx-auto px-4 py-4 flex items-center justify-between">
         <NavLink
           to="/"
-          className="text-2xl pr-4 text-black hover:text-[#E4AF23] lg:text-xl font-extrabold tracking-wide hover:opacity-90 transition-opacity"
+          className="text-2xl pr-4 text-black  lg:text-xl font-extrabold tracking-wide hover:opacity-90 transition-opacity"
         >
           ST PAUL THOMAS ACADEMY
         </NavLink>  
@@ -206,7 +205,7 @@ const Navbar: React.FC = () => {
         </button>
         
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center text-sm font-bold whitespace-nowrap">
+        <nav className="hidden lg:flex items-center text-lg font-bold whitespace-nowrap">
           {/* Home */}
           <div className="flex items-center border-l border-white px-2 first:border-l-0">
             <NavLink to="/" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
