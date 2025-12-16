@@ -208,9 +208,6 @@ const Navbar: React.FC = () => {
     setOpenKey(key);
   };
 
-  const closeMenuDelayed = () => {
-    closeTimeout.current = window.setTimeout(() => setOpenKey(null), 300);
-  };
 
   const closeAll = () => {
     setOpenKey(null);
@@ -236,7 +233,7 @@ const Navbar: React.FC = () => {
         </NavLink>
 
         {/* DESKTOP */}
-        <nav className="hidden lg:flex items-center text-base font-bold">
+        <nav className="hidden lg:flex items-center text-lg font-bold">
           <NavLink to="/" className="px-3 py-2">
             Home
           </NavLink>
