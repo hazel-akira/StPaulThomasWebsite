@@ -1,368 +1,386 @@
-import React, { useState, useRef, useEffect, type ReactNode } from 'react';
-import { NavLink } from 'react-router-dom';
-import { 
-  ChevronDownIcon, 
-  Bars3Icon, 
-  XMarkIcon } from '@heroicons/react/24/outline';
- 
+import React, { useEffect, useRef, useState, type ReactNode } from "react";
+import { NavLink } from "react-router-dom";
+import {
+  ChevronDownIcon,
+  Bars3Icon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 
-interface DropdownMenuProps {
-  isOpen: boolean;
-  onClose: () => void;
-  children: ReactNode;
-  className?: string;
-}
+/* ===================== TYPES ===================== */
 
-const closeTimeout = { current: undefined as number  | undefined };
+type MenuItem = {
+  to: string;
+  label: string;
+  external?: boolean;
+};
 
-const DropdownMenu: React.FC<DropdownMenuProps> = ({
-  isOpen,
-  children,
-  className = '',
-}) => (
-  <div
-    className={`absolute left-0 top-full mt-1 rounded-lg shadow-lg z-50
-         transition-all duration-200 overflow-hidden
-         ${isOpen
-          ? 'opacity-100 max-h-[80vh] lg:max-h-96 overflow-y-auto pointer-events-auto'
-          : 'opacity-0 max-h-0 pointer-events-none'
-        }
-         ${className} relative lg:absolute lg:left-0 lg:top-full lg:mt-1
-     
-       `}
-     >
-    {children}
-  </div> 
+type MenuGroup = {
+  label: string;
+  to: string;
+  items: MenuItem[];
+};
+
+type MenuKey =
+  | "whoWeAre"
+  | "nurture"
+  | "studyLife"
+  | "talent"
+  | "fees"
+  | "joinUs"
+  | "getAccess";
+
+/* ===================== MENU DATA ===================== */
+
+const MENU: Record<MenuKey, MenuGroup> = {
+  whoWeAre: {
+    label: "Who We Are",
+    to: "/who",
+    items: [
+      { to: "/history", label: "Our History" },
+      { to: "/leadership", label: "Our Leadership" },
+      { to: "/nurturing", label: "Our Nurturing Team" },
+    ],
+  },
+
+  nurture: {
+    label: "Nurture",
+    to: "/nurture",
+    items: [
+      { to: "/farm-2-fork", label: "Farm 2 Fork" },
+      { to: "/homefromhome", label: "Home From Home" },
+      { to: "/discipline", label: "Discipline" },
+      { to: "/chaplaincy", label: "Chaplaincy" },
+      { to: "/nursing-care", label: "Nursing Care" },
+      { to: "/safety", label: "Safety & Security" },
+    ],
+  },
+
+  studyLife: {
+    label: "Study Life",
+    to: "/studylife",
+    items: [
+      { to: "/tailor-made-leadership-pathways", label: "Leadership Pathways" },
+      { to: "/cadet", label: "Young Air Cadet" },
+      { to: "/coding", label: "Coding Life" },
+      { to: "/seafarers", label: "Young Seafarers" },
+    ],
+  },
+
+  talent: {
+    label: "Talent",
+    to: "/talent",
+    items: [
+      { to: "/band", label: "Band Life" },
+      { to: "/chess", label: "Chess Masters" },
+      { to: "/scouts", label: "Scouts Life" },
+      { to: "/swimmers", label: "Swimmers Life" },
+      { to: "/basket", label: "Basketball Life" },
+      { to: "/football", label: "Footballer Life" },
+    ],
+  },
+
+  fees: {
+    label: "Fees",
+    to: "/fees",
+    items: [
+      { to: "/grade4fee", label: "Grade 4 Fees" },
+      { to: "/grade5fee", label: "Grade 5 Fees" },
+      { to: "/grade6fee", label: "Grade 6 Fees" },
+      { to: "/terms", label: "Terms & Conditions" },
+    ],
+  },
+
+  joinUs: {
+    label: "Join Us",
+    to: "/join",
+    items: [
+      { to: "/grade4", label: "Join Grade 4" },
+      { to: "/grade5", label: "Join Grade 5" },
+      { to: "/grade6", label: "Join Grade 6" },
+      { to: "/admissions", label: "Admissions Policy" },
+      {
+        to: "https://enquireto.pioneergroupofschools.co.ke",
+        label: "Enquire",
+        external: true,
+      },
+    ],
+  },
+
+  getAccess: {
+    label: "Get Access",
+    to: "/access",
+    items: [
+      { to: "/events", label: "Calendar of Events" },
+      { to: "/StuAccess", label: "Student Access" },
+      { to: "/staffAccess", label: "Staff Access" },
+    ],
+  },
+};
+
+const ORDER: MenuKey[] = [
+  "whoWeAre",
+  "nurture",
+  "studyLife",
+  "talent",
+  "fees",
+  "joinUs",
+];
+const LinkItem = ({
+  item,
+  onClick,
+}: {
+  item: MenuItem;
+  onClick: () => void;
+}) =>
+  item.external ? (
+    <a
+      href={item.to}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onClick}
+      className="block px-3 py-2 rounded-md hover:bg-[#85a7c9]"
+    >
+      {item.label}
+    </a>
+  ) : (
+    <NavLink
+      to={item.to}
+      onClick={onClick}
+      className="block px-3 py-2 rounded-md hover:bg-[#85a7c9]"
+    >
+      {item.label}
+    </NavLink>
+  );
+
+/* ===================== UI HELPERS ===================== */
+
+const Divider = () => (
+  <span className="hidden lg:block mx-2 h-5 w-px bg-white/40" />
 );
 
+const Dropdown = ({
+  open,
+  children,
+}: {
+  open: boolean;
+  children: ReactNode;
+}) => (
+  <div
+    className={`absolute left-0 top-full mt-2 w-64 rounded-xl text-sm font-bold text-black bg-[white] shadow-lg transition
+      ${
+        open
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 -translate-y-1 pointer-events-none"
+      }`}
+  >
+    <div className="p-1 space-y-1">{children}</div>
+  </div>
+);
+
+/* ===================== NAVBAR ===================== */
+
 const Navbar: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const [openKey, setOpenKey] = useState<MenuKey | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileKey, setMobileKey] = useState<MenuKey | null>(null);
 
-  // close dropdown if clicking outside
+  const navRef = useRef<HTMLDivElement>(null);
+  const closeTimeout = useRef<number | null>(null);
+
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (
-        openDropdown &&
-        dropdownRefs.current[openDropdown] &&
-        !dropdownRefs.current[openDropdown]!.contains(e.target as Node)
-      ) {
-        setOpenDropdown(null);
+    const handler = (e: MouseEvent | TouchEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenKey(null);
+        setMobileOpen(false);
+        setMobileKey(null);
       }
     };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, [openDropdown]);
-
-  // close mobile menu on desktop resize
-  useEffect(() => {
-    const onResize = () => {
-      if (window.innerWidth >= 1024) {
-        setIsMobileMenuOpen(false);
-      }
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
     };
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  const toggleDropdown = (key: string) =>
-    setOpenDropdown(openDropdown === key ? null : key);
+  const openMenu = (key: MenuKey) => {
+    if (closeTimeout.current) window.clearTimeout(closeTimeout.current);
+    setOpenKey(key);
+  };
+
+  const closeMenuDelayed = () => {
+    closeTimeout.current = window.setTimeout(() => setOpenKey(null), 300);
+  };
+
   const closeAll = () => {
-    setOpenDropdown(null);
-    setIsMobileMenuOpen(false);
+    setOpenKey(null);
+    setMobileOpen(false);
+    setMobileKey(null);
   };
-
-  const dropdownItems = {
-    whoWeAre: [
-      { to: '/who', label: 'Who We Are' },
-      { to: '/History', label: 'Our History' },
-      { to: '/leadership', label: 'Our Talent Management Team' },
-      { to: '/nurturing', label: 'Our Nurturing  Management Team' },
-    ],
-    nurture: [
-      { to: '/nurture', label: 'Nurture' },
-      { to: '/farm-2-fork', label: 'Farm-2-Fork' },
-      { to: '/homefromhome', label: 'Home From Home' },
-      { to: '/discipline', label: 'Discipline' },
-      { to: '/chaplaincy', label: 'Chaplaincy' },
-      { to: '/nursing-care ', label: 'Nursing Care' },
-      { to: '/Safety', label: 'Safety and Security' },
-    ],
-    studyLife: [
-      { to: '/studylife', label: 'Study Life' },
-      { to: '/tailor-made-leadership-pathways', label: 'Tailor Made Pathways' },
-      { to: '/cadet', label: 'Young Air Cadet' },
-      { to: '/coding', label: 'Coding Life' },
-      { to: '/seafarers', label: 'Young Seafarers' },
-    ],
-    talent: [
-      { to: '/talent', label: 'Talent' },
-      { to: '/band', label: 'Band Life' },
-      { to: '/chess', label: 'Chess Masters' },
-      { to: '/scouts', label: 'Scouts Life' },
-      { to: '/swimmers', label: 'Swimmers Life' },
-      { to: '/skating', label: 'Skating Life' },
-      { to: '/cycling', label: 'Cycling Life' },
-      { to: '/basket', label: 'Basketball Life' },
-      { to: '/football', label: 'Footballer Life' },
-      { to: '/chef', label: 'Master Chef' },
-      { to: '/golf', label: 'Junior Golfer' },
-    ],
-    fees: [
-      { to: '/fees', label: 'Our Friendly Fees' },
-      { to: '/grade4fee', label: 'Grade 4 Fees' },
-      { to: '/grade5fee', label: 'Grade 5 Fees' },
-      { to: '/grade6fee', label: 'Grade 6 Fees' },
-      { to: '/terms', label: 'Terms & Conditions' },
-    ],
-    howtojoinUs: [
-      { to: '/join', label: ' How to Join Us' },
-      { to: '/grade4', label: 'Join Grade 4' },
-      { to: '/grade5', label: 'Join Grade 5' },
-      { to: '/grade6', label: 'Join grade6' },
-      { to: '/adm', label: 'Admissions Policy' },
-      { to: 'https://enquireto.pioneergroupofschools.co.ke/main/register?school=stpaulthomasacademy.co.ke', label: 'Enquire' },
-    ],
-    getAccess: [
-      { to: '/access', label: 'Get Access' },
-      { to: '/events', label: 'Calendar of Events' },
-      { to: '/StuAccess', label: 'Student Access' },
-      { to: '/staffAccess', label: 'Staff Access' },
-    ],
+  const scheduleCloseMenu = () => {
+    closeTimeout.current = window.setTimeout(() => {
+      setOpenKey(null);
+    }, 300);
   };
-
-  const labelMap: Record<string, string> = {
-    whoWeAre: 'Who We Are',
-    nurture: 'Nurture',
-    studyLife: 'Study Life',
-    talent: 'Talent',
-    fees: 'Our Friendly Fees',
-    howtojoinUs: 'How to Join Us',
-    getAccess: 'Get Access',
-  };
-
-  type MenuKey = keyof typeof dropdownItems;
-
-  const orderedKeys: MenuKey[] = [
-    'whoWeAre',     // 1st dropdown
-    'nurture',      // 2nd dropdown
-    'studyLife',
-    'talent',
-    'fees',
-    'howtojoinUs',
-    'getAccess'     // must be last
-  ];
-
-  const renderDropdownLinks = (items: { to: string; label: string }[]) =>
-    items.map(item =>
-      item.to.startsWith('http') ? (
-        <a
-          key={item.to}
-          href={item.to}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => setTimeout(closeAll, 100)}
-          className="block px-2 py-2 text-black bg-transparent hover:bg-black text-sm hover:text-white transition-colors"
-        >
-          {item.label}
-        </a>
-      ) : (
-        <NavLink
-          key={item.to}
-          to={item.to}
-          onClick={() => setTimeout(closeAll, 100)}
-          className="block px-4 py-1.5 w-3xl text-black bg-[#85a7c9] hover:bg-black text-sm hover:text-white transition-colors"
-        >
-          {item.label}
-        </NavLink>
-      )
-    );
+  
 
   return (
-    <header
-      className="bg-[#85a7c9] text-black sticky top-0 z-50 font-sans shadow-lg"
-      style={{ fontFamily: 'Poppins, sans-serif' }} 
-    >
+    <header className="sticky top-0 z-50 bg-[#85a7c9] text-black">
+      <div
+        ref={navRef}
+        className="max-w-8xl mx-auto px-4 py-4 flex items-center justify-between"
+      >
+        {/* BRAND */}
+        <NavLink to="/" className="text-2xl font-bold">
+          St Paul Thomas Academy
+        </NavLink>
 
-    <div className="max-w-8xl mx-auto px-4 py-4 flex items-center justify-between">
-        <NavLink
-          to="/"
-          className="text-2xl pr-4 text-black  lg:text-xl font-extrabold tracking-wide hover:opacity-90 transition-opacity"
-        >
-          ST PAUL THOMAS ACADEMY
-        </NavLink>  
+        {/* DESKTOP */}
+        <nav className="hidden lg:flex items-center text-base font-bold">
+          <NavLink to="/" className="px-3 py-2">
+            Home
+          </NavLink>
+          <Divider />
+
+          {ORDER.map((k, i) => (
+            <React.Fragment key={k}>
+              <div
+  className="relative"
+  onMouseEnter={() => openMenu(k)}
+  onMouseLeave={scheduleCloseMenu}
+>
+<Dropdown open={openKey === k}>
+  <div
+    onMouseEnter={() => openMenu(k)}
+    onMouseLeave={scheduleCloseMenu}
+  >
+    {MENU[k].items.map((it) => (
+      <LinkItem key={it.label} item={it} onClick={closeAll} />
+    ))}
+  </div>
+</Dropdown>
+
+                <NavLink
+                  to={MENU[k].to}
+                  className="px-3 py-2 inline-flex items-center gap-1"
+                >
+                  {MENU[k].label}
+                  <ChevronDownIcon className="w-4 h-4" />
+                </NavLink>
+
+                <Dropdown open={openKey === k}>
+                  {MENU[k].items.map((it) => (
+                    <LinkItem key={it.label} item={it} onClick={closeAll} />
+                  ))}
+                </Dropdown>
+              </div>
+              <Divider />
+
+              {i === 1 && (
+                <>
+                  <NavLink to="/kpsea" className="px-3 py-2">
+                    KPSEA
+                  </NavLink>
+                  <Divider />
+                </>
+              )}
+            </React.Fragment>
+          ))}
+
+        {/* Location */}
+<NavLink to="/location" className="px-3 py-2">
+  Location
+</NavLink>
+<Divider />
+
+{/* Get Access as dropdown */}
+<div
+  className="relative"
+  onMouseEnter={() => openMenu("getAccess")}
+  onMouseLeave={scheduleCloseMenu}
+>
+  <NavLink
+    to={MENU.getAccess.to}
+    className="px-3 py-2 inline-flex items-center gap-1"
+  >
+    {MENU.getAccess.label}
+    <ChevronDownIcon className="w-4 h-4" />
+  </NavLink>
+
+  <Dropdown open={openKey === "getAccess"}>
+    {MENU.getAccess.items.map((it) => (
+      <LinkItem key={it.label} item={it} onClick={closeAll} />
+    ))}
+  </Dropdown>
+</div>
+        </nav>
+        {/* MOBILE TOGGLE */}
         <button
-          className="lg:hidden bg-[#e4af23] hover:bg-white p-2 rounded"
-          onClick={() => setIsMobileMenuOpen(o => !o)}
-          aria-label="Toggle menu"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="lg:hidden p-2"
         >
-          {isMobileMenuOpen ? (
-            <XMarkIcon className="h-6 w-6 text-[#083056]" />
+          {mobileOpen ? (
+            <XMarkIcon className="h-6 w-6" />
           ) : (
-            <Bars3Icon className="h-6 w-6 text-[#083056]" />
+            <Bars3Icon className="h-6 w-6" />
           )}
         </button>
-        
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center text-lg font-bold whitespace-nowrap">
-          {/* Home */}
-          <div className="flex items-center border-l border-white px-2 first:border-l-0">
-            <NavLink to="/" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
-              Home
-            </NavLink>
-          </div>
-
-          {/* 1st & 2nd dropdowns */}
-          {orderedKeys.slice(0, 2).map((key) => (
-            <div
-              key={key}
-              ref={el => { dropdownRefs.current[key] = el }}
-              className="relative flex items-center border-l border-black px-2 first:border-l-0"
-              onMouseEnter={() => { clearTimeout(closeTimeout.current); setOpenDropdown(key) }}
-              onMouseLeave={() => { closeTimeout.current = window.setTimeout(() => setOpenDropdown(null), 100) }}
-            >
-              <button
-                onClick={() => toggleDropdown(key)}
-                className="flex items-center gap-1 hover:underline"
-                aria-expanded={openDropdown === key}
-              >
-                {labelMap[key]}
-                <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
-              </button>
-              <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-70">
-                {renderDropdownLinks(dropdownItems[key])}
-              </DropdownMenu>
-            </div>
-          ))}
-
-          {/* 3rd item: KCPE Results */}
-          <div className="flex items-center border-l border-black px-2 first:border-l-0">
-            <NavLink to="/kpsea" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
-              KPSEA 
-            </NavLink>
-          </div>
-
-          {/* Remaining dropdowns except Get Access (which goes last) */}
-          {orderedKeys.slice(2, -1).map((key) => (
-            <div
-              key={key}
-              ref={el => { dropdownRefs.current[key] = el }}
-              className="relative flex items-center border-l border-black px-2 first:border-l-0"
-              onMouseEnter={() => { clearTimeout(closeTimeout.current); setOpenDropdown(key) }}
-              onMouseLeave={() => { closeTimeout.current = window.setTimeout(() => setOpenDropdown(null), 100) }}
-            >
-              <button
-                onClick={() => toggleDropdown(key)}
-                className="flex items-center gap-1 hover:underline"
-                aria-expanded={openDropdown === key}
-              >
-                {labelMap[key]}
-                <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
-              </button>
-              <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-56 h-auto">
-                {renderDropdownLinks(dropdownItems[key])}
-              </DropdownMenu>
-            </div>
-          ))}
-
-          {/* Location */}
-          <div className="flex items-center border-l border-black px-2 first:border-l-0">
-            <NavLink to="/location" className={({ isActive }) => (isActive ? 'underline' : 'hover:underline')}>
-              Location
-            </NavLink>
-          </div>
-
-          {/* FINAL item: Get Access */}
-          <div
-            key="getAccess"
-            ref={el => { dropdownRefs.current.getAccess = el }}
-            className="relative flex items-center border-l border-black px-2 first:border-l-0"
-            onMouseEnter={() => { clearTimeout(closeTimeout.current); setOpenDropdown('getAccess') }}
-            onMouseLeave={() => { closeTimeout.current = window.setTimeout(() => setOpenDropdown(null), 100) }}
-          >
-            <button
-              onClick={() => toggleDropdown('getAccess')}
-              className="flex items-center gap-1 hover:underline"
-              aria-expanded={openDropdown === 'getAccess'}
-            >
-              {labelMap.getAccess}
-              <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === 'getAccess' ? 'rotate-180' : 'rotate-0'}`} />
-            </button>
-            <DropdownMenu isOpen={openDropdown === 'getAccess'} onClose={closeAll} className="w-56">
-              {renderDropdownLinks(dropdownItems.getAccess)}
-            </DropdownMenu>
-          </div>
-        </nav>
       </div>
 
-      {/* Mobile Nav */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#85a7c9] text-black p-6 space-y-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-          <nav className="space-y-3 ">
-            <NavLink to="/" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
-              HOME
-            </NavLink>
+      {/* MOBILE MENU */}
+      {mobileOpen && (
+        <div className="lg:hidden bg-[#85a7c9] px-4 pb-4 space-y-3">
+          <NavLink to="/" onClick={closeAll}>
+            Home
+          </NavLink>
 
-            {/* 1st & 2nd dropdowns */}
-            {orderedKeys.slice(0, 2).map((key) => (
-              <div key={key} ref={el => { dropdownRefs.current[key] = el }} className="relative">
+          {ORDER.map((k) => (
+            <div key={k}>
+              <div className="flex justify-between items-center">
+                <NavLink to={MENU[k].to} onClick={closeAll}>
+                  {MENU[k].label}
+                </NavLink>
                 <button
-                  onClick={() => toggleDropdown(key)}
-                  className="w-full flex justify-between items-center font-semibold hover:text-accent"
-                  aria-expanded={openDropdown === key}
+                  onClick={() =>
+                    setMobileKey(mobileKey === k ? null : k)
+                  }
                 >
-                  {labelMap[key]}
-                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
+                  <ChevronDownIcon
+                    className={`h-4 w-4 transition ${
+                      mobileKey === k ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
-                <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-full">
-                  {renderDropdownLinks(dropdownItems[key])}
-                </DropdownMenu>
               </div>
-            ))}
 
-            {/* 3rd item: KCPE Results */}
-            <NavLink to="/perfomance" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
-              KPSEA 
-            </NavLink>
-
-            {/* Remaining dropdowns except Get Access */}
-            {orderedKeys.slice(2, -1).map((key) => (
-              <div key={key} ref={el => { dropdownRefs.current[key] = el }} className="relative">
-                <button
-                  onClick={() => toggleDropdown(key)}
-                  className="w-full flex justify-between items-center font-semibold"
-                  aria-expanded={openDropdown === key}
-                >
-                  {labelMap[key]}
-                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === key ? 'rotate-180' : 'rotate-0'}`} />
-                </button>
-                <DropdownMenu isOpen={openDropdown === key} onClose={closeAll} className="w-full">
-                  {renderDropdownLinks(dropdownItems[key])}
-                </DropdownMenu>
-              </div>
-            ))}
-
-            {/* Location */}
-            <NavLink to="/location" onClick={closeAll} className={({ isActive }) => (isActive ? 'underline block' : 'block hover:underline')}>
-              Location
-            </NavLink>
-
-            {/* FINAL item: Get Access */}
-            <div key="getAccess" ref={el => { dropdownRefs.current.getAccess = el }} className="relative">
-              <button
-                onClick={() => toggleDropdown('getAccess')}
-                className="w-full flex justify-between items-center font-semibold hover:text-accent"
-                aria-expanded={openDropdown === 'getAccess'}
-              >
-                {labelMap.getAccess}
-                <ChevronDownIcon className={`w-4 h-4 transition-transform ${openDropdown === 'getAccess' ? 'rotate-180' : 'rotate-0'}`} />
-              </button>
-              <DropdownMenu isOpen={openDropdown === 'getAccess'} onClose={closeAll} className="pl-4">
-                {renderDropdownLinks(dropdownItems.getAccess)}
-              </DropdownMenu>
+              {mobileKey === k && (
+                <div className="pl-4 mt-2 space-y-1">
+                  {MENU[k].items.map((it) => (
+                    <NavLink
+                      key={it.to}
+                      to={it.to}
+                      onClick={closeAll}
+                      className="block"
+                    >
+                      {it.label}
+                    </NavLink>
+                  ))}
+                </div>
+              )}
             </div>
-          </nav>
+          ))}
+
+          <NavLink to="/kpsea" onClick={closeAll}>
+            KPSEA
+          </NavLink>
+
+          <NavLink to="/location" onClick={closeAll}>
+            Location
+          </NavLink>
+
+          <NavLink to="/access" onClick={closeAll}>
+            Get Access
+          </NavLink>
         </div>
       )}
     </header>
