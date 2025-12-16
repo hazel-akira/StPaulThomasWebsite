@@ -155,7 +155,7 @@ const LinkItem = ({
 /* ===================== UI HELPERS ===================== */
 
 const Divider = () => (
-  <span className="hidden lg:block mx-2 h-5 w-px bg-white/40" />
+  <span className="hidden lg:block mx-2 h-5 w-px bg-black" />
 );
 
 const Dropdown = ({
