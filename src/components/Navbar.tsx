@@ -163,7 +163,7 @@ const Navbar: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => setTimeout(closeAll, 100)}
-          className="block px-4 py-2 text-black bg-transparent hover:bg-black text-sm hover:text-white transition-colors"
+          className="block px-2 py-2 text-black bg-transparent hover:bg-black text-sm hover:text-white transition-colors"
         >
           {item.label}
         </a>
@@ -172,7 +172,7 @@ const Navbar: React.FC = () => {
           key={item.to}
           to={item.to}
           onClick={() => setTimeout(closeAll, 100)}
-          className="block px-4 py-2 text-black bg-[#85a7c9] hover:bg-black text-sm hover:text-white transition-colors"
+          className="block px-4 py-1.5 w-3xl text-black bg-[#85a7c9] hover:bg-black text-sm hover:text-white transition-colors"
         >
           {item.label}
         </NavLink>
