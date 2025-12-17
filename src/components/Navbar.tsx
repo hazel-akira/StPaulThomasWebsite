@@ -27,6 +27,7 @@ const navItems = [
       { label: "Safety & Security", path: "/safety" },
     ]
   },
+  { label: "KPSEA", path: "/kpsea", hasDropdown: false },
   {
     label: "Study Life",
     path: "/studylife",
@@ -38,7 +39,7 @@ const navItems = [
       { label: "Young Seafarers", path: "/seafarers" },
     ]
   },
-  { label: "KPSEA", path: "/kpsea", hasDropdown: false },
+  
   {
     label: "Talent",
     path: "/talent",
