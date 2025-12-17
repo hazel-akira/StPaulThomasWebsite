@@ -209,13 +209,13 @@ export default function Navbar() {
           {navItems.slice(0, visibleItems).map((item, index) => (
             <div
               key={`nav-${index}`}
-              className={`relative group h-6 flex items-center ${index < navItems.length - 1 ? 'border-r border-black' : ''}`}
+              className={`relative group h-6 flex font-bold items-center ${index < navItems.length - 1 ? 'border-r border-black' : ''}`}
               onMouseEnter={() => item.hasDropdown && handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
             >
               {item.hasDropdown ? (
                 <div
-                  className="flex items-center px-3 py-2 rounded-sm hover:bg-[#7fa0c0] cursor-pointer h-full transition-colors duration-200"
+                  className="flex items-center px-3 py-2 rounded-sm  hover:bg-[#7fa0c0] cursor-pointer h-full transition-colors duration-200"
                   onClick={(e) => handleDropdownToggle(e, index)}
                 >
                   <NavLink to={item.path} className="text-md font-bold whitespace-nowrap">
@@ -237,7 +237,7 @@ export default function Navbar() {
 
               {/* Dropdown Menu */}
               {item.hasDropdown && activeDropdown === index && (
-                <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md border border-gray-200 z-50 min-w-max animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md border text-sm border-gray-200 z-50 min-w-max animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="p-2">
                     {item.options?.map((option, idx) =>
                       option.external ? (
