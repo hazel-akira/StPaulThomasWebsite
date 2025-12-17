@@ -27,7 +27,7 @@ const navItems = [
       { label: "Safety & Security", path: "/safety" },
     ]
   },
-  { label: "KPSEA", path: "/kpsea", hasDropdown: false },
+  
   {
     label: "Study Life",
     path: "/studylife",
@@ -137,12 +137,6 @@ export default function Navbar() {
     navigate(path);
   };
 
-  const handleDropdownToggle = (e: React.MouseEvent, index: number) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setActiveDropdown(activeDropdown === index ? null : index);
-    setIsDropdownClicked(true);
-  };
 
   const handleMouseEnter = (index: number) => {
     if (leaveTimeout.current) clearTimeout(leaveTimeout.current);
@@ -165,9 +159,6 @@ export default function Navbar() {
     setActiveMobileDropdown(null);
   };
 
-  const handleMobileDropdownToggle = (index: number) => {
-    setActiveMobileDropdown(activeMobileDropdown === index ? null : index);
-  };
 
   const handleMobileItemClick = () => {
     setMobileMenuOpen(false);
@@ -215,18 +206,37 @@ export default function Navbar() {
               onMouseLeave={handleMouseLeave}
             >
               {item.hasDropdown ? (
-                <div
-                  className="flex items-center px-3 py-2 rounded-sm  hover:bg-[#7fa0c0] cursor-pointer h-full transition-colors duration-200"
-                  onClick={(e) => handleDropdownToggle(e, index)}
+                <div className="flex items-center px-3 py-2 h-full hover:bg-[#7fa0c0]">
+
+                {/* LABEL — navigate + open */}
+                <button
+                  className="text-md font-bold whitespace-nowrap"
+                  onClick={() => {
+                    setActiveDropdown(index);   // open dropdown
+                    navigate(item.path);        // navigate
+                  }}
                 >
-                  <NavLink to={item.path} className="text-md font-bold whitespace-nowrap">
-                    {item.label}
-                  </NavLink>
+                  {item.label}
+                </button>
+              
+                {/* CHEVRON — open only */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveDropdown(
+                      activeDropdown === index ? null : index
+                    );
+                  }}
+                >
                   <ChevronDown
                     size={14}
-                    className={`ml-1 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180' : ''}`}
+                    className={`ml-1 transition-transform ${
+                      activeDropdown === index ? "rotate-180" : ""
+                    }`}
                   />
-                </div>
+                </button>
+              </div>
+              
               ) : (
                 <NavLink
                   to={item.path}
@@ -293,61 +303,93 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Items */}
-          <div className="flex-1 overflow-y-auto py-4">
-            {navItems.map((item, index) => (
-              <div key={`mobile-${index}`} className="border-b border-gray-200 last:border-b-0">
-                {item.hasDropdown ? (
-                  <div>
-                    <button
-                      className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-[#de9642] transition-colors duration-200"
-                      onClick={() => handleMobileDropdownToggle(index)}
-                    >
-                      <span className="font-medium text-black">{item.label}</span>
-                      <ChevronDown
-                        size={16}
-                        className={`transition-transform duration-200 ${activeMobileDropdown === index ? 'rotate-180' : ''}`}
-                      />
-                    </button>
-                    {activeMobileDropdown === index && (
-                      <div className="bg-[#d0d4db] border-t border-gray-200">
-                        {item.options?.map((option, idx) =>
-                          option.external ? (
-                            <a
-                              key={`mobile-dropdown-${idx}`}
-                              href={option.path}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="block px-8 py-3 text-sm text-black hover:bg-[#de9642] transition-colors duration-200"
-                              onClick={handleMobileItemClick}
-                            >
-                              {option.label}
-                            </a>
-                          ) : (
-                            <NavLink
-                              key={`mobile-dropdown-${idx}`}
-                              to={option.path}
-                              className="block px-8 py-3 text-sm text-black hover:bg-[#de9642] transition-colors duration-200"
-                              onClick={handleMobileItemClick}
-                            >
-                              {option.label}
-                            </NavLink>
-                          )
-                        )}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <NavLink
-                    to={item.path}
-                    className="block px-6 py-4 font-medium text-black hover:bg-[#cfa53a] transition-colors duration-200"
+<div className="flex-1 overflow-y-auto py-4">
+  {navItems.map((item, index) => (
+    <div key={`mobile-${index}`} className="border-b border-gray-200 last:border-b-0">
+      {item.hasDropdown ? (
+        <div>
+          {/* Parent row: label + chevron */}
+          <div className="flex justify-between items-center px-6 py-4 hover:bg-[#de9642] transition-colors duration-200">
+            
+           {/* LABEL — navigates & expands 
+           
+           
+           
+           */}
+<button
+  className="flex-1 text-left font-medium text-black"
+  onClick={() => {
+    // Expand/collapse the dropdown first
+    setActiveMobileDropdown(activeMobileDropdown === index ? null : index);
+    
+    // Navigate after a tiny delay
+    setTimeout(() => {
+      navigate(item.path);
+    }, 2);
+  }}
+>
+  {item.label}
+</button>
+
+
+            {/* CHEVRON — also expands/collapses */}
+            <button
+              onClick={() =>
+                setActiveMobileDropdown(activeMobileDropdown === index ? null : index)
+              }
+            >
+              <ChevronDown
+                size={16}
+                className={`transition-transform duration-200 ${
+                  activeMobileDropdown === index ? 'rotate-180' : ''
+                }`}
+              />
+            </button>
+          </div>
+
+          {/* DROPDOWN ITEMS */}
+          {activeMobileDropdown === index && (
+            <div className="bg-[#d0d4db] border-t border-gray-200">
+              {item.options?.map((option, idx) =>
+                option.external ? (
+                  <a
+                    key={`mobile-dropdown-${idx}`}
+                    href={option.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-8 py-3 text-sm text-black hover:bg-[#de9642] transition-colors duration-200"
                     onClick={handleMobileItemClick}
                   >
-                    {item.label}
+                    {option.label}
+                  </a>
+                ) : (
+                  <NavLink
+                    key={`mobile-dropdown-${idx}`}
+                    to={option.path}
+                    className="block px-8 py-3 text-sm text-black hover:bg-[#de9642] transition-colors duration-200"
+                    onClick={handleMobileItemClick}
+                  >
+                    {option.label}
                   </NavLink>
-                )}
-              </div>
-            ))}
-          </div>
+                )
+              )}
+            </div>
+          )}
+        </div>
+      ) : (
+        <NavLink
+          to={item.path}
+          className="block px-6 py-4 font-medium text-black hover:bg-[#cfa53a] transition-colors duration-200"
+          onClick={handleMobileItemClick}
+        >
+          {item.label}
+        </NavLink>
+      )}
+    </div>
+  ))}
+</div>
+
+
         </div>
       </div>
     </nav>
