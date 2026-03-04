@@ -1,195 +1,59 @@
+import { Link } from "react-router-dom";
+import React from "react";
+import { Helmet } from "react-helmet-async";
 
-  {/* import { useState, useEffect } from "react";
-import heroImage from "/images/kpsea.jpg";
-import heroVideo from "/images/kpsea1.jpg";
-import { Helmet } from 'react-helmet-async'
-const slides = [
-  { type: "image", src: heroImage, alt: "St Paul Thomas Academy Campus" },
-  { type: "video", src: heroVideo },
-];
-
-const Hero: React.FC = () => {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 8000); // switch every 8 seconds
-    return () => clearInterval(id);
-  }, []);
-  
-    return (
-      <>
-       <Helmet>
-          <title>Home | St Paul Thomas Academy</title>
-        </Helmet>
-    <section
-      id="home"
-      className="relative min-h-[100vh] font-sans flex items-center justify-center overflow-hidden"
-    >
-      {slides.map((slide, idx) => (
-        <div
-          key={idx}
-          className={`
-            absolute inset-0 z-0 transition-opacity duration-1000
-            ${idx === current ? "opacity-100" : "opacity-0"}
-          `}
-        >
-          {slide.type === "image" ? (
-            <>
-              <img
-                src={slide.src}
-                alt={slide.alt}
-                className="w-screen h-full object-cover object-[50%_15%] "
-              />
-              <div className="absolute inset-0 bg-hero-gradient/80" />
-            </>
-          ) : (
-            <video
-              src={slide.src}
-              className="w-full h-full object-cover object-[50%_20%]"
-              muted
-              autoPlay
-              loop
-              playsInline
-            />
-          )}
-        </div>
-      ))}
-
-      {/*   <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h3 className="text-3xl md:text-5xl lg:text-6xl font-sans text-white drop-shadow mb-8">
-          At St Paul Thomas Academy we are fully resourced with human capital to meet your child’s needs
-        </h3>
-      <Button>Learn More</Button> 
-      </div>
-    </section>
-    </>
-  );
-};
-
-export default Hero;
-*/}
-import { Helmet } from 'react-helmet-async'
-import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const Hero: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-
-  const images = [
-   "/images/kpsea1.webp",
-  "/images/kpsea1.jpg",
-  ];
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  // Auto-play functionality
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [currentIndex, isAutoPlaying]);
-
+const HeroSlider: React.FC = () => {
   return (
     <>
-    <Helmet>
-      <title>Home |  St Paul Thomas Academy</title>
-    </Helmet>
-    <div className="relative w-full bg-white">
-      <div
-        className="relative w-full min-h-screen overflow-hidden"
-       
-      >
-        {/* Image Slides */}
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-700 ${
-              index === currentIndex ? "opacity-100" : "opacity-0"
-            }`}
-          >
+      <Helmet>
+        <title>Home | St Paul Thomas Academy</title>
+      </Helmet>
+
+      <section className="relative overflow-hidden bg-[#13365f]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_55%,#13365f,transparent_45%),radial-gradient(circle_at_75%_85%,rgb(207,18,46),transparent_35%),linear-gradient(120deg,#06051a_5%,#0b0a2d_45%,#120b36_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:90px_90px] opacity-10" />
+
+        <div className="relative mx-auto flex min-h-[100vh] w-90% max-w-8xl flex-col items-center gap-12 px-6 py-20 md:px-5 lg:flex-row lg:items-stretch lg:gap-5 lg:py-12">
+          <div className="w-full max-w-xl px-6 text-white lg:w-1/2">
+          
+            <h1 className="mt-6 text-xl  font-semibold leading-tight md:text-6xl">
+            Your journey to elite football starts at PioneerxSD Huesca Football Academy.
+            </h1>
+
+            <p className="mt-6 max-w-xl text-base leading-7 text-white/80 md:text-lg">
+            The PioneerxSD Huesca launches a new world-class Football Development Academy
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <Link
+                to="https://football-academy.pioneergroupofschools.co.ke/main/register"
+                className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-[#0f0f21] transition hover:bg-white/90"
+              >
+               Join our Academy
+              </Link>
+              <a
+  href="/files/The Pioneer School Newsletter Issue 7-3.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="rounded-lg border border-white/25 bg-black/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+>
+                More about the football academy
+              </a>
+            </div>
+          </div>
+
+          <div className="relative w-full lg:w-1/2 lg:self-stretch">
+            <div className="pointer-events-none absolute inset-0 px-8 rounded-[2rem] bg-purple-500/25 blur-3xl" />
             <img
-              src={image}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-full object-contain"
+              src="/images/footballAcademy.webp"
+              alt="Pioneer School students in action"
+              className="relative h-full min-h-[480px] w-full rounded-[2rem] border border-white/15 bg-black/80 object-cover shadow-[0_0_80px_#13365f] lg:min-h-0"
             />
           </div>
-        ))}
-
-        {/* Overlay gradient for readability */}
-        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
-
-        {/* Prev / Next Buttons */}
-        <button
-          onClick={() => {
-            prevSlide();
-            setIsAutoPlaying(false);
-          }}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-10"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft size={28} />
-        </button>
-
-        <button
-          onClick={() => {
-            nextSlide();
-            setIsAutoPlaying(false);
-          }}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-10"
-          aria-label="Next slide"
-        >
-          <ChevronRight size={28} />
-        </button>
-
-        {/* Dot Indicators */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-10">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                goToSlide(index);
-                setIsAutoPlaying(false);
-              }}
-              className={`transition-all duration-300 rounded-full ${
-                index === currentIndex
-                  ? "w-12 h-3 bg-white"
-                  : "w-3 h-3 bg-white/50 hover:bg-white/75"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
         </div>
-
-        {/* Auto-play Toggle 
-        <button
-          onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-          className="absolute top-4 right-4 bg-white/80 hover:bg-white text-gray-800 px-4 py-2 rounded-full shadow-lg transition-all duration-300 text-sm font-medium z-10"
-        >
-          {isAutoPlaying ? "Pause" : "Play"}
-        </button>*/}
-      </div>
-    </div>
+      </section>
     </>
   );
 };
 
-export default Hero;
+export default HeroSlider;
