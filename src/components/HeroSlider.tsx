@@ -49,6 +49,13 @@ const HeroSlider: React.FC = () => {
               alt="Pioneer School students in action"
               className="relative h-full min-h-[480px] w-full rounded-[2rem] border border-white/15 bg-black/80 object-cover shadow-[0_0_80px_#13365f] lg:min-h-0"
             />
+
+<a
+  href="/kpsea"
+  className="fixed animate-slow-pulse bottom-18 right-34 md:right-18 lg:right-30 bg-[#0f1b2b] hover:bg-[#df8811] text-white px-6 py-4 rounded-full shadow-2xl text-lg md:text-xl font-bold transition-transform duration-300 hover:scale-110 flex items-center justify-center z-30 animate-pulse"
+>
+  Our KPSEA Performance
+</a>
           </div>
         </div>
       </section>

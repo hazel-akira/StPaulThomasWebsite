@@ -179,6 +179,14 @@ const Hero: React.FC = () => {
           ))}
         </div>
 
+        <a
+  href="/kpsea"
+  className="fixed animate-slow-pulse bottom-18 right-34 md:right-18 lg:right-30 bg-[#0f1b2b] hover:bg-[#df8811] text-white px-6 py-4 rounded-full shadow-2xl text-lg md:text-xl font-bold transition-transform duration-300 hover:scale-110 flex items-center justify-center z-30 animate-pulse"
+>
+  Our KPSEA Performance
+</a>
+
+
         {/* Auto-play Toggle 
         <button
           onClick={() => setIsAutoPlaying(!isAutoPlaying)}
