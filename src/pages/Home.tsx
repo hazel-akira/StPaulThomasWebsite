@@ -19,7 +19,7 @@ const Home: React.FC = () => {
       <Modal
         show={showModal}
       
-        imageSrc="/images/Modal1.webp"
+        imageSrc="/images/modal.jpg"
         enquiryUrl="https://enquireto.pioneergroupofschools.co.ke/main/register?school=stpaulthomasacademy.co.ke"
         onClose={() => setShowModal(false)}
       />
