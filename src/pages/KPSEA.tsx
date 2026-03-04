@@ -27,8 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ title, description}) => {
             </div>
 
       {/* Title */}
-      <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-bl from-[#df8811] via-yellow-400 to-[#df8811] bg-clip-text text-transparent text-center drop-shadow mb-4">
-        {title}
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-[1.15] font-extrabold bg-gradient-to-bl from-[#df8811] via-yellow-400 to-[#df8811] bg-clip-text text-transparent text-center mb-4"> {title}
       </h1>
 
       {/* Subtitle */}

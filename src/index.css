@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
 @layer base {
-    html { @apply font-sans; }
+  html {
+    @apply font-sans;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
+}
