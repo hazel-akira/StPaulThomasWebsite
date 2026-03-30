@@ -17,7 +17,9 @@ import {
 } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 
-const Footer: React.FC = () => (
+const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+  return (
   <footer className="bg-[#e4af23] text-[#083056] font-sans shadow-lg px-10">
     <div className="max-w-9xl mx-auto py-6">
       {/* Top Separator */}
@@ -180,13 +182,14 @@ const Footer: React.FC = () => (
         <span>|</span>
         <a href="/sitemap" className="hover:text-white">Sitemap</a>
         <span>|</span>
-        <span>Copyright © 2025. All rights reserved.</span>
+        <span>Copyright ©{currentYear}. All rights reserved.</span>
       </div>
     </div>
   </div>
   
   </footer>
 
-)
+  )
+}
 
 export default Footer
